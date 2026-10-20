@@ -277,3 +277,13 @@ section { padding: clamp(3rem, 8vw, 6rem) 0; }
 /* Romántico: precio en banda roja como el PDF */
 .theme-romantic .plan .price .amount { color: var(--red); }
 .plans.single { margin-inline: auto; }
+
+/* Pie de las tarjetas: el precio y "Ver portafolio" bajan de línea si no caben */
+.card .foot { flex-wrap: wrap; row-gap: 0.6rem; }
+.card .from { min-width: 0; }
+.card .go { margin-left: auto; letter-spacing: 0.1em; }
+
+/* Títulos largos (p. ej. "Celebración") en pantallas muy angostas */
+.pf-hero-grid > *, .hero-grid > * { min-width: 0; }
+.pf-hero .lockup { max-width: 100%; }
+.pf-hero .lockup .display { font-size: clamp(1.5rem, 8vw, 4rem); overflow-wrap: break-word; }

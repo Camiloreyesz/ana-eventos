@@ -145,7 +145,7 @@
         "es": "Caribe – Asia",
         "en": "Caribbean – Asia"
       },
-      "internalNote": "Se quitó el tiempo repetido (antes Tiempo 5 = Tiempo 2) y la frase \"Blanco sobre blanco\" pasó al Tiempo 4. Quedan 6 tiempos: confirmar si el nombre debe decir 6 o si falta un tiempo nuevo. Confirmar si el valor es por persona."
+      "internalNote": "Confirmar si el valor es por persona (el PDF solo dice \"Valor\")."
     }
   ]
 }

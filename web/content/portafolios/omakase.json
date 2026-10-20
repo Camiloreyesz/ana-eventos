@@ -31,7 +31,7 @@
         {
           "amount": 220000,
           "currency": "COP",
-          "unit": "none",
+          "unit": "perPerson",
           "label": {
             "es": "Sin maridaje",
             "en": "Without pairing"
@@ -40,7 +40,7 @@
         {
           "amount": 280000,
           "currency": "COP",
-          "unit": "none",
+          "unit": "perPerson",
           "label": {
             "es": "Con maridaje de coctelería",
             "en": "With cocktail pairing"
@@ -144,8 +144,7 @@
       "subtitle": {
         "es": "Caribe – Asia",
         "en": "Caribbean – Asia"
-      },
-      "internalNote": "Confirmar si el valor es por persona (el PDF solo dice \"Valor\")."
+      }
     }
   ]
 }

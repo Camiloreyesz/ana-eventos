@@ -1,0 +1,22 @@
+{
+  "name": "ana-eventos-web",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check:content": "node ./scripts/check-content.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/dm-sans": "^5.3.0",
+    "@fontsource/italiana": "^5.3.0",
+    "@fontsource/krona-one": "^5.3.0",
+    "@sanity/client": "^8.10.0",
+    "astro": "^7.4.1"
+  }
+}

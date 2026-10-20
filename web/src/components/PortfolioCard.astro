@@ -1,0 +1,30 @@
+---
+import { UI, tr, isFallback, formatPrice, unitLabel, portfolioPath, type Lang } from '../lib/i18n';
+import { getContent, illustrationFor, lowestPrice, type Portfolio } from '../lib/content';
+interface Props { lang: Lang; portfolio: Portfolio; headingLevel?: 'h3' | 'h4'; categoryLabel?: string }
+const { lang, portfolio: p, headingLevel = 'h3', categoryLabel } = Astro.props;
+const c = await getContent();
+const t = UI[lang];
+const slug = p.slug[lang] || p.slug.es!;
+const href = portfolioPath(p.slug[lang] ? lang : 'es', slug);
+const art = illustrationFor(p);
+const low = lowestPrice(c, p._id);
+const H = headingLevel;
+const fb = (v: any) => (isFallback(v, lang) ? 'es' : undefined);
+---
+<a class:list={['card', p.theme === 'romantic' && 'romantic']} href={href}>
+  {art && (
+    <div class:list={['art', art.kind === 'photo' && 'photo']}>
+      <img src={art.src} alt="" loading="lazy" decoding="async" />
+    </div>
+  )}
+  {categoryLabel ? <span class="caps kicker">{categoryLabel}</span> : p.kicker && <span class="caps kicker" lang={fb(p.kicker)}>{tr(p.kicker, lang)}</span>}
+  <H class="display" lang={fb(p.title)}>{tr(p.title, lang)}</H>
+  {p.intro && <p lang={fb(p.intro)}>{tr(p.intro, lang)}</p>}
+  <div class="foot">
+    {low ? (
+      <span class="from">{t.from}<strong>{formatPrice(low.amount)}</strong>{unitLabel(low.unit, lang)}</span>
+    ) : <span />}
+    <span class="go" aria-hidden="true">{t.viewPortfolio} →</span>
+  </div>
+</a>

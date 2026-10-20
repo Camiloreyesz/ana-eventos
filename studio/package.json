@@ -1,0 +1,26 @@
+{
+  "name": "ana-eventos-studio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "sanity dev",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "seed": "node scripts/seed.mjs"
+  },
+  "dependencies": {
+    "@sanity/client": "^8.10.0",
+    "@sanity/locale-es-es": "^1.2.39",
+    "react": "^19.2.2",
+    "react-dom": "^19.2.2",
+    "sanity": "^6.20.0",
+    "styled-components": "^6.1.15"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5"
+  }
+}

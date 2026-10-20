@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import { UI } from '../lib/i18n';
+// Página 404 bilingüe: muestra ambos idiomas para no adivinar el del visitante.
+const es = UI.es, en = UI.en;
+---
+<Base lang="es" title="404 · Ana Caribe + Asia" alternates={{ es: '/es/', en: '/en/' }} noindex>
+  <section class="system">
+    <div class="wrap">
+      <h1 class="display">{es.notFoundTitle}</h1>
+      <p>{es.notFoundText}</p>
+      <p lang="en"><strong>{en.notFoundTitle}.</strong> {en.notFoundText}</p>
+      <p style="display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap">
+        <a class="btn" href="/es/">{es.backHome}</a>
+        <a class="btn btn--ghost" href="/en/" lang="en">{en.backHome}</a>
+      </p>
+    </div>
+  </section>
+</Base>

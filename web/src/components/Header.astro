@@ -1,0 +1,26 @@
+---
+import { UI, homePath, type Lang } from '../lib/i18n';
+import WaIcon from './WaIcon.astro';
+interface Props { lang: Lang; altHref: string; waHref: string }
+const { lang, altHref, waHref } = Astro.props;
+const t = UI[lang];
+---
+<a class="skip" href="#contenido">{t.skip}</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href={homePath(lang)} aria-label="Ana Caribe + Asia">
+      <img src="/logo-ana.png" alt="Ana Caribe + Asia" width="805" height="466" />
+    </a>
+    <nav class="site-nav" aria-label={lang === 'es' ? 'Principal' : 'Main'}>
+      <a class="link hide-sm" href={`${homePath(lang)}#portafolios`}>{t.navPortfolios}</a>
+      <div class="lang" role="group" aria-label={t.langLabel}>
+        {lang === 'es' ? <span aria-current="true">ES</span> : <a href={altHref} hreflang="es" lang="es" aria-label="Español">ES</a>}
+        {lang === 'en' ? <span aria-current="true">EN</span> : <a href={altHref} hreflang="en" lang="en" aria-label="English">EN</a>}
+      </div>
+      <a class="btn hide-sm" href={waHref} target="_blank" rel="noopener">
+        <WaIcon />{t.navContact}<span class="sr-only"> {t.newTab}</span>
+      </a>
+    </nav>
+  </div>
+</header>
+<a class="wa-float" href={waHref} target="_blank" rel="noopener" aria-label={`${t.openWhatsapp} ${t.newTab}`}><WaIcon /></a>

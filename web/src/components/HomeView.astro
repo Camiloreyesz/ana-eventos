@@ -1,0 +1,78 @@
+---
+import Base from '../layouts/Base.astro';
+import Star from './Star.astro';
+import WaIcon from './WaIcon.astro';
+import PortfolioCard from './PortfolioCard.astro';
+import BookNow from './BookNow.astro';
+import { UI, tr, isFallback, portfolioPath, type Lang } from '../lib/i18n';
+import { getContent, visiblePortfolios, whatsappUrl } from '../lib/content';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = await getContent();
+const t = UI[lang];
+const s = c.settings;
+const fb = (v: any) => (isFallback(v, lang) ? 'es' : undefined);
+const pfs = visiblePortfolios(c);
+const cats = c.categories.filter((x) => x.published)
+  .map((cat) => ({ cat, items: pfs.filter((p) => p.categoryId === cat._id) }))
+  .filter((g) => g.items.length);
+const loose = pfs.filter((p) => !p.categoryId || !cats.some((g) => g.cat._id === p.categoryId));
+const waHref = whatsappUrl(s, `${tr(s.whatsappMessage, lang)} ${lang === 'es' ? 'los eventos' : 'events'}.`);
+const pageTitle = `${tr(s.heroTitle, lang)} | ${s.siteName}`;
+---
+<Base lang={lang} title={pageTitle} alternates={{ es: '/es/', en: '/en/' }}>
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <h1 class="display">{lang === 'es' ? 'Portafolio' : 'Portfolio'}</h1>
+          <div class="sub"><span class="caps">{lang === 'es' ? 'Gastronómico by' : 'Culinary by'}</span><span class="tag">Ana</span></div>
+          <h2 lang={fb(s.heroTitle)}>{tr(s.heroTitle, lang)}</h2>
+          <p lang={fb(s.heroIntro)}>{tr(s.heroIntro, lang)}</p>
+          <div class="actions">
+            <a class="btn" href="#portafolios">{t.navPortfolios}</a>
+            <a class="btn btn--ghost" href={waHref} target="_blank" rel="noopener"><WaIcon />{t.quoteShort}<span class="sr-only"> {t.newTab}</span></a>
+          </div>
+        </div>
+        <div class="hero-art">
+          <img src="/ilustraciones/eventos.png" alt="" width="1386" height="805" fetchpriority="high" />
+        </div>
+      </div>
+      <div class="feeling"><span>Ana is</span><hr /><span>a feeling</span></div>
+    </div>
+  </section>
+
+  <section id="categorias" aria-labelledby="cat-title" class="cats-sec">
+    <div class="wrap">
+      <div class="section-head"><Star /><h2 class="display" id="cat-title">{lang === 'es' ? 'Categorías' : 'Categories'}</h2></div>
+      <div class="cat-grid">
+        {cats.map(({ cat, items }) => (
+          <div class="cat-tile" id={`cat-${cat._id}`}>
+            <h3 class="caps" lang={fb(cat.title)}>{tr(cat.title, lang)}</h3>
+            {cat.description && <p lang={fb(cat.description)}>{tr(cat.description, lang)}</p>}
+            <ul>
+              {items.map((p) => (
+                <li><a href={portfolioPath(p.slug[lang] ? lang : 'es', p.slug[lang] || p.slug.es!)} lang={fb(p.title)}>{tr(p.title, lang)} →</a></li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="portafolios" aria-labelledby="pf-title" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head"><Star /><h2 class="display" id="pf-title">{t.navPortfolios}</h2></div>
+      <p class="lead">{lang === 'es' ? 'Cada portafolio con sus menús, lo que incluye y su valor.' : 'Each portfolio with its menus, what is included and its price.'}</p>
+      <div class="cards">
+        {[...cats.flatMap((g) => g.items), ...loose].map((p) => (
+          <PortfolioCard lang={lang} portfolio={p} categoryLabel={tr(c.categories.find((x) => x._id === p.categoryId)?.title, lang)} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+  <BookNow lang={lang} />
+</Base>

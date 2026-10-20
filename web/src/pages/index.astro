@@ -1,0 +1,21 @@
+---
+// La raíz redirige al idioma. En Netlify, netlify.toml envía a /en/ a quienes
+// tienen el navegador en inglés; esta página es el respaldo.
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ana Caribe + Asia · Eventos</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta http-equiv="refresh" content="0; url=/es/" />
+    <link rel="canonical" href="/es/" />
+    <script is:inline>
+      try { if ((navigator.language || '').toLowerCase().startsWith('en')) location.replace('/en/'); else location.replace('/es/'); } catch (e) {}
+    </script>
+  </head>
+  <body style="background:#e5e7d3;font-family:system-ui;padding:2rem">
+    <a href="/es/">Español</a> · <a href="/en/">English</a>
+  </body>
+</html>

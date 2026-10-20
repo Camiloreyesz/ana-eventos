@@ -1,0 +1,11 @@
+---
+import PortfolioView from '../../../components/PortfolioView.astro';
+import { getContent, type Portfolio } from '../../../lib/content';
+// Solo se crea la página en inglés si el portafolio tiene slug en inglés.
+export async function getStaticPaths() {
+  const c = await getContent();
+  return c.portfolios.filter((p) => p.slug.en).map((p) => ({ params: { slug: p.slug.en }, props: { portfolio: p } }));
+}
+const { portfolio } = Astro.props as { portfolio: Portfolio };
+---
+<PortfolioView lang="en" portfolio={portfolio} />

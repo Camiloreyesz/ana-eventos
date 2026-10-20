@@ -1,0 +1,23 @@
+---
+import { UI, tr, homePath, type Lang } from '../lib/i18n';
+import type { Settings } from '../lib/content';
+interface Props { lang: Lang; settings: Settings; waHref: string }
+const { lang, settings, waHref } = Astro.props;
+const t = UI[lang];
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <a href={homePath(lang)}><img src="/logo-ana.png" alt="Ana Caribe + Asia" width="805" height="466" loading="lazy" /></a>
+      <div class="foot-links">
+        <a href={`${homePath(lang)}#portafolios`}>{t.navPortfolios}</a>
+        <a href={waHref} target="_blank" rel="noopener">WhatsApp {settings.whatsappDisplay}<span class="sr-only"> {t.newTab}</span></a>
+        {settings.instagramUrl && <a href={settings.instagramUrl} target="_blank" rel="noopener">Instagram<span class="sr-only"> {t.newTab}</span></a>}
+      </div>
+    </div>
+    {settings.footerNote && <p style="margin:0">{tr(settings.footerNote, lang)}</p>}
+    <div class="feeling"><span>Ana is</span><hr /><span>a feeling</span></div>
+    <small>© {year} {settings.siteName}. {t.footerRights}</small>
+  </div>
+</footer>

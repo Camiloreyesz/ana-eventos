@@ -1,0 +1,279 @@
+/* Identidad tomada del Portafolio Ana 2026 y del Manual de Marca.
+   Tipografías web libres que se acercan a las del PDF:
+   - Krona One  ≈ Rexton (títulos anchos en mayúscula)
+   - DM Sans    ≈ cuerpo de texto
+   - Italiana   ≈ Holland Title (Celebraciones románticas)  */
+:root {
+  color-scheme: light;
+  --cream: #e5e7d3;
+  --cream-soft: #eceedc;
+  --paper: #f3f4e8;
+  --ink: #2a321a;
+  --ink-soft: #4b5340;
+  --muted: #5e6553;
+  --olive: #6b8756;       /* oliva del PDF (#789563) un poco más oscuro para contraste */
+  --olive-light: #789563;
+  --red: #b51d04;
+  --line: rgba(42, 50, 26, 0.28);
+  --accent: var(--olive);
+  --display: 'Krona One', 'Arial Black', system-ui, sans-serif;
+  --body: 'DM Sans Variable', 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --serif: 'Italiana', 'Didot', Georgia, serif;
+  --wrap: 1180px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --radius: 4px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 2px; }
+
+.wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+
+.skip { position: absolute; left: -999px; top: 8px; background: var(--ink); color: var(--cream); padding: 8px 14px; z-index: 50; }
+.skip:focus { left: 8px; }
+
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- Tipografía de marca ---------- */
+.display {
+  font-family: var(--display);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  font-weight: 400;
+  margin: 0;
+}
+.caps {
+  font-family: var(--display);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+.tag {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--cream);
+  font-family: var(--display);
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  padding: 0.25em 0.4em 0.25em 0.9em;
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+.spaced { letter-spacing: 0.5em; }
+
+/* Lockup tipo "OMAKASE / MENU BY [ANA]" */
+.lockup { display: inline-flex; flex-direction: column; gap: 0.6rem; }
+.lockup .display { font-size: clamp(2rem, 7vw, 4.2rem); color: var(--accent); }
+.lockup .sub { display: flex; align-items: center; gap: 0.9rem; flex-wrap: wrap; }
+.lockup .sub .caps { letter-spacing: 0.5em; font-size: 0.75rem; }
+
+/* Estrella de cuatro puntas del PDF */
+.star { width: 0.9em; height: 0.9em; flex: none; color: var(--accent); }
+
+/* Línea "ANA IS ———— A FEELING" */
+.feeling { display: flex; align-items: center; gap: 1rem; color: var(--muted); }
+.feeling span { font-family: var(--body); font-weight: 700; letter-spacing: 0.08em; font-size: 0.78rem; text-transform: uppercase; white-space: nowrap; }
+.feeling hr { flex: 1; border: 0; border-top: 1px solid var(--line); margin: 0; }
+
+/* ---------- Botones ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+  min-height: 48px; padding: 0.75rem 1.4rem;
+  font-family: var(--display); text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.72rem;
+  text-decoration: none; border-radius: var(--radius);
+  background: var(--ink); color: var(--cream); border: 1px solid var(--ink);
+  transition: background 0.2s, color 0.2s;
+}
+.btn:hover { background: var(--accent); border-color: var(--accent); }
+.btn--ghost { background: transparent; color: var(--ink); }
+.btn--ghost:hover { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+.btn svg { width: 18px; height: 18px; }
+
+/* ---------- Encabezado ---------- */
+.site-header { border-bottom: 1px solid var(--line); background: var(--cream); position: sticky; top: 0; z-index: 20; }
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 72px; }
+.brand img { height: 46px; width: auto; }
+.site-nav { display: flex; align-items: center; gap: clamp(0.6rem, 2vw, 1.6rem); }
+.site-nav a.link { text-decoration: none; font-family: var(--display); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.66rem; padding: 0.5rem 0; }
+.site-nav a.link:hover { color: var(--accent); }
+.lang { display: inline-flex; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.lang a, .lang span { font-family: var(--display); font-size: 0.64rem; letter-spacing: 0.1em; padding: 0.5rem 0.6rem; text-decoration: none; min-width: 40px; text-align: center; }
+.lang [aria-current] { background: var(--ink); color: var(--cream); }
+.site-nav .btn { min-height: 40px; padding: 0.5rem 0.9rem; }
+@media (max-width: 640px) {
+  .site-nav .hide-sm { display: none; }
+  .brand img { height: 38px; }
+}
+
+/* ---------- Secciones ---------- */
+section { padding: clamp(3rem, 8vw, 6rem) 0; }
+.section-head { display: flex; gap: 0.8rem; align-items: baseline; margin-bottom: 0.6rem; }
+.section-head .display { font-size: clamp(1.15rem, 3.2vw, 1.7rem); }
+.lead { max-width: 60ch; color: var(--ink-soft); margin: 0 0 2rem; }
+.rule { border: 0; border-top: 1px solid var(--line); margin: 0; }
+
+/* ---------- Portada ---------- */
+.hero { padding-top: clamp(2.5rem, 7vw, 5rem); padding-bottom: clamp(2rem, 5vw, 3.5rem); }
+.hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+.hero h1 { font-size: clamp(2.1rem, 7.2vw, 4.6rem); color: var(--accent); }
+.hero .sub { display: flex; align-items: center; gap: 0.9rem; flex-wrap: wrap; margin: 0.8rem 0 1.8rem; }
+.hero .sub .caps { font-size: clamp(0.72rem, 1.6vw, 0.95rem); letter-spacing: 0.32em; }
+.hero h2 { font-family: var(--body); font-weight: 500; font-size: clamp(1.25rem, 2.4vw, 1.6rem); line-height: 1.3; margin: 0 0 0.8rem; max-width: 26ch; }
+.hero p { color: var(--ink-soft); max-width: 46ch; margin: 0 0 1.8rem; }
+.hero .actions { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+.hero-art img { width: 100%; max-width: 520px; margin-left: auto; }
+.hero .feeling { margin-top: clamp(2.5rem, 6vw, 4rem); }
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-art { order: -1; }
+  .hero-art img { max-width: 360px; margin: 0 auto; }
+}
+
+/* ---------- Categorías y tarjetas ---------- */
+.category { padding: clamp(2.5rem, 6vw, 4rem) 0 0; }
+.category + .category { border-top: 1px solid var(--line); margin-top: clamp(2.5rem, 6vw, 4rem); }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: clamp(1rem, 2.5vw, 1.6rem); }
+.card {
+  position: relative; display: flex; flex-direction: column; text-decoration: none;
+  background: var(--cream-soft); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 1.4rem 1.4rem 1.2rem; min-height: 340px; transition: transform 0.2s, border-color 0.2s;
+}
+.card:hover { transform: translateY(-3px); border-color: var(--ink); }
+.card .art { height: 150px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; }
+.card .art img { max-height: 150px; width: auto; max-width: 100%; object-fit: contain; }
+.card .art.photo img { width: 100%; height: 150px; object-fit: cover; filter: grayscale(1) sepia(0.2); opacity: 0.85; }
+.card .kicker { color: var(--muted); }
+.card h3 { font-size: 1.05rem; margin: 0.3rem 0 0.6rem; color: var(--ink); }
+.card p { margin: 0 0 1rem; color: var(--ink-soft); font-size: 0.95rem; }
+.card .foot { margin-top: auto; display: flex; justify-content: space-between; align-items: flex-end; gap: 0.8rem; border-top: 1px solid var(--line); padding-top: 0.8rem; }
+.card .from { font-size: 0.85rem; color: var(--muted); line-height: 1.3; }
+.card .from strong { display: block; font-family: var(--display); font-weight: 400; color: var(--ink); font-size: 1rem; letter-spacing: 0.04em; }
+.card .go { font-family: var(--display); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; }
+.card.romantic h3 { font-family: var(--serif); text-transform: none; font-size: 1.7rem; color: var(--red); letter-spacing: 0; }
+
+/* ---------- Página de portafolio ---------- */
+.pf-hero { padding-bottom: clamp(1.5rem, 4vw, 2.5rem); }
+.pf-hero-grid { display: grid; grid-template-columns: 1fr minmax(0, 0.8fr); gap: clamp(1.5rem, 5vw, 4rem); align-items: center; }
+.pf-hero .lockup .display { font-size: clamp(2rem, 7vw, 4rem); }
+.pf-hero .intro { color: var(--ink-soft); max-width: 48ch; margin: 1.6rem 0 1.6rem; font-size: 1.1rem; }
+.pf-hero .art img { max-height: 380px; width: auto; margin-left: auto; }
+.crumbs { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.6rem; }
+.crumbs a { color: inherit; }
+@media (max-width: 860px) {
+  .pf-hero-grid { grid-template-columns: 1fr; }
+  .pf-hero .art { order: -1; }
+  .pf-hero .art img { max-height: 220px; margin: 0 auto; }
+}
+
+/* Tema corporativo: acentos en tinta y etiqueta negra (como el PDF) */
+.theme-dark { --accent: var(--ink); }
+.theme-dark .lockup .display { color: var(--ink); }
+
+/* Tema romántico: rojo, serif y foto tenue de fondo */
+.theme-romantic { --accent: var(--red); }
+.theme-romantic .pf-hero { position: relative; isolation: isolate; }
+.theme-romantic .pf-hero::before {
+  content: ''; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(rgba(229,231,211,0.82), rgba(229,231,211,0.93)), var(--photo) center/cover no-repeat;
+  filter: grayscale(1);
+}
+.theme-romantic .lockup .display { font-family: var(--serif); text-transform: none; letter-spacing: 0; color: var(--red); font-size: clamp(2.6rem, 9vw, 5.4rem); line-height: 1; }
+.theme-romantic .plan-title { font-family: var(--serif); text-transform: none; color: var(--red); letter-spacing: 0; font-size: clamp(1.9rem, 5vw, 2.6rem); }
+.theme-romantic .plan-sub { font-family: var(--serif); font-size: 1.3rem; text-transform: none; letter-spacing: 0; color: var(--red); }
+.theme-romantic .item-desc { color: #7a2a1a; }
+
+/* Planes */
+.plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: clamp(1.2rem, 3vw, 2rem); align-items: start; }
+.plans.single { grid-template-columns: 1fr; max-width: 860px; }
+.plan { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(1.4rem, 4vw, 2.4rem); }
+.plan-head { display: flex; justify-content: space-between; gap: 1rem 1.5rem; flex-wrap: wrap; border-bottom: 1px solid var(--line); padding-bottom: 1.2rem; margin-bottom: 1.4rem; }
+.plan-title { font-size: clamp(1.05rem, 3vw, 1.45rem); }
+.plan-sub { margin-top: 0.35rem; color: var(--muted); font-weight: 700; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; }
+
+.price { text-align: right; margin-left: auto; }
+.price .amount { display: flex; align-items: center; justify-content: flex-end; gap: 0.4rem; font-family: var(--display); font-size: clamp(1.3rem, 3.6vw, 1.75rem); letter-spacing: 0.03em; white-space: nowrap; }
+.price .amount small { font-family: var(--body); font-size: 0.7rem; letter-spacing: 0.08em; color: var(--muted); font-weight: 700; }
+.price .unit { font-weight: 700; color: var(--muted); font-size: 0.85rem; display: inline-block; padding-bottom: 4px; border-bottom: 3px solid var(--line); border-radius: 0 0 50% 50% / 0 0 6px 6px; min-width: 110px; }
+@media (max-width: 480px) { .price { text-align: left; margin-left: 0; } .price .amount { justify-content: flex-start; } }
+
+/* Varios precios (Omakase, tortas) */
+.price-list { list-style: none; margin: 0 0 1.6rem; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.price-list li { background: var(--ink); color: var(--cream); padding: 1rem 1.2rem; }
+.theme-olive .price-list li { background: var(--ink); }
+.price-list .lbl { font-family: var(--display); font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: #c9d1b4; }
+.price-list .val { font-family: var(--display); font-size: 1.35rem; letter-spacing: 0.03em; margin: 0.25rem 0; }
+.price-list .val small { font-family: var(--body); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; color: #c9d1b4; }
+.price-list .nt { font-size: 0.85rem; color: #dfe3cf; }
+
+.menu-section + .menu-section { margin-top: 1.5rem; }
+.menu-section h4 { display: flex; align-items: center; gap: 0.55rem; margin: 0 0 0.6rem; font-family: var(--display); font-weight: 400; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.92rem; }
+.menu-section h4 .note { font-family: var(--body); text-transform: none; letter-spacing: 0; font-size: 0.82rem; color: var(--muted); font-weight: 700; }
+.items { list-style: none; margin: 0; padding: 0 0 0 1.45rem; }
+.items li { position: relative; padding: 0.3rem 0; }
+.items li::before { content: '·'; position: absolute; left: -0.9rem; top: 0.15rem; font-weight: 700; }
+.item-name { font-family: var(--display); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.78rem; line-height: 1.5; }
+.item-desc { display: block; color: var(--ink-soft); font-size: 0.95rem; }
+.item-quote { display: block; color: var(--olive); font-style: italic; font-size: 0.95rem; margin-top: 0.15rem; }
+.theme-romantic .item-quote { color: var(--red); }
+.plan .cta { margin-top: 1.8rem; display: flex; flex-wrap: wrap; gap: 0.8rem; }
+
+/* Relacionados */
+.related .cards { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+
+/* Book now */
+.book { text-align: center; }
+.book .display { color: var(--olive); font-size: clamp(2rem, 7vw, 3.6rem); }
+.book p { color: var(--ink-soft); margin: 1rem auto 1.6rem; max-width: 46ch; }
+.book .phone { display: inline-block; background: var(--olive); color: var(--cream); font-family: var(--display); letter-spacing: 0.24em; font-size: clamp(1rem, 3vw, 1.4rem); padding: 0.45em 0.8em 0.45em 1em; text-decoration: none; }
+.book .phone:hover { background: var(--ink); }
+.book .feeling { max-width: 520px; margin: 2.4rem auto 0; justify-content: center; }
+
+/* Pie */
+.site-footer { border-top: 1px solid var(--line); padding: 2.5rem 0 2rem; font-size: 0.92rem; color: var(--ink-soft); }
+.site-footer .wrap { display: grid; gap: 1.4rem; }
+.foot-top { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.foot-top img { height: 40px; width: auto; }
+.foot-links { display: flex; flex-wrap: wrap; gap: 1.2rem; }
+.foot-links a { text-decoration: none; }
+.foot-links a:hover { text-decoration: underline; }
+.site-footer small { color: var(--muted); }
+
+/* Mensajes del sistema */
+.system { min-height: 60vh; display: grid; place-items: center; text-align: center; }
+.system .display { font-size: clamp(1.4rem, 4vw, 2.2rem); color: var(--olive); margin-bottom: 1rem; }
+.system p { color: var(--ink-soft); max-width: 46ch; margin: 0 auto 1.8rem; }
+
+/* Botón flotante de WhatsApp en móvil */
+.wa-float { position: fixed; right: 16px; bottom: 16px; z-index: 30; width: 56px; height: 56px; border-radius: 50%; display: none; align-items: center; justify-content: center; background: var(--olive); color: var(--cream); box-shadow: 0 6px 18px rgba(42,50,26,0.25); }
+.wa-float svg { width: 26px; height: 26px; }
+@media (max-width: 640px) { .wa-float { display: inline-flex; } }
+
+/* Categorías en la portada */
+.cats-sec { padding-top: clamp(2.5rem, 6vw, 4rem); }
+.cat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; margin-top: 1.4rem; }
+.cat-tile { background: var(--cream); padding: 1.4rem 1.3rem 1.2rem; display: flex; flex-direction: column; }
+.cat-tile h3 { margin: 0 0 0.5rem; color: var(--olive); font-size: 0.8rem; font-weight: 400; }
+.cat-tile p { margin: 0 0 1rem; color: var(--ink-soft); font-size: 0.95rem; }
+.cat-tile ul { list-style: none; margin: auto 0 0; padding: 0; border-top: 1px solid var(--line); }
+.cat-tile li a { display: block; padding: 0.55rem 0; text-decoration: none; font-weight: 700; font-size: 0.92rem; border-bottom: 1px solid var(--line); }
+.cat-tile li:last-child a { border-bottom: 0; }
+.cat-tile li a:hover { color: var(--olive); }
+.card .kicker { color: var(--olive); }
+/* Romántico: precio en banda roja como el PDF */
+.theme-romantic .plan .price .amount { color: var(--red); }
+.plans.single { margin-inline: auto; }

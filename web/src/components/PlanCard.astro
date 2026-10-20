@@ -1,0 +1,62 @@
+---
+import Star from './Star.astro';
+import WaIcon from './WaIcon.astro';
+import { UI, tr, isFallback, formatPrice, unitLabel, type Lang } from '../lib/i18n';
+import { getContent, whatsappUrl, type Plan, type Portfolio } from '../lib/content';
+interface Props { lang: Lang; plan: Plan; portfolio: Portfolio }
+const { lang, plan, portfolio } = Astro.props;
+const { settings } = await getContent();
+const t = UI[lang];
+const fb = (v: any) => (isFallback(v, lang) ? 'es' : undefined);
+const single = plan.prices.length === 1 && !plan.prices[0].label ? plan.prices[0] : null;
+const waText = `${tr(settings.whatsappMessage, lang)} ${tr(portfolio.title, lang)} – ${tr(plan.title, lang)}.`;
+const id = `plan-${plan._id}`;
+---
+<article class="plan" aria-labelledby={id}>
+  <header class="plan-head">
+    <div>
+      <h3 class="display plan-title" id={id} lang={fb(plan.title)}>{tr(plan.title, lang)}</h3>
+      {plan.subtitle && tr(plan.subtitle, lang) && <p class="plan-sub" style="margin-bottom:0" lang={fb(plan.subtitle)}>{tr(plan.subtitle, lang)}</p>}
+    </div>
+    {single && (
+      <p class="price" style="margin:0">
+        <span class="amount"><Star />{formatPrice(single.amount)} <small>{single.currency || 'COP'}</small></span>
+        {unitLabel(single.unit, lang) && <span class="unit">{unitLabel(single.unit, lang)}</span>}
+      </p>
+    )}
+  </header>
+
+  {!single && plan.prices.length > 0 && (
+    <ul class="price-list" aria-label={lang === 'es' ? 'Precios' : 'Prices'}>
+      {plan.prices.map((p) => (
+        <li>
+          {p.label && <div class="lbl" lang={fb(p.label)}>{tr(p.label, lang)}</div>}
+          <div class="val">{formatPrice(p.amount)} <small>{p.currency || 'COP'}</small></div>
+          {unitLabel(p.unit, lang) && <div class="nt">{unitLabel(p.unit, lang)}</div>}
+          {p.note && <div class="nt" lang={fb(p.note)}>{tr(p.note, lang)}</div>}
+        </li>
+      ))}
+    </ul>
+  )}
+
+  {plan.sections.map((s) => (
+    <div class="menu-section">
+      <h4><Star /><span lang={fb(s.title)}>{tr(s.title, lang)}</span>{s.note && <span class="note" lang={fb(s.note)}>({tr(s.note, lang)})</span>}</h4>
+      <ul class="items">
+        {(s.items || []).map((it) => (
+          <li>
+            <span class="item-name" lang={fb(it.name)}>{tr(it.name, lang)}</span>
+            {it.description && tr(it.description, lang) && <span class="item-desc" lang={fb(it.description)}>{tr(it.description, lang)}</span>}
+            {it.quote && tr(it.quote, lang) && <span class="item-quote" lang={fb(it.quote)}>“{tr(it.quote, lang)}”</span>}
+          </li>
+        ))}
+      </ul>
+    </div>
+  ))}
+
+  <div class="cta">
+    <a class="btn" href={whatsappUrl(settings, waText)} target="_blank" rel="noopener">
+      <WaIcon />{t.quote}<span class="sr-only"> {t.newTab}</span>
+    </a>
+  </div>
+</article>

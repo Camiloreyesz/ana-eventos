@@ -1,0 +1,10 @@
+---
+import PortfolioView from '../../../components/PortfolioView.astro';
+import { getContent, type Portfolio } from '../../../lib/content';
+export async function getStaticPaths() {
+  const c = await getContent();
+  return c.portfolios.filter((p) => p.slug.es).map((p) => ({ params: { slug: p.slug.es }, props: { portfolio: p } }));
+}
+const { portfolio } = Astro.props as { portfolio: Portfolio };
+---
+<PortfolioView lang="es" portfolio={portfolio} />

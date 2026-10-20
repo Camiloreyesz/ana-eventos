@@ -96,12 +96,6 @@
                 "es": "1 softdrink",
                 "en": "1 soft drink"
               }
-            },
-            {
-              "name": {
-                "es": "1 softdrink",
-                "en": "1 soft drink"
-              }
             }
           ]
         }
@@ -109,8 +103,7 @@
       "subtitle": {
         "es": "Domingos a miércoles",
         "en": "Sunday to Wednesday"
-      },
-      "internalNote": "PENDIENTE: el PDF lista '1 softdrink' dos veces. ¿Son 2 softdrinks o es un error?"
+      }
     }
   ],
   "slug": {

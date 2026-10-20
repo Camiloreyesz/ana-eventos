@@ -44,7 +44,8 @@ Portafolios (orden de los PDF): brunch · menu-corporativo-almuerzo · menu-corp
 ### 1. Conectar Netlify con GitHub
 Ya existe el proyecto **ana-eventos** en Netlify, vacío y privado (solo tu equipo de Netlify lo ve).
 
-1. Netlify → **ana-eventos** → Project configuration → Build & deploy → Continuous deployment → **Link repository** → GitHub → `Camiloreyesz/ana-eventos`.
+1. Netlify → **ana-eventos** → **Project configuration** → **Developer settings** → **Continuous deployment** → sección **Repository** → **Link repository** → GitHub → `Camiloreyesz/ana-eventos`.
+   Si el repositorio no aparece en la lista, usa **Configure Netlify on GitHub** y dale acceso a `ana-eventos`.
 2. Netlify lee `netlify.toml`: carpeta base `web`, comando `npm run build`, salida `dist`. No hay que escribir nada.
 3. Rama de producción: `main`. Guarda y espera el primer deploy.
 

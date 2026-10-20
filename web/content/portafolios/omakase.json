@@ -14,8 +14,8 @@
   "theme": "olive",
   "illustration": "omakase",
   "intro": {
-    "es": "Metamorfosis en 7 tiempos (Caribe – Asia).",
-    "en": "A metamorphosis in 7 courses (Caribbean – Asia)."
+    "es": "Metamorfosis en 6 tiempos (Caribe – Asia).",
+    "en": "A metamorphosis in 6 courses (Caribbean – Asia)."
   },
   "published": true,
   "category": "experiencias",
@@ -24,8 +24,8 @@
     {
       "published": true,
       "title": {
-        "es": "Metamorfosis en 7 tiempos",
-        "en": "Metamorphosis in 7 courses"
+        "es": "Metamorfosis en 6 tiempos",
+        "en": "Metamorphosis in 6 courses"
       },
       "prices": [
         {
@@ -50,8 +50,8 @@
       "sections": [
         {
           "title": {
-            "es": "7 tiempos",
-            "en": "7 courses"
+            "es": "6 tiempos",
+            "en": "6 courses"
           },
           "items": [
             {
@@ -106,28 +106,14 @@
                 "en": "White fish and avocado maki; topped with white fish seared in batayaki butter; acevichada sauce (coconut acevichada mayo)."
               },
               "quote": {
-                "es": "Un bocado semilla: arroz de sushi y trucha, abrazados por tamarindo y cítricos del Caribe.",
-                "en": "A seed bite: sushi rice and trout, embraced by tamarind and Caribbean citrus."
-              }
-            },
-            {
-              "name": {
-                "es": "Tiempo 5 · Mares encontrados",
-                "en": "Course 5 · Meeting seas"
-              },
-              "description": {
-                "es": "Ceviche de camarón, leche de tigre de coco, puré de batata.",
-                "en": "Shrimp ceviche, coconut tiger's milk, sweet potato purée."
-              },
-              "quote": {
                 "es": "Blanco sobre blanco: rollo ligero con baño acevichado, donde Asia y el Caribe se unen con el fuego.",
                 "en": "White on white: a light roll with an acevichada glaze, where Asia and the Caribbean meet over fire."
               }
             },
             {
               "name": {
-                "es": "Tiempo 6 · El Encuentro: ramen caribeño",
-                "en": "Course 6 · The Encounter: Caribbean ramen"
+                "es": "Tiempo 5 · El Encuentro: ramen caribeño",
+                "en": "Course 5 · The Encounter: Caribbean ramen"
               },
               "description": {
                 "es": "Caldo marino de coco y lemongrass, noodles, pescado blanco al panko, huevo marinado en miso, cebolla morada encurtida, aceite de chiles y carcasa.",
@@ -140,8 +126,8 @@
             },
             {
               "name": {
-                "es": "Tiempo 7 · Eterno retorno",
-                "en": "Course 7 · Eternal return"
+                "es": "Tiempo 6 · Eterno retorno",
+                "en": "Course 6 · Eternal return"
               },
               "description": {
                 "es": "Arroz con leche al jengibre, frutos rojos y crumble.",
@@ -159,7 +145,7 @@
         "es": "Caribe – Asia",
         "en": "Caribbean – Asia"
       },
-      "internalNote": "PENDIENTE: en el PDF el Tiempo 5 repite el Tiempo 2 y la frase del Tiempo 4 repite la del Tiempo 1 ('Blanco sobre blanco' parece ser del Tiempo 4). Confirmar textos y si el valor es por persona."
+      "internalNote": "Se quitó el tiempo repetido (antes Tiempo 5 = Tiempo 2) y la frase \"Blanco sobre blanco\" pasó al Tiempo 4. Quedan 6 tiempos: confirmar si el nombre debe decir 6 o si falta un tiempo nuevo. Confirmar si el valor es por persona."
     }
   ]
 }

@@ -1,27 +1,29 @@
 /**
  * Carga del contenido del sitio.
  *
- * - Si existen las variables SANITY_PROJECT_ID y SANITY_DATASET, el contenido
- *   se lee de Sanity, solo la versión PUBLICADA (nunca borradores).
- * - Si no existen, se usa content/seed.json (contenido inicial tomado del PDF).
- *   Esto permite ver el sitio antes de conectar Sanity.
+ * El contenido vive en archivos JSON dentro del repositorio (web/content/).
+ * El panel /admin (Decap CMS) edita esos archivos y guarda los cambios en GitHub;
+ * Netlify detecta el cambio y vuelve a compilar el sitio.
  *
- * La lectura ocurre solo durante la compilación: ninguna clave llega al navegador.
+ *   web/content/configuracion.json      → textos generales y WhatsApp
+ *   web/content/categorias/*.json       → una categoría por archivo
+ *   web/content/portafolios/*.json      → un portafolio por archivo, con sus planes
+ *
+ * La lectura ocurre solo durante la compilación.
  */
-import { createClient } from '@sanity/client';
-import seed from '../../../content/seed.json';
+import { readFileSync, readdirSync, existsSync } from 'node:fs';
+import { join, resolve } from 'node:path';
 import type { Localized } from './i18n';
 
 export type PriceOption = {
-  _key: string;
   amount: number;
   currency: string;
   unit?: 'perPerson' | 'perCouple' | 'none';
   label?: Localized;
   note?: Localized;
 };
-export type MenuItem = { _key: string; name: Localized; description?: Localized; quote?: Localized };
-export type MenuSection = { _key: string; title: Localized; note?: Localized; items: MenuItem[] };
+export type MenuItem = { name: Localized; description?: Localized; quote?: Localized };
+export type MenuSection = { title: Localized; note?: Localized; items: MenuItem[] };
 export type Plan = {
   _id: string;
   title: Localized;
@@ -49,14 +51,13 @@ export type Portfolio = {
   theme: 'olive' | 'dark' | 'romantic';
   order: number;
   published: boolean;
-  illustration?: string; // nombre de la ilustración incluida en el sitio
-  imageUrl?: string; // imagen personalizada subida en Sanity (opcional)
+  illustration?: string; // ilustración incluida en el sitio
+  imageUrl?: string; // imagen propia subida desde el panel (opcional)
   seoDescription?: Localized;
 };
 export type Settings = {
   siteName: string;
   tagline?: Localized;
-  heroKicker?: Localized;
   heroTitle?: Localized;
   heroIntro?: Localized;
   whatsappNumber: string;
@@ -67,62 +68,48 @@ export type Settings = {
   seoDescription?: Localized;
 };
 export type SiteContent = {
-  source: 'sanity' | 'local';
   settings: Settings;
   categories: Category[];
   portfolios: Portfolio[];
   plans: Plan[];
 };
 
-const QUERY = `{
-  "settings": *[_id == "siteSettings"][0],
-  "categories": *[_type == "category"]{_id, title, description, order, published},
-  "portfolios": *[_type == "portfolio"]{
-    _id, title, kicker, intro, "slug": {"es": slug.es.current, "en": slug.en.current}, "categoryId": category._ref, theme, order, published,
-    "illustration": illustrationKey, "imageUrl": customImage.asset->url, seoDescription
-  },
-  "plans": *[_type == "plan"]{
-    _id, title, subtitle, prices, sections, order, published, "portfolioId": portfolio._ref
-  }
-}`;
+// web/content, tanto en local como en Netlify (la compilación corre dentro de web/).
+const CONTENT_DIR = resolve(process.env.CONTENT_DIR || join(process.cwd(), 'content'));
 
-function fromSeed(): SiteContent {
-  const s: any = seed;
-  return {
-    source: 'local',
-    settings: s.settings,
-    categories: s.categories,
-    portfolios: s.portfolios.map((p: any) => ({ ...p, categoryId: p.category?._ref })),
-    plans: s.plans.map((p: any) => ({ ...p, portfolioId: p.portfolio?._ref })),
-  };
+function readJson(path: string): any {
+  try {
+    return JSON.parse(readFileSync(path, 'utf8'));
+  } catch (e) {
+    throw new Error(`[contenido] No se pudo leer ${path}: ${(e as Error).message}`);
+  }
+}
+function readFolder(name: string): { id: string; data: any }[] {
+  const dir = join(CONTENT_DIR, name);
+  if (!existsSync(dir)) return [];
+  return readdirSync(dir)
+    .filter((f) => f.endsWith('.json'))
+    .map((f) => ({ id: f.replace(/\.json$/, ''), data: readJson(join(dir, f)) }));
 }
 
 let cache: Promise<SiteContent> | null = null;
 
 export function getContent(): Promise<SiteContent> {
-  if (!cache) cache = load();
+  if (!cache) cache = Promise.resolve(load());
   return cache;
 }
 
-async function load(): Promise<SiteContent> {
-  const projectId = process.env.SANITY_PROJECT_ID;
-  const dataset = process.env.SANITY_DATASET;
-  if (!projectId || !dataset) {
-    console.log('[contenido] Sin SANITY_PROJECT_ID/SANITY_DATASET: usando content/seed.json');
-    return normalize(fromSeed());
-  }
-  const client = createClient({
-    projectId,
-    dataset,
-    apiVersion: process.env.SANITY_API_VERSION || '2025-01-01',
-    useCdn: false,
-    perspective: 'published', // nunca borradores
-    token: process.env.SANITY_READ_TOKEN || undefined, // solo si el dataset es privado
+function load(): SiteContent {
+  const settings = readJson(join(CONTENT_DIR, 'configuracion.json'));
+  const categories: Category[] = readFolder('categorias').map(({ id, data }) => ({ ...data, _id: id }));
+  const plans: Plan[] = [];
+  const portfolios: Portfolio[] = readFolder('portafolios').map(({ id, data }) => {
+    const { plans: pls = [], category, image, ...rest } = data;
+    (pls as any[]).forEach((pl, i) => plans.push({ ...pl, _id: `${id}-${i + 1}`, order: pl.order ?? i + 1, portfolioId: id }));
+    return { ...rest, _id: id, categoryId: category || undefined, imageUrl: image || undefined };
   });
-  const data: any = await client.fetch(QUERY);
-  if (!data?.settings) throw new Error('Sanity no devolvió la Configuración general (documento siteSettings).');
-  console.log(`[contenido] Sanity ${projectId}/${dataset}: ${data.portfolios.length} portafolios, ${data.plans.length} planes`);
-  return normalize({ source: 'sanity', ...data });
+  console.log(`[contenido] ${portfolios.length} portafolios, ${plans.length} planes, ${categories.length} categorías`);
+  return normalize({ settings, categories, portfolios, plans });
 }
 
 function normalize(c: SiteContent): SiteContent {
@@ -168,7 +155,7 @@ const ILLUSTRATIONS: Record<string, string> = {
 };
 
 export function illustrationFor(p: Portfolio): { src: string; kind: 'line' | 'photo' } | null {
-  if (p.imageUrl) return { src: p.imageUrl + '?w=1200&auto=format', kind: 'photo' };
+  if (p.imageUrl) return { src: p.imageUrl, kind: 'photo' };
   if (p.illustration && ILLUSTRATIONS[p.illustration]) {
     return { src: ILLUSTRATIONS[p.illustration], kind: p.illustration.endsWith('foto') ? 'photo' : 'line' };
   }

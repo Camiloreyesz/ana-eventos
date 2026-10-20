@@ -1,0 +1,165 @@
+{
+  "title": {
+    "es": "Omakase",
+    "en": "Omakase"
+  },
+  "kicker": {
+    "es": "Menu by Ana",
+    "en": "Menu by Ana"
+  },
+  "slug": {
+    "es": "omakase",
+    "en": "omakase"
+  },
+  "theme": "olive",
+  "illustration": "omakase",
+  "intro": {
+    "es": "Metamorfosis en 7 tiempos (Caribe – Asia).",
+    "en": "A metamorphosis in 7 courses (Caribbean – Asia)."
+  },
+  "published": true,
+  "category": "experiencias",
+  "order": 7,
+  "plans": [
+    {
+      "published": true,
+      "title": {
+        "es": "Metamorfosis en 7 tiempos",
+        "en": "Metamorphosis in 7 courses"
+      },
+      "prices": [
+        {
+          "amount": 220000,
+          "currency": "COP",
+          "unit": "none",
+          "label": {
+            "es": "Sin maridaje",
+            "en": "Without pairing"
+          }
+        },
+        {
+          "amount": 280000,
+          "currency": "COP",
+          "unit": "none",
+          "label": {
+            "es": "Con maridaje de coctelería",
+            "en": "With cocktail pairing"
+          }
+        }
+      ],
+      "sections": [
+        {
+          "title": {
+            "es": "7 tiempos",
+            "en": "7 courses"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "Tiempo 1 · El Origen",
+                "en": "Course 1 · The Origin"
+              },
+              "description": {
+                "es": "Base de arroz de sushi, tartar de trucha sellado, teriyaki de tamarindo, ralladura de limón mandarino.",
+                "en": "Sushi rice base, seared trout tartare, tamarind teriyaki, mandarin lime zest."
+              },
+              "quote": {
+                "es": "Un bocado semilla: arroz de sushi y trucha, abrazados por tamarindo y cítricos del Caribe.",
+                "en": "A seed bite: sushi rice and trout, embraced by tamarind and Caribbean citrus."
+              }
+            },
+            {
+              "name": {
+                "es": "Tiempo 2 · Mares encontrados",
+                "en": "Course 2 · Meeting seas"
+              },
+              "description": {
+                "es": "Ceviche de camarón, leche de tigre de coco, puré de batata.",
+                "en": "Shrimp ceviche, coconut tiger's milk, sweet potato purée."
+              },
+              "quote": {
+                "es": "Camarón del Caribe en leche de tigre de coco, con batata y un helado que recuerda la brisa marina.",
+                "en": "Caribbean shrimp in coconut tiger's milk, with sweet potato and an ice cream that recalls the sea breeze."
+              }
+            },
+            {
+              "name": {
+                "es": "Tiempo 3 · Raíces y memorias",
+                "en": "Course 3 · Roots and memories"
+              },
+              "description": {
+                "es": "Papa rellena de posta cartagenera en tempura de achiote, alioli de ajo negro, cebolla quemada.",
+                "en": "Potato stuffed with Cartagena-style posta in annatto tempura, black garlic aioli, charred onion."
+              },
+              "quote": {
+                "es": "Una memoria costeña vestida de tempura: posta dulce-salada dentro de una papa crujiente, ajo negro y humo.",
+                "en": "A coastal memory dressed in tempura: sweet-savory posta inside a crispy potato, black garlic and smoke."
+              }
+            },
+            {
+              "name": {
+                "es": "Tiempo 4 · Fuego en movimiento",
+                "en": "Course 4 · Fire in motion"
+              },
+              "description": {
+                "es": "Maki de pescado blanco y aguacate; cobertura de pescado blanco sellado en mantequilla batayaki; salsa acevichada (mayonesa acevichada de coco).",
+                "en": "White fish and avocado maki; topped with white fish seared in batayaki butter; acevichada sauce (coconut acevichada mayo)."
+              },
+              "quote": {
+                "es": "Un bocado semilla: arroz de sushi y trucha, abrazados por tamarindo y cítricos del Caribe.",
+                "en": "A seed bite: sushi rice and trout, embraced by tamarind and Caribbean citrus."
+              }
+            },
+            {
+              "name": {
+                "es": "Tiempo 5 · Mares encontrados",
+                "en": "Course 5 · Meeting seas"
+              },
+              "description": {
+                "es": "Ceviche de camarón, leche de tigre de coco, puré de batata.",
+                "en": "Shrimp ceviche, coconut tiger's milk, sweet potato purée."
+              },
+              "quote": {
+                "es": "Blanco sobre blanco: rollo ligero con baño acevichado, donde Asia y el Caribe se unen con el fuego.",
+                "en": "White on white: a light roll with an acevichada glaze, where Asia and the Caribbean meet over fire."
+              }
+            },
+            {
+              "name": {
+                "es": "Tiempo 6 · El Encuentro: ramen caribeño",
+                "en": "Course 6 · The Encounter: Caribbean ramen"
+              },
+              "description": {
+                "es": "Caldo marino de coco y lemongrass, noodles, pescado blanco al panko, huevo marinado en miso, cebolla morada encurtida, aceite de chiles y carcasa.",
+                "en": "Coconut and lemongrass sea broth, noodles, panko white fish, miso-marinated egg, pickled red onion, chili oil and carcass."
+              },
+              "quote": {
+                "es": "Ramen de corrientes tropicales: coco, lemongrass y mar de Cartagena.",
+                "en": "A ramen of tropical currents: coconut, lemongrass and the Cartagena sea."
+              }
+            },
+            {
+              "name": {
+                "es": "Tiempo 7 · Eterno retorno",
+                "en": "Course 7 · Eternal return"
+              },
+              "description": {
+                "es": "Arroz con leche al jengibre, frutos rojos y crumble.",
+                "en": "Ginger rice pudding, red berries and crumble."
+              },
+              "quote": {
+                "es": "Memoria de arroz con leche que vuelve nueva: jengibre, frutos rojos.",
+                "en": "A rice pudding memory made new: ginger, red berries."
+              }
+            }
+          ]
+        }
+      ],
+      "subtitle": {
+        "es": "Caribe – Asia",
+        "en": "Caribbean – Asia"
+      },
+      "internalNote": "PENDIENTE: en el PDF el Tiempo 5 repite el Tiempo 2 y la frase del Tiempo 4 repite la del Tiempo 1 ('Blanco sobre blanco' parece ser del Tiempo 4). Confirmar textos y si el valor es por persona."
+    }
+  ]
+}

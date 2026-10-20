@@ -1,0 +1,12 @@
+{
+  "title": {
+    "es": "Eventos y grupos",
+    "en": "Events & groups"
+  },
+  "description": {
+    "es": "Menús para eventos, canapés y cócteles para grupos, y brunch para compartir.",
+    "en": "Event menus, canapés and cocktails for groups, and brunch to share."
+  },
+  "order": 1,
+  "published": true
+}

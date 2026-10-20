@@ -1,0 +1,12 @@
+{
+  "title": {
+    "es": "Corporativos",
+    "en": "Corporate"
+  },
+  "description": {
+    "es": "Almuerzos y cenas para equipos, clientes y reuniones de trabajo.",
+    "en": "Lunches and dinners for teams, clients and business meetings."
+  },
+  "order": 2,
+  "published": true
+}

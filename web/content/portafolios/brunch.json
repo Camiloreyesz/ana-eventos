@@ -1,0 +1,177 @@
+{
+  "title": {
+    "es": "Brunch",
+    "en": "Brunch"
+  },
+  "kicker": {
+    "es": "Menu by Ana",
+    "en": "Menu by Ana"
+  },
+  "slug": {
+    "es": "brunch",
+    "en": "brunch"
+  },
+  "theme": "olive",
+  "illustration": "brunch",
+  "intro": {
+    "es": "Servido a la mesa o en formato buffet.",
+    "en": "Served at the table or buffet style."
+  },
+  "published": true,
+  "category": "eventos",
+  "order": 1,
+  "plans": [
+    {
+      "published": true,
+      "title": {
+        "es": "Servido a la mesa",
+        "en": "Served at the table"
+      },
+      "prices": [
+        {
+          "amount": 130000,
+          "currency": "COP",
+          "unit": "perPerson"
+        }
+      ],
+      "sections": [
+        {
+          "title": {
+            "es": "Incluye",
+            "en": "Includes"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "Pan de bono, croissant, pan integral",
+                "en": "Pan de bono, croissant, whole wheat bread"
+              }
+            },
+            {
+              "name": {
+                "es": "Mantequilla y mermelada",
+                "en": "Butter and jam"
+              }
+            },
+            {
+              "name": {
+                "es": "Tostada con jamón, queso y aguacate",
+                "en": "Toast with ham, cheese and avocado"
+              }
+            },
+            {
+              "name": {
+                "es": "Omelette ranchero criollo",
+                "en": "Ranchero criollo omelette"
+              }
+            },
+            {
+              "name": {
+                "es": "Bowl de granola",
+                "en": "Granola bowl"
+              }
+            },
+            {
+              "name": {
+                "es": "Mimosa",
+                "en": "Mimosa"
+              }
+            },
+            {
+              "name": {
+                "es": "Café, latte, té",
+                "en": "Coffee, latte, tea"
+              }
+            },
+            {
+              "name": {
+                "es": "Jugo de estación",
+                "en": "Seasonal juice"
+              }
+            }
+          ]
+        }
+      ],
+      "subtitle": {
+        "es": "Opción 1",
+        "en": "Option 1"
+      }
+    },
+    {
+      "published": true,
+      "title": {
+        "es": "Buffet",
+        "en": "Buffet"
+      },
+      "prices": [
+        {
+          "amount": 150000,
+          "currency": "COP",
+          "unit": "perPerson"
+        }
+      ],
+      "sections": [
+        {
+          "title": {
+            "es": "Incluye",
+            "en": "Includes"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "Pan de bono, croissant, pan integral",
+                "en": "Pan de bono, croissant, whole wheat bread"
+              }
+            },
+            {
+              "name": {
+                "es": "Frutas de estación",
+                "en": "Seasonal fruit"
+              }
+            },
+            {
+              "name": {
+                "es": "Arepa de maíz y queso",
+                "en": "Corn and cheese arepa"
+              }
+            },
+            {
+              "name": {
+                "es": "Mini carimañolas de queso y empanadas de carne",
+                "en": "Mini cheese carimañolas and beef empanadas"
+              }
+            },
+            {
+              "name": {
+                "es": "Satay de pollo",
+                "en": "Chicken satay"
+              }
+            },
+            {
+              "name": {
+                "es": "Mimosa",
+                "en": "Mimosa"
+              }
+            },
+            {
+              "name": {
+                "es": "Café, latte, té",
+                "en": "Coffee, latte, tea"
+              }
+            },
+            {
+              "name": {
+                "es": "Jugo de estación",
+                "en": "Seasonal juice"
+              }
+            }
+          ]
+        }
+      ],
+      "subtitle": {
+        "es": "Opción 1",
+        "en": "Option 1"
+      }
+    }
+  ]
+}

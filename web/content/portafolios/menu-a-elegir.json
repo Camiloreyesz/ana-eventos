@@ -1,0 +1,213 @@
+{
+  "title": {
+    "es": "Menú a elegir",
+    "en": "Choose-your-menu"
+  },
+  "kicker": {
+    "es": "Grupos",
+    "en": "Groups"
+  },
+  "slug": {
+    "es": "menu-a-elegir",
+    "en": "choose-your-menu"
+  },
+  "theme": "olive",
+  "illustration": "mix-night",
+  "intro": {
+    "es": "12 opciones de canapés para elegir 6, con 3 cócteles. Piqueo charoleado (o servido a la mesa).",
+    "en": "12 canapé options to choose 6, with 3 cocktails. Passed bites (or served at the table)."
+  },
+  "published": true,
+  "category": "eventos",
+  "order": 6,
+  "plans": [
+    {
+      "published": true,
+      "title": {
+        "es": "Canapés y cócteles",
+        "en": "Canapés and cocktails"
+      },
+      "prices": [
+        {
+          "amount": 335000,
+          "currency": "COP",
+          "unit": "perPerson"
+        }
+      ],
+      "sections": [
+        {
+          "title": {
+            "es": "Canapés",
+            "en": "Canapés"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "Canastilla de plátano",
+                "en": "Plantain basket"
+              },
+              "description": {
+                "es": "Con cóctel de camarón (o en salsa criolla, salsa de aguacate y queso costeño).",
+                "en": "With shrimp cocktail (or with criolla sauce, avocado sauce and costeño cheese)."
+              }
+            },
+            {
+              "name": {
+                "es": "Satay de lomo y tocineta",
+                "en": "Beef loin and bacon satay"
+              },
+              "description": {
+                "es": "Glaseado con panela.",
+                "en": "Glazed with panela."
+              }
+            },
+            {
+              "name": {
+                "es": "Tortilla de maíz",
+                "en": "Corn tortilla"
+              },
+              "description": {
+                "es": "Con costilla de cerdo ahumada.",
+                "en": "With smoked pork rib."
+              }
+            },
+            {
+              "name": {
+                "es": "Lumpias",
+                "en": "Lumpia"
+              },
+              "description": {
+                "es": "De pechuga, vegetales y chile dulce (o de solo vegetales).",
+                "en": "Chicken, vegetables and sweet chili (or vegetables only)."
+              }
+            },
+            {
+              "name": {
+                "es": "Taco nori",
+                "en": "Nori taco"
+              },
+              "description": {
+                "es": "Alga tempurizada con arroz para sushi, salmón, atún y cebolla puerro.",
+                "en": "Tempura seaweed with sushi rice, salmon, tuna and leek."
+              }
+            },
+            {
+              "name": {
+                "es": "Croquetas de salmón",
+                "en": "Salmon croquettes"
+              },
+              "description": {
+                "es": "Con topping de kanikama y mayospicy.",
+                "en": "Topped with kanikama and spicy mayo."
+              }
+            },
+            {
+              "name": {
+                "es": "Mini hamburguesa de salmón",
+                "en": "Mini salmon burger"
+              },
+              "description": {
+                "es": "Jaiba con queso mozzarella y salsa tártara.",
+                "en": "Crab with mozzarella cheese and tartar sauce."
+              }
+            },
+            {
+              "name": {
+                "es": "Nigiri de salmón",
+                "en": "Salmon nigiri"
+              },
+              "description": {
+                "es": "Con crema de parmesano (o de tomate seco, quinua y queso crema).",
+                "en": "With parmesan cream (or sun-dried tomato, quinoa and cream cheese)."
+              }
+            },
+            {
+              "name": {
+                "es": "Sushi roll: spicy tuna",
+                "en": "Sushi roll: spicy tuna"
+              },
+              "description": {
+                "es": "3 unidades.",
+                "en": "3 pieces."
+              }
+            },
+            {
+              "name": {
+                "es": "Papa rellena de posta cartagenera",
+                "en": "Potato stuffed with Cartagena-style posta"
+              },
+              "description": {
+                "es": "Con alioli de ajo.",
+                "en": "With garlic aioli."
+              }
+            },
+            {
+              "name": {
+                "es": "Ceviche afrutado",
+                "en": "Fruity ceviche"
+              },
+              "description": {
+                "es": "Camarón, fresa, kiwi, mango, cebolla y zumo de maracuyá.",
+                "en": "Shrimp, strawberry, kiwi, mango, onion and passion fruit juice."
+              }
+            },
+            {
+              "name": {
+                "es": "Di búfala",
+                "en": "Di bufala"
+              },
+              "description": {
+                "es": "Tomate, queso mozzarella, pesto y jamón serrano con reducción de balsámico.",
+                "en": "Tomato, mozzarella, pesto and serrano ham with balsamic reduction."
+              }
+            }
+          ],
+          "note": {
+            "es": "Elegir 6 opciones",
+            "en": "Choose 6"
+          }
+        },
+        {
+          "title": {
+            "es": "Cócteles",
+            "en": "Cocktails"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "Mojito",
+                "en": "Mojito"
+              }
+            },
+            {
+              "name": {
+                "es": "Mezcal paloma",
+                "en": "Mezcal paloma"
+              }
+            },
+            {
+              "name": {
+                "es": "Lemon drop",
+                "en": "Lemon drop"
+              }
+            },
+            {
+              "name": {
+                "es": "Gin tonic",
+                "en": "Gin & tonic"
+              }
+            }
+          ],
+          "note": {
+            "es": "Elegir 3 opciones",
+            "en": "Choose 3"
+          }
+        }
+      ],
+      "subtitle": {
+        "es": "12 opciones de canapés para elegir 6, con 3 cócteles",
+        "en": "12 canapé options to choose 6, with 3 cocktails"
+      }
+    }
+  ]
+}

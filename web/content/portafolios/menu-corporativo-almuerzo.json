@@ -1,0 +1,238 @@
+{
+  "title": {
+    "es": "Corporativos · Almuerzo",
+    "en": "Corporate · Lunch"
+  },
+  "kicker": {
+    "es": "Menú corporativos",
+    "en": "Corporate menu"
+  },
+  "slug": {
+    "es": "menu-corporativo-almuerzo",
+    "en": "corporate-lunch"
+  },
+  "theme": "dark",
+  "illustration": "corporativo-dinner",
+  "intro": {
+    "es": "Dos menús de almuerzo, todos los días de 12:00 p. m. a 5:00 p. m., con entrada, fuerte a elegir, postre y bebidas.",
+    "en": "Two lunch menus, every day from 12:00 p.m. to 5:00 p.m., with starter, choice of main, dessert and drinks."
+  },
+  "published": true,
+  "category": "corporativos",
+  "order": 2,
+  "plans": [
+    {
+      "published": true,
+      "title": {
+        "es": "Menú 1 · Almuerzo",
+        "en": "Menu 1 · Lunch"
+      },
+      "prices": [
+        {
+          "amount": 120000,
+          "currency": "COP",
+          "unit": "perPerson"
+        }
+      ],
+      "sections": [
+        {
+          "title": {
+            "es": "Entrada",
+            "en": "Starter"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "Arepa de arroz crocante",
+                "en": "Crispy rice arepa"
+              },
+              "description": {
+                "es": "Con costilla ahumada.",
+                "en": "With smoked rib."
+              }
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Fuertes",
+            "en": "Mains"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "Pechuga en salsa de pimientas",
+                "en": "Chicken breast in pepper sauce"
+              },
+              "description": {
+                "es": "Con vegetales y papa salteada en finas hierbas.",
+                "en": "With vegetables and potatoes sautéed in fine herbs."
+              }
+            },
+            {
+              "name": {
+                "es": "Arroz al wok",
+                "en": "Wok rice"
+              },
+              "description": {
+                "es": "Con cerdo salteado al estilo oriental.",
+                "en": "With Asian-style stir-fried pork."
+              }
+            }
+          ],
+          "note": {
+            "es": "1 a elegir",
+            "en": "Choose 1"
+          }
+        },
+        {
+          "title": {
+            "es": "Postre",
+            "en": "Dessert"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "Torta de banano",
+                "en": "Banana cake"
+              },
+              "description": {
+                "es": "Con ganache de chocolate negro, crema de ron y almendras.",
+                "en": "With dark chocolate ganache, rum cream and almonds."
+              }
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Bebidas",
+            "en": "Drinks"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "1 mocktail de bienvenida",
+                "en": "1 welcome mocktail"
+              }
+            },
+            {
+              "name": {
+                "es": "1 softdrink",
+                "en": "1 soft drink"
+              }
+            }
+          ]
+        }
+      ],
+      "subtitle": {
+        "es": "Todos los días, 12:00 p. m. a 5:00 p. m.",
+        "en": "Every day, 12:00 p.m. to 5:00 p.m."
+      }
+    },
+    {
+      "published": true,
+      "title": {
+        "es": "Menú 2 · Almuerzo",
+        "en": "Menu 2 · Lunch"
+      },
+      "prices": [
+        {
+          "amount": 150000,
+          "currency": "COP",
+          "unit": "perPerson"
+        }
+      ],
+      "sections": [
+        {
+          "title": {
+            "es": "Entrada",
+            "en": "Starter"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "Canastas de plátano",
+                "en": "Plantain baskets"
+              },
+              "description": {
+                "es": "Rellenas de salsa criolla y aguacate con queso costeño.",
+                "en": "Filled with criolla sauce and avocado with costeño cheese."
+              }
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Fuertes",
+            "en": "Mains"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "Costillas ahumadas",
+                "en": "Smoked ribs"
+              },
+              "description": {
+                "es": "De cerdo con salsa teriyaki, puré de papa y coliflor.",
+                "en": "Pork, with teriyaki sauce, potato and cauliflower purée."
+              }
+            },
+            {
+              "name": {
+                "es": "Pesca blanca",
+                "en": "White fish"
+              },
+              "description": {
+                "es": "En salsa encocada con vegetales salteados.",
+                "en": "In coconut sauce with sautéed vegetables."
+              }
+            }
+          ],
+          "note": {
+            "es": "1 a elegir",
+            "en": "Choose 1"
+          }
+        },
+        {
+          "title": {
+            "es": "Postre",
+            "en": "Dessert"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "Enyucado",
+                "en": "Enyucado (cassava cake)"
+              }
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Bebidas",
+            "en": "Drinks"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "1 mocktail de bienvenida",
+                "en": "1 welcome mocktail"
+              }
+            },
+            {
+              "name": {
+                "es": "1 copa de vino",
+                "en": "1 glass of wine"
+              }
+            }
+          ]
+        }
+      ],
+      "subtitle": {
+        "es": "Todos los días, 12:00 p. m. a 5:00 p. m.",
+        "en": "Every day, 12:00 p.m. to 5:00 p.m."
+      },
+      "internalNote": "Confirmar 'Pesca blanca' (¿pescado blanco?)."
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "title": {
+    "es": "Paquete de celebración",
+    "en": "Celebration package"
+  },
+  "kicker": {
+    "es": "By Ana",
+    "en": "By Ana"
+  },
+  "slug": {
+    "es": "paquete-de-celebracion",
+    "en": "celebration-package"
+  },
+  "theme": "olive",
+  "illustration": "celebracion",
+  "intro": {
+    "es": "Tortas para celebrar tu fecha especial. Cada tamaño incluye torta y detalle.",
+    "en": "Cakes to celebrate your special day. Each size includes cake and a special touch."
+  },
+  "published": true,
+  "category": "celebraciones",
+  "order": 4,
+  "plans": [
+    {
+      "published": true,
+      "title": {
+        "es": "Tortas",
+        "en": "Cakes"
+      },
+      "prices": [
+        {
+          "amount": 80000,
+          "currency": "COP",
+          "unit": "none",
+          "label": {
+            "es": "Media libra",
+            "en": "Half pound"
+          },
+          "note": {
+            "es": "Incluye torta y detalle.",
+            "en": "Includes cake and a special touch."
+          }
+        },
+        {
+          "amount": 120000,
+          "currency": "COP",
+          "unit": "none",
+          "label": {
+            "es": "Libra",
+            "en": "One pound"
+          },
+          "note": {
+            "es": "Incluye torta y detalle.",
+            "en": "Includes cake and a special touch."
+          }
+        },
+        {
+          "amount": 140000,
+          "currency": "COP",
+          "unit": "none",
+          "label": {
+            "es": "Libra y media",
+            "en": "Pound and a half"
+          },
+          "note": {
+            "es": "Incluye torta y detalle.",
+            "en": "Includes cake and a special touch."
+          }
+        }
+      ],
+      "sections": [
+        {
+          "title": {
+            "es": "Sabores",
+            "en": "Flavors"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "Chocolate",
+                "en": "Chocolate"
+              }
+            },
+            {
+              "name": {
+                "es": "Zanahoria",
+                "en": "Carrot"
+              }
+            },
+            {
+              "name": {
+                "es": "Naranja",
+                "en": "Orange"
+              }
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Crema",
+            "en": "Frosting"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "Ganache de chocolate negro",
+                "en": "Dark chocolate ganache"
+              }
+            },
+            {
+              "name": {
+                "es": "Crema con frutos rojos",
+                "en": "Red berry cream"
+              }
+            },
+            {
+              "name": {
+                "es": "Crema cítrica",
+                "en": "Citrus cream"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,247 @@
+{
+  "title": {
+    "es": "Celebraciones románticas",
+    "en": "Romantic celebrations"
+  },
+  "kicker": {
+    "es": "Experiencia celebraciones",
+    "en": "Celebration experience"
+  },
+  "slug": {
+    "es": "celebraciones-romanticas",
+    "en": "romantic-celebrations"
+  },
+  "theme": "romantic",
+  "illustration": "romanticas-foto",
+  "intro": {
+    "es": "Dos menús para compartir en pareja: Menú de Mar «Mares encendidos» y Menú de Tierra «Fuego y raíces».",
+    "en": "Two menus to share as a couple: Sea Menu “Mares encendidos” and Land Menu “Fuego y raíces”."
+  },
+  "published": true,
+  "category": "celebraciones",
+  "order": 8,
+  "plans": [
+    {
+      "published": true,
+      "title": {
+        "es": "Menú de Mar",
+        "en": "Sea Menu"
+      },
+      "prices": [
+        {
+          "amount": 390000,
+          "currency": "COP",
+          "unit": "perCouple"
+        }
+      ],
+      "sections": [
+        {
+          "title": {
+            "es": "Entradas",
+            "en": "Starters"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "Ostra en batayaki y encocado de kimchi (2 und.)",
+                "en": "Oyster in batayaki with kimchi encocado (2 pcs)"
+              },
+              "description": {
+                "es": "Ostra tibia sellada en mantequilla batayaki, terminada con un encocado ligero infusionado en kimchi, limón mandarino.",
+                "en": "Warm oyster seared in batayaki butter, finished with a light kimchi-infused coconut sauce, mandarin lime."
+              }
+            },
+            {
+              "name": {
+                "es": "Nigiri dúo del Caribe (4 und.)",
+                "en": "Caribbean nigiri duo (4 pcs)"
+              },
+              "description": {
+                "es": "Atún + mayo de soya y togarashi. Salmón sellado + mantequilla parmesano + ralladura de limón tropical.",
+                "en": "Tuna + soy mayo and togarashi. Seared salmon + parmesan butter + tropical lime zest."
+              }
+            }
+          ],
+          "note": {
+            "es": "Elegir una opción para compartir",
+            "en": "Choose one to share"
+          }
+        },
+        {
+          "title": {
+            "es": "Fuerte",
+            "en": "Main"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "Pasta Renacer",
+                "en": "Pasta Renacer"
+              },
+              "description": {
+                "es": "Pasta fresca teñida en coral (salsa roja de ají dulce, tomate y chorizo), coronada con queso costeño y langostinos en mantequilla de gochujang y un toque de limón kaffir.",
+                "en": "Fresh pasta dyed coral (red sauce of sweet pepper, tomato and chorizo), topped with costeño cheese and prawns in gochujang butter with a hint of kaffir lime."
+              }
+            }
+          ],
+          "note": {
+            "es": "Para compartir",
+            "en": "To share"
+          }
+        },
+        {
+          "title": {
+            "es": "Postre",
+            "en": "Dessert"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "Pie de coco",
+                "en": "Coconut pie"
+              },
+              "description": {
+                "es": "Cremoso pie de coco, crema montada de ron, coco tostado.",
+                "en": "Creamy coconut pie, rum whipped cream, toasted coconut."
+              }
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Bebidas",
+            "en": "Drinks"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "Mocktail de bienvenida",
+                "en": "Welcome mocktail"
+              }
+            },
+            {
+              "name": {
+                "es": "2 copas de vino",
+                "en": "2 glasses of wine"
+              }
+            }
+          ]
+        }
+      ],
+      "subtitle": {
+        "es": "«Mares encendidos»",
+        "en": "“Mares encendidos”"
+      },
+      "internalNote": "El PDF dice 'toharashi'; se escribió 'togarashi'. Confirmar. La portada del PDF de Románticas dice 'reservas 311 3918067'; los demás PDF dicen 312 6604133."
+    },
+    {
+      "published": true,
+      "title": {
+        "es": "Menú de Tierra",
+        "en": "Land Menu"
+      },
+      "prices": [
+        {
+          "amount": 390000,
+          "currency": "COP",
+          "unit": "perCouple"
+        }
+      ],
+      "sections": [
+        {
+          "title": {
+            "es": "Entradas",
+            "en": "Starters"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "Gyoza de cerdo o pollo (4 und.)",
+                "en": "Pork or chicken gyoza (4 pcs)"
+              },
+              "description": {
+                "es": "Fritas, rellenas de vegetales, con salsa ponzu.",
+                "en": "Fried, filled with vegetables, with ponzu sauce."
+              }
+            },
+            {
+              "name": {
+                "es": "Nigiri de tierra (2 und.)",
+                "en": "Land nigiri (2 pcs)"
+              },
+              "description": {
+                "es": "Res angus sellada + mayo de ajo negro + trufa.",
+                "en": "Seared Angus beef + black garlic mayo + truffle."
+              }
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Fuerte",
+            "en": "Main"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "Pasta estilo tobanyaki",
+                "en": "Tobanyaki-style pasta"
+              },
+              "description": {
+                "es": "Pasta fresca en crema con hongos shiitake y setas caribeñas, perfumada con trufa, terminada con lomo en mantequilla batayaki.",
+                "en": "Fresh pasta in cream with shiitake and Caribbean mushrooms, scented with truffle, finished with beef loin in batayaki butter."
+              }
+            }
+          ],
+          "note": {
+            "es": "Para compartir",
+            "en": "To share"
+          }
+        },
+        {
+          "title": {
+            "es": "Postre",
+            "en": "Dessert"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "Postre de banano y café (2 und.)",
+                "en": "Banana and coffee dessert (2 pcs)"
+              },
+              "description": {
+                "es": "Torta de banana bañada en café con ganache de chocolate, almendras y crema montada de ron.",
+                "en": "Banana cake soaked in coffee with chocolate ganache, almonds and rum whipped cream."
+              }
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Bebidas",
+            "en": "Drinks"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "Mocktail de bienvenida",
+                "en": "Welcome mocktail"
+              }
+            },
+            {
+              "name": {
+                "es": "2 copas de vino",
+                "en": "2 glasses of wine"
+              }
+            }
+          ]
+        }
+      ],
+      "subtitle": {
+        "es": "«Fuego y raíces»",
+        "en": "“Fuego y raíces”"
+      },
+      "internalNote": "En el PDF las entradas del Menú de Tierra no dicen 'elegir una opción'. Confirmar si se sirven ambas."
+    }
+  ]
+}

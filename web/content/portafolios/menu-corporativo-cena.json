@@ -1,0 +1,136 @@
+{
+  "theme": "dark",
+  "plans": [
+    {
+      "published": true,
+      "title": {
+        "es": "Menú cena",
+        "en": "Dinner menu"
+      },
+      "prices": [
+        {
+          "amount": 180000,
+          "currency": "COP",
+          "unit": "perPerson"
+        }
+      ],
+      "sections": [
+        {
+          "title": {
+            "es": "Entrada",
+            "en": "Starter"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "Croquetas de titoté",
+                "en": "Titoté croquettes"
+              },
+              "description": {
+                "es": "Rellenas de salsa criolla y camarón.",
+                "en": "Filled with criolla sauce and shrimp."
+              }
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Fuertes",
+            "en": "Mains"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "Salmón y humus",
+                "en": "Salmon and hummus"
+              },
+              "description": {
+                "es": "Glaseado, con humus de frijol palomito, aceite de ajonjolí y mix asiático.",
+                "en": "Glazed, with black-eyed pea hummus, sesame oil and Asian greens."
+              }
+            },
+            {
+              "name": {
+                "es": "Lomo en vino",
+                "en": "Beef loin in wine"
+              },
+              "description": {
+                "es": "Aromatizado con especias, puré y vegetales salteados.",
+                "en": "Spiced, with purée and sautéed vegetables."
+              }
+            }
+          ],
+          "note": {
+            "es": "1 a elegir",
+            "en": "Choose 1"
+          }
+        },
+        {
+          "title": {
+            "es": "Postre",
+            "en": "Dessert"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "Pie de coco",
+                "en": "Coconut pie"
+              }
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Bebidas",
+            "en": "Drinks"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "1 mocktail de bienvenida",
+                "en": "1 welcome mocktail"
+              }
+            },
+            {
+              "name": {
+                "es": "1 softdrink",
+                "en": "1 soft drink"
+              }
+            },
+            {
+              "name": {
+                "es": "1 softdrink",
+                "en": "1 soft drink"
+              }
+            }
+          ]
+        }
+      ],
+      "subtitle": {
+        "es": "Domingos a miércoles",
+        "en": "Sunday to Wednesday"
+      },
+      "internalNote": "PENDIENTE: el PDF lista '1 softdrink' dos veces. ¿Son 2 softdrinks o es un error?"
+    }
+  ],
+  "slug": {
+    "es": "menu-corporativo-cena",
+    "en": "corporate-dinner"
+  },
+  "intro": {
+    "es": "Menú de cena de domingo a miércoles, con entrada, fuerte a elegir, postre y bebidas.",
+    "en": "Dinner menu from Sunday to Wednesday, with starter, choice of main, dessert and drinks."
+  },
+  "published": true,
+  "order": 3,
+  "illustration": "corporativo-dinner",
+  "kicker": {
+    "es": "Menú corporativos",
+    "en": "Corporate menu"
+  },
+  "title": {
+    "es": "Corporativos · Cena",
+    "en": "Corporate · Dinner"
+  },
+  "category": "corporativos"
+}

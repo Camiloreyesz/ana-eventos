@@ -1,0 +1,30 @@
+{
+  "siteName": "Ana Caribe + Asia",
+  "tagline": {
+    "es": "Ana is a feeling",
+    "en": "Ana is a feeling"
+  },
+  "heroTitle": {
+    "es": "Eventos con sabor a Caribe y Asia",
+    "en": "Events with a Caribbean + Asian soul"
+  },
+  "heroIntro": {
+    "es": "Menús para celebrar, reunirte y compartir en Cartagena. Elige la experiencia y escríbenos por WhatsApp para reservar.",
+    "en": "Menus to celebrate, meet and share in Cartagena. Choose your experience and message us on WhatsApp to book."
+  },
+  "whatsappNumber": "573126604133",
+  "whatsappDisplay": "312 660 4133",
+  "whatsappMessage": {
+    "es": "Hola Ana, quiero información sobre",
+    "en": "Hi Ana, I'd like information about"
+  },
+  "footerNote": {
+    "es": "Precios en pesos colombianos (COP). Sujetos a confirmación al reservar.",
+    "en": "Prices in Colombian pesos (COP). Subject to confirmation when booking."
+  },
+  "instagramUrl": "",
+  "seoDescription": {
+    "es": "Portafolio de eventos de Ana Caribe + Asia en Cartagena: brunch, menús corporativos, eventos, grupos, omakase y celebraciones.",
+    "en": "Ana Caribe + Asia events portfolio in Cartagena: brunch, corporate menus, events, groups, omakase and celebrations."
+  }
+}

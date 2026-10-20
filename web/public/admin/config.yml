@@ -1,0 +1,810 @@
+# Archivo generado por scripts/build_admin_config.py. Edita el script, no este archivo.
+{
+  "backend": {
+    "name": "github",
+    "repo": "Camiloreyesz/ana-eventos",
+    "branch": "main",
+    "commit_messages": {
+      "create": "Crear {{collection}} “{{slug}}”",
+      "update": "Actualizar {{collection}} “{{slug}}”",
+      "delete": "Borrar {{collection}} “{{slug}}”",
+      "uploadMedia": "Subir imagen “{{path}}”",
+      "deleteMedia": "Borrar imagen “{{path}}”"
+    }
+  },
+  "local_backend": true,
+  "locale": "es",
+  "site_url": "https://ana-eventos.netlify.app",
+  "display_url": "https://ana-eventos.netlify.app",
+  "logo_url": "/logo-ana.png",
+  "media_folder": "web/public/uploads",
+  "public_folder": "/uploads",
+  "editor": {
+    "preview": false
+  },
+  "collections": [
+    {
+      "name": "portafolios",
+      "label": "Portafolios",
+      "label_singular": "Portafolio",
+      "description": "Cada portafolio es una página de la web, con sus planes y precios.",
+      "folder": "web/content/portafolios",
+      "extension": "json",
+      "format": "json",
+      "create": true,
+      "delete": true,
+      "slug": "{{fields.slug.es}}",
+      "identifier_field": "title.es",
+      "summary": "{{title.es}}",
+      "sortable_fields": [
+        "order",
+        "title.es"
+      ],
+      "fields": [
+        {
+          "label": "Nombre",
+          "name": "title",
+          "widget": "object",
+          "collapsed": false,
+          "required": true,
+          "summary": "{{fields.es}}",
+          "fields": [
+            {
+              "label": "Español",
+              "name": "es",
+              "widget": "string",
+              "required": true
+            },
+            {
+              "label": "English",
+              "name": "en",
+              "widget": "string",
+              "required": false
+            }
+          ]
+        },
+        {
+          "label": "Etiqueta",
+          "name": "kicker",
+          "widget": "object",
+          "collapsed": false,
+          "required": false,
+          "summary": "{{fields.es}}",
+          "fields": [
+            {
+              "label": "Español",
+              "name": "es",
+              "widget": "string",
+              "required": false
+            },
+            {
+              "label": "English",
+              "name": "en",
+              "widget": "string",
+              "required": false
+            }
+          ],
+          "hint": "Texto pequeño bajo el nombre. Ej.: \"Menu by Ana\"."
+        },
+        {
+          "label": "Introducción",
+          "name": "intro",
+          "widget": "object",
+          "collapsed": false,
+          "required": false,
+          "summary": "{{fields.es}}",
+          "fields": [
+            {
+              "label": "Español",
+              "name": "es",
+              "widget": "text",
+              "required": false
+            },
+            {
+              "label": "English",
+              "name": "en",
+              "widget": "text",
+              "required": false
+            }
+          ]
+        },
+        {
+          "label": "Planes",
+          "label_singular": "plan",
+          "name": "plans",
+          "widget": "list",
+          "summary": "{{fields.title.es}}",
+          "hint": "Arrastra para cambiar el orden.",
+          "fields": [
+            {
+              "label": "Nombre del plan",
+              "name": "title",
+              "widget": "object",
+              "collapsed": false,
+              "required": true,
+              "summary": "{{fields.es}}",
+              "fields": [
+                {
+                  "label": "Español",
+                  "name": "es",
+                  "widget": "string",
+                  "required": true
+                },
+                {
+                  "label": "English",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Subtítulo / horario",
+              "name": "subtitle",
+              "widget": "object",
+              "collapsed": false,
+              "required": false,
+              "summary": "{{fields.es}}",
+              "fields": [
+                {
+                  "label": "Español",
+                  "name": "es",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "label": "English",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ],
+              "hint": "Ej.: \"Domingos a miércoles\", \"Opción 1\"."
+            },
+            {
+              "label": "Visible en el sitio",
+              "name": "published",
+              "widget": "boolean",
+              "default": true,
+              "hint": "Apágalo para ocultarlo de la web sin borrarlo."
+            },
+            {
+              "label": "Precios",
+              "label_singular": "precio",
+              "name": "prices",
+              "widget": "list",
+              "collapsed": false,
+              "summary": "${{fields.amount}} {{fields.label.es}}",
+              "hint": "Si el plan tiene un solo precio, deja un solo ítem sin nombre.",
+              "fields": [
+                {
+                  "label": "Valor",
+                  "name": "amount",
+                  "widget": "number",
+                  "value_type": "int",
+                  "min": 0,
+                  "hint": "Solo el número, sin puntos ni signo. Ej.: 120000"
+                },
+                {
+                  "label": "Moneda",
+                  "name": "currency",
+                  "widget": "select",
+                  "default": "COP",
+                  "options": [
+                    {
+                      "label": "Pesos colombianos (COP)",
+                      "value": "COP"
+                    },
+                    {
+                      "label": "Dólares (USD)",
+                      "value": "USD"
+                    }
+                  ]
+                },
+                {
+                  "label": "Se cobra",
+                  "name": "unit",
+                  "widget": "select",
+                  "default": "perPerson",
+                  "options": [
+                    {
+                      "label": "Por persona",
+                      "value": "perPerson"
+                    },
+                    {
+                      "label": "Por pareja",
+                      "value": "perCouple"
+                    },
+                    {
+                      "label": "Sin unidad (no mostrar)",
+                      "value": "none"
+                    }
+                  ]
+                },
+                {
+                  "label": "Nombre del precio",
+                  "name": "label",
+                  "widget": "object",
+                  "collapsed": false,
+                  "required": false,
+                  "summary": "{{fields.es}}",
+                  "fields": [
+                    {
+                      "label": "Español",
+                      "name": "es",
+                      "widget": "string",
+                      "required": false
+                    },
+                    {
+                      "label": "English",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ],
+                  "hint": "Ej.: \"Sin maridaje\", \"Libra\"."
+                },
+                {
+                  "label": "Nota",
+                  "name": "note",
+                  "widget": "object",
+                  "collapsed": false,
+                  "required": false,
+                  "summary": "{{fields.es}}",
+                  "fields": [
+                    {
+                      "label": "Español",
+                      "name": "es",
+                      "widget": "string",
+                      "required": false
+                    },
+                    {
+                      "label": "English",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ],
+                  "hint": "Ej.: \"Incluye torta y detalle.\""
+                }
+              ]
+            },
+            {
+              "label": "Menú",
+              "label_singular": "sección",
+              "name": "sections",
+              "widget": "list",
+              "summary": "{{fields.title.es}}",
+              "fields": [
+                {
+                  "label": "Título de la sección",
+                  "name": "title",
+                  "widget": "object",
+                  "collapsed": false,
+                  "required": true,
+                  "summary": "{{fields.es}}",
+                  "fields": [
+                    {
+                      "label": "Español",
+                      "name": "es",
+                      "widget": "string",
+                      "required": true
+                    },
+                    {
+                      "label": "English",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ],
+                  "hint": "Ej.: Entrada, Fuertes, Postre, Bebidas."
+                },
+                {
+                  "label": "Nota",
+                  "name": "note",
+                  "widget": "object",
+                  "collapsed": false,
+                  "required": false,
+                  "summary": "{{fields.es}}",
+                  "fields": [
+                    {
+                      "label": "Español",
+                      "name": "es",
+                      "widget": "string",
+                      "required": false
+                    },
+                    {
+                      "label": "English",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ],
+                  "hint": "Ej.: \"1 a elegir\", \"Para compartir\"."
+                },
+                {
+                  "label": "Ítems",
+                  "label_singular": "ítem",
+                  "name": "items",
+                  "widget": "list",
+                  "summary": "{{fields.name.es}}",
+                  "fields": [
+                    {
+                      "label": "Nombre",
+                      "name": "name",
+                      "widget": "object",
+                      "collapsed": false,
+                      "required": true,
+                      "summary": "{{fields.es}}",
+                      "fields": [
+                        {
+                          "label": "Español",
+                          "name": "es",
+                          "widget": "string",
+                          "required": true
+                        },
+                        {
+                          "label": "English",
+                          "name": "en",
+                          "widget": "string",
+                          "required": false
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Descripción",
+                      "name": "description",
+                      "widget": "object",
+                      "collapsed": false,
+                      "required": false,
+                      "summary": "{{fields.es}}",
+                      "fields": [
+                        {
+                          "label": "Español",
+                          "name": "es",
+                          "widget": "string",
+                          "required": false
+                        },
+                        {
+                          "label": "English",
+                          "name": "en",
+                          "widget": "string",
+                          "required": false
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Frase en cursiva",
+                      "name": "quote",
+                      "widget": "object",
+                      "collapsed": false,
+                      "required": false,
+                      "summary": "{{fields.es}}",
+                      "fields": [
+                        {
+                          "label": "Español",
+                          "name": "es",
+                          "widget": "string",
+                          "required": false
+                        },
+                        {
+                          "label": "English",
+                          "name": "en",
+                          "widget": "string",
+                          "required": false
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "Nota interna (no se publica)",
+              "name": "internalNote",
+              "widget": "text",
+              "required": false,
+              "hint": "Para el equipo: dudas o cambios por confirmar."
+            }
+          ]
+        },
+        {
+          "label": "Dirección web",
+          "name": "slug",
+          "widget": "object",
+          "collapsed": true,
+          "hint": "Final de la dirección. Evita cambiarla después de publicar: los enlaces ya compartidos dejarían de funcionar.",
+          "fields": [
+            {
+              "label": "Español (/es/portafolios/…)",
+              "name": "es",
+              "widget": "string",
+              "pattern": [
+                "^[a-z0-9-]+$",
+                "Solo minúsculas, números y guiones"
+              ]
+            },
+            {
+              "label": "English (/en/portfolios/…)",
+              "name": "en",
+              "widget": "string",
+              "required": false,
+              "pattern": [
+                "^[a-z0-9-]*$",
+                "Solo minúsculas, números y guiones"
+              ],
+              "hint": "Si está vacío, no se crea la página en inglés."
+            }
+          ]
+        },
+        {
+          "label": "Categoría",
+          "name": "category",
+          "widget": "relation",
+          "collection": "categorias",
+          "search_fields": [
+            "title.es"
+          ],
+          "value_field": "{{slug}}",
+          "display_fields": [
+            "title.es"
+          ]
+        },
+        {
+          "label": "Orden",
+          "name": "order",
+          "widget": "number",
+          "value_type": "int",
+          "default": 10,
+          "hint": "Número menor = aparece primero."
+        },
+        {
+          "label": "Visible en el sitio",
+          "name": "published",
+          "widget": "boolean",
+          "default": true,
+          "hint": "Apágalo para ocultarlo de la web sin borrarlo."
+        },
+        {
+          "label": "Estilo",
+          "name": "theme",
+          "widget": "select",
+          "default": "olive",
+          "options": [
+            {
+              "label": "Oliva (general)",
+              "value": "olive"
+            },
+            {
+              "label": "Tinta (corporativo)",
+              "value": "dark"
+            },
+            {
+              "label": "Rojo romántico",
+              "value": "romantic"
+            }
+          ]
+        },
+        {
+          "label": "Ilustración",
+          "name": "illustration",
+          "widget": "select",
+          "required": false,
+          "options": [
+            {
+              "label": "Omakase (manos y nigiris)",
+              "value": "omakase"
+            },
+            {
+              "label": "Corporativos (cubiertos y copa)",
+              "value": "corporativo-dinner"
+            },
+            {
+              "label": "Cubiertos sin copa",
+              "value": "corporativo-lunch"
+            },
+            {
+              "label": "Eventos (personas brindando)",
+              "value": "eventos"
+            },
+            {
+              "label": "Mesa larga (grupos)",
+              "value": "mix-night"
+            },
+            {
+              "label": "Brunch (pancakes)",
+              "value": "brunch"
+            },
+            {
+              "label": "Celebración (velas y vino)",
+              "value": "celebracion"
+            },
+            {
+              "label": "Románticas (foto de fondo)",
+              "value": "romanticas-foto"
+            }
+          ]
+        },
+        {
+          "label": "Imagen propia",
+          "name": "image",
+          "widget": "image",
+          "required": false,
+          "hint": "Reemplaza la ilustración. Úsala solo con piezas aprobadas por marca."
+        },
+        {
+          "label": "Descripción para Google",
+          "name": "seoDescription",
+          "widget": "object",
+          "collapsed": false,
+          "required": false,
+          "summary": "{{fields.es}}",
+          "fields": [
+            {
+              "label": "Español",
+              "name": "es",
+              "widget": "text",
+              "required": false
+            },
+            {
+              "label": "English",
+              "name": "en",
+              "widget": "text",
+              "required": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "categorias",
+      "label": "Categorías",
+      "label_singular": "Categoría",
+      "folder": "web/content/categorias",
+      "extension": "json",
+      "format": "json",
+      "create": true,
+      "delete": true,
+      "slug": "{{fields.title.es}}",
+      "identifier_field": "title.es",
+      "summary": "{{title.es}}",
+      "sortable_fields": [
+        "order"
+      ],
+      "fields": [
+        {
+          "label": "Nombre",
+          "name": "title",
+          "widget": "object",
+          "collapsed": false,
+          "required": true,
+          "summary": "{{fields.es}}",
+          "fields": [
+            {
+              "label": "Español",
+              "name": "es",
+              "widget": "string",
+              "required": true
+            },
+            {
+              "label": "English",
+              "name": "en",
+              "widget": "string",
+              "required": false
+            }
+          ]
+        },
+        {
+          "label": "Descripción",
+          "name": "description",
+          "widget": "object",
+          "collapsed": false,
+          "required": false,
+          "summary": "{{fields.es}}",
+          "fields": [
+            {
+              "label": "Español",
+              "name": "es",
+              "widget": "text",
+              "required": false
+            },
+            {
+              "label": "English",
+              "name": "en",
+              "widget": "text",
+              "required": false
+            }
+          ]
+        },
+        {
+          "label": "Orden",
+          "name": "order",
+          "widget": "number",
+          "value_type": "int",
+          "default": 10,
+          "hint": "Número menor = aparece primero."
+        },
+        {
+          "label": "Visible en el sitio",
+          "name": "published",
+          "widget": "boolean",
+          "default": true,
+          "hint": "Apágalo para ocultarlo de la web sin borrarlo."
+        }
+      ]
+    },
+    {
+      "name": "configuracion",
+      "label": "Configuración general",
+      "files": [
+        {
+          "name": "general",
+          "label": "Textos generales y contacto",
+          "file": "web/content/configuracion.json",
+          "format": "json",
+          "fields": [
+            {
+              "label": "Nombre del sitio",
+              "name": "siteName",
+              "widget": "string"
+            },
+            {
+              "label": "Título de la portada",
+              "name": "heroTitle",
+              "widget": "object",
+              "collapsed": false,
+              "required": false,
+              "summary": "{{fields.es}}",
+              "fields": [
+                {
+                  "label": "Español",
+                  "name": "es",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "label": "English",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Texto de la portada",
+              "name": "heroIntro",
+              "widget": "object",
+              "collapsed": false,
+              "required": false,
+              "summary": "{{fields.es}}",
+              "fields": [
+                {
+                  "label": "Español",
+                  "name": "es",
+                  "widget": "text",
+                  "required": false
+                },
+                {
+                  "label": "English",
+                  "name": "en",
+                  "widget": "text",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Frase de marca",
+              "name": "tagline",
+              "widget": "object",
+              "collapsed": false,
+              "required": false,
+              "summary": "{{fields.es}}",
+              "fields": [
+                {
+                  "label": "Español",
+                  "name": "es",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "label": "English",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "WhatsApp (con indicativo, solo números)",
+              "name": "whatsappNumber",
+              "widget": "string",
+              "pattern": [
+                "^\\d{10,15}$",
+                "Solo números con indicativo. Ej.: 573126604133"
+              ]
+            },
+            {
+              "label": "WhatsApp como se muestra",
+              "name": "whatsappDisplay",
+              "widget": "string",
+              "hint": "Ej.: 312 660 4133"
+            },
+            {
+              "label": "Inicio del mensaje de WhatsApp",
+              "name": "whatsappMessage",
+              "widget": "object",
+              "collapsed": false,
+              "required": false,
+              "summary": "{{fields.es}}",
+              "fields": [
+                {
+                  "label": "Español",
+                  "name": "es",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "label": "English",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ],
+              "hint": "Se completa con el nombre del portafolio. Ej.: \"Hola Ana, quiero información sobre\""
+            },
+            {
+              "label": "Instagram (enlace completo)",
+              "name": "instagramUrl",
+              "widget": "string",
+              "required": false
+            },
+            {
+              "label": "Nota del pie de página",
+              "name": "footerNote",
+              "widget": "object",
+              "collapsed": false,
+              "required": false,
+              "summary": "{{fields.es}}",
+              "fields": [
+                {
+                  "label": "Español",
+                  "name": "es",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "label": "English",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Descripción para Google",
+              "name": "seoDescription",
+              "widget": "object",
+              "collapsed": false,
+              "required": false,
+              "summary": "{{fields.es}}",
+              "fields": [
+                {
+                  "label": "Español",
+                  "name": "es",
+                  "widget": "text",
+                  "required": false
+                },
+                {
+                  "label": "English",
+                  "name": "en",
+                  "widget": "text",
+                  "required": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

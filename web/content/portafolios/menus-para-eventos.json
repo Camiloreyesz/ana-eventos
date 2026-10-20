@@ -1,0 +1,364 @@
+{
+  "title": {
+    "es": "Eventos",
+    "en": "Events"
+  },
+  "kicker": {
+    "es": "Menu by Ana",
+    "en": "Menu by Ana"
+  },
+  "slug": {
+    "es": "menus-para-eventos",
+    "en": "event-menus"
+  },
+  "theme": "olive",
+  "illustration": "eventos",
+  "intro": {
+    "es": "Tres menús especiales para tu evento, con entrada, fuerte a elegir, postre y bebidas.",
+    "en": "Three special menus for your event, with starter, choice of main, dessert and drinks."
+  },
+  "published": true,
+  "category": "eventos",
+  "order": 5,
+  "plans": [
+    {
+      "published": true,
+      "title": {
+        "es": "Menú 1",
+        "en": "Menu 1"
+      },
+      "prices": [
+        {
+          "amount": 295000,
+          "currency": "COP",
+          "unit": "perPerson"
+        }
+      ],
+      "sections": [
+        {
+          "title": {
+            "es": "Entrada",
+            "en": "Starter"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "Satay de pollo y tocineta",
+                "en": "Chicken and bacon satay"
+              },
+              "description": {
+                "es": "Con melado de panela kogui.",
+                "en": "With Kogui panela syrup."
+              }
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Fuertes",
+            "en": "Mains"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "Pechuga y taré",
+                "en": "Chicken breast and tare"
+              },
+              "description": {
+                "es": "En láminas de champiñón, tare de cebolla caramelizada, puré de papa y coliflor.",
+                "en": "With sliced mushrooms, caramelized onion tare, potato and cauliflower purée."
+              }
+            },
+            {
+              "name": {
+                "es": "Salmón encocado",
+                "en": "Coconut salmon"
+              },
+              "description": {
+                "es": "Con camarón, salsa de coco, chiles y arroz cremoso de cilantro.",
+                "en": "With shrimp, coconut sauce, chilies and creamy cilantro rice."
+              }
+            }
+          ],
+          "note": {
+            "es": "1 opción a elegir",
+            "en": "Choose 1"
+          }
+        },
+        {
+          "title": {
+            "es": "Postre",
+            "en": "Dessert"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "Pie de coco",
+                "en": "Coconut pie"
+              },
+              "description": {
+                "es": "Acompañado con helado.",
+                "en": "Served with ice cream."
+              }
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Bebidas",
+            "en": "Drinks"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "1 cóctel de bienvenida",
+                "en": "1 welcome cocktail"
+              }
+            },
+            {
+              "name": {
+                "es": "1 botella de agua",
+                "en": "1 bottle of water"
+              }
+            },
+            {
+              "name": {
+                "es": "1 copa de vino",
+                "en": "1 glass of wine"
+              }
+            }
+          ]
+        }
+      ],
+      "subtitle": {
+        "es": "Menú especial",
+        "en": "Special menu"
+      }
+    },
+    {
+      "published": true,
+      "title": {
+        "es": "Menú 2",
+        "en": "Menu 2"
+      },
+      "prices": [
+        {
+          "amount": 335000,
+          "currency": "COP",
+          "unit": "perPerson"
+        }
+      ],
+      "sections": [
+        {
+          "title": {
+            "es": "Entrada",
+            "en": "Starter"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "Ceviche afrutado",
+                "en": "Fruity ceviche"
+              },
+              "description": {
+                "es": "Camarones con zumo de maracuyá, limón criollo, mango, fresa, kiwi y cebolla roja.",
+                "en": "Shrimp with passion fruit juice, local lime, mango, strawberry, kiwi and red onion."
+              }
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Fuertes",
+            "en": "Mains"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "Róbalo",
+                "en": "Snook"
+              },
+              "description": {
+                "es": "Filete de pescado con chimichurri, arroz cremoso de champiñones y miso.",
+                "en": "Fish fillet with chimichurri, creamy mushroom and miso rice."
+              }
+            },
+            {
+              "name": {
+                "es": "Entraña",
+                "en": "Skirt steak"
+              },
+              "description": {
+                "es": "Con risoni de miso, ajo y espárragos.",
+                "en": "With miso risoni, garlic and asparagus."
+              }
+            }
+          ],
+          "note": {
+            "es": "1 opción a elegir",
+            "en": "Choose 1"
+          }
+        },
+        {
+          "title": {
+            "es": "Postre",
+            "en": "Dessert"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "Brûlée de maracuyá",
+                "en": "Passion fruit brûlée"
+              }
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Bebidas",
+            "en": "Drinks"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "1 cóctel de bienvenida",
+                "en": "1 welcome cocktail"
+              }
+            },
+            {
+              "name": {
+                "es": "1 botella de agua",
+                "en": "1 bottle of water"
+              }
+            },
+            {
+              "name": {
+                "es": "1 copa de vino",
+                "en": "1 glass of wine"
+              }
+            }
+          ]
+        }
+      ],
+      "subtitle": {
+        "es": "Menú especial",
+        "en": "Special menu"
+      },
+      "internalNote": "El PDF dice 'Brulee de maracuyá'; se escribió 'Brûlée'. Confirmar."
+    },
+    {
+      "published": true,
+      "title": {
+        "es": "Menú 3",
+        "en": "Menu 3"
+      },
+      "prices": [
+        {
+          "amount": 380000,
+          "currency": "COP",
+          "unit": "perPerson"
+        }
+      ],
+      "sections": [
+        {
+          "title": {
+            "es": "Entrada",
+            "en": "Starter"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "Taco",
+                "en": "Taco"
+              },
+              "description": {
+                "es": "Con costilla ahumada.",
+                "en": "With smoked rib."
+              }
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Fuertes",
+            "en": "Mains"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "Lomo al trapo",
+                "en": "Lomo al trapo (cloth-roasted beef loin)"
+              },
+              "description": {
+                "es": "Con salsa de pimientas, milhoja de papa y vegetales salteados.",
+                "en": "With pepper sauce, potato mille-feuille and sautéed vegetables."
+              }
+            },
+            {
+              "name": {
+                "es": "Timbal de mariscos",
+                "en": "Seafood timbale"
+              },
+              "description": {
+                "es": "Camarón, calamar, pescado y cola de langosta en salsa cremosa de coco y ají amarillo.",
+                "en": "Shrimp, squid, fish and lobster tail in a creamy coconut and yellow chili sauce."
+              }
+            }
+          ],
+          "note": {
+            "es": "1 opción a elegir",
+            "en": "Choose 1"
+          }
+        },
+        {
+          "title": {
+            "es": "Postre",
+            "en": "Dessert"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "Oblea Ana",
+                "en": "Oblea Ana"
+              },
+              "description": {
+                "es": "Capas de oblea crocante con arequipe artesanal de miso, fresa y crema suave. Dulce, lácteo y con el balance justo entre tradición y técnica.",
+                "en": "Layers of crispy wafer with house-made miso dulce de leche, strawberry and soft cream. Sweet, creamy and balanced between tradition and technique."
+              }
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Bebidas",
+            "en": "Drinks"
+          },
+          "items": [
+            {
+              "name": {
+                "es": "1 cóctel de bienvenida",
+                "en": "1 welcome cocktail"
+              }
+            },
+            {
+              "name": {
+                "es": "1 botella de agua",
+                "en": "1 bottle of water"
+              }
+            },
+            {
+              "name": {
+                "es": "1 copa de vino",
+                "en": "1 glass of wine"
+              }
+            }
+          ]
+        }
+      ],
+      "subtitle": {
+        "es": "Menú especial",
+        "en": "Special menu"
+      }
+    }
+  ]
+}

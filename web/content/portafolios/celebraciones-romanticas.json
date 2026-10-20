@@ -131,8 +131,7 @@
       "subtitle": {
         "es": "«Mares encendidos»",
         "en": "“Mares encendidos”"
-      },
-      "internalNote": "El PDF dice 'toharashi'; se escribió 'togarashi'. Confirmar."
+      }
     },
     {
       "published": true,
@@ -174,7 +173,11 @@
                 "en": "Seared Angus beef + black garlic mayo + truffle."
               }
             }
-          ]
+          ],
+          "note": {
+            "es": "Elegir una opción para compartir",
+            "en": "Choose one to share"
+          }
         },
         {
           "title": {
@@ -240,8 +243,7 @@
       "subtitle": {
         "es": "«Fuego y raíces»",
         "en": "“Fuego y raíces”"
-      },
-      "internalNote": "En el PDF las entradas del Menú de Tierra no dicen 'elegir una opción'. Confirmar si se sirven ambas."
+      }
     }
   ]
 }

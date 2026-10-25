@@ -35,6 +35,75 @@ ILL = [
     {"label": "Románticas (foto de fondo)", "value": "romanticas-foto"},
 ]
 
+def img(label, name, hint=None):
+    f = {"label": label, "name": name, "widget": "image", "required": True}
+    if hint: f["hint"] = hint
+    return f
+
+# Ilustraciones disponibles para las tarjetas de categoría de la portada.
+CAT_ILL = [x for x in ILL if x["value"] in ("mix-night", "corporativo-dinner", "corporativo-lunch", "omakase", "celebracion", "eventos", "brunch")]
+
+portada = {
+    "name": "portada", "label": "Portada (página de inicio)",
+    "description": "Textos y fotos de la página de inicio. Cada texto tiene Español e English.",
+    "files": [{
+        "name": "portada", "label": "Portada",
+        "file": "web/content/portada.json", "format": "json",
+        "fields": [
+            {"label": "1. Inicio (foto grande)", "name": "hero", "widget": "object", "collapsed": True, "fields": [
+                txt("Título", "title", required=True),
+                txt("Texto", "intro", long=True),
+                img("Foto", "image", "Mejor vertical, mínimo 900 px de ancho."),
+                txt("Descripción de la foto (para personas que no la ven)", "imageAlt", required=True),
+            ]},
+            {"label": "2. Presentación (ilustración y frase)", "name": "presentation", "widget": "object", "collapsed": True, "fields": [
+                txt("Frase destacada", "lead", long=True, required=True),
+                txt("Texto", "text", long=True),
+                img("Ilustración", "image", "Formato horizontal 4:3."),
+                txt("Descripción de la imagen", "imageAlt", required=True),
+            ]},
+            {"label": "3. Experiencias (título de las categorías)", "name": "experiences", "widget": "object", "collapsed": True,
+             "hint": "Los nombres y descripciones de las tarjetas se editan en «Categorías».", "fields": [
+                txt("Título", "title", required=True),
+                txt("Texto", "intro", long=True),
+            ]},
+            {"label": "4. La noche (música, drinks y comida)", "name": "night", "widget": "object", "collapsed": True, "fields": [
+                txt("Título", "title", required=True),
+                {"label": "Datos (capacidad, menú, shows…)", "label_singular": "dato", "name": "rows", "widget": "list",
+                 "summary": "{{fields.label.es}}: {{fields.value.es}}", "fields": [
+                    txt("Etiqueta", "label", required=True, hint="Ej.: Capacidad"),
+                    txt("Valor", "value", required=True, hint="Ej.: Hasta 120 personas"),
+                ]},
+                txt("Nota final", "note", long=True),
+                img("Foto izquierda", "photoA", "Vertical 4:5."),
+                txt("Descripción de la foto izquierda", "photoAAlt", required=True),
+                img("Foto derecha", "photoB", "Vertical 4:5."),
+                txt("Descripción de la foto derecha", "photoBAlt", required=True),
+            ]},
+            {"label": "5. Cata de aguardiente", "name": "tasting", "widget": "object", "collapsed": True, "fields": [
+                txt("Título", "title", required=True),
+                {"label": "Párrafos", "label_singular": "párrafo", "name": "paragraphs", "widget": "list",
+                 "summary": "{{fields.es}}", "fields": [
+                    {"label": "Español", "name": "es", "widget": "text"},
+                    {"label": "English", "name": "en", "widget": "text", "required": False},
+                ]},
+                img("Foto", "image", "Vertical."),
+                txt("Descripción de la foto", "imageAlt", required=True),
+            ]},
+            {"label": "6. Franja de tarifa especial", "name": "banner", "widget": "object", "collapsed": True, "fields": [
+                {"label": "Mostrar la franja", "name": "visible", "widget": "boolean", "default": True},
+                txt("Texto", "text", required=True),
+            ]},
+            {"label": "7. Contacto y dirección", "name": "contact", "widget": "object", "collapsed": True, "fields": [
+                txt("Título", "title", required=True),
+                txt("Texto", "text", long=True),
+                txt("Zona", "location", required=True, hint="Ej.: Cartagena de Indias, Centro"),
+                txt("Dirección", "address", hint="Se muestra bajo la zona. Si lo dejas vacío, no aparece."),
+            ]},
+        ],
+    }],
+}
+
 price = {
     "label": "Precios", "label_singular": "precio", "name": "prices", "widget": "list", "collapsed": False,
     "summary": "${{fields.amount}} {{fields.label.es}}",
@@ -105,6 +174,7 @@ config = {
     "public_folder": "/uploads",
     "editor": {"preview": False},
     "collections": [
+        portada,
         {
             "name": "portafolios", "label": "Portafolios", "label_singular": "Portafolio",
             "description": "Cada portafolio es una página de la web, con sus planes y precios.",
@@ -147,24 +217,28 @@ config = {
             "slug": "{{fields.title.es}}", "identifier_field": "title.es",
             "summary": "{{title.es}}",
             "sortable_fields": ["order"],
-            "fields": [txt("Nombre", "title", required=True), txt("Descripción", "description", long=True), order, visible],
+            "fields": [
+                txt("Nombre", "title", required=True), txt("Descripción", "description", long=True),
+                {"label": "Ilustración de la tarjeta en la portada", "name": "illustration", "widget": "select",
+                 "required": False, "options": CAT_ILL},
+                order, visible,
+            ],
         },
         {
             "name": "configuracion", "label": "Configuración general",
             "files": [{
-                "name": "general", "label": "Textos generales y contacto",
+                "name": "general", "label": "Datos generales y contacto",
                 "file": "web/content/configuracion.json", "format": "json",
                 "fields": [
                     {"label": "Nombre del sitio", "name": "siteName", "widget": "string"},
-                    txt("Título de la portada", "heroTitle"),
-                    txt("Texto de la portada", "heroIntro", long=True),
-                    txt("Frase de marca", "tagline"),
                     {"label": "WhatsApp (con indicativo, solo números)", "name": "whatsappNumber", "widget": "string",
                      "pattern": ["^\\d{10,15}$", "Solo números con indicativo. Ej.: 573126604133"]},
                     {"label": "WhatsApp como se muestra", "name": "whatsappDisplay", "widget": "string", "hint": "Ej.: 312 660 4133"},
                     txt("Inicio del mensaje de WhatsApp", "whatsappMessage",
                         hint='Se completa con el nombre del portafolio. Ej.: "Hola Ana, quiero información sobre"'),
                     {"label": "Instagram (enlace completo)", "name": "instagramUrl", "widget": "string", "required": False},
+                    {"label": "Web de Ana (enlace completo)", "name": "webUrl", "widget": "string", "required": False,
+                     "hint": "Se muestra como botón «Web de Ana» en el contacto."},
                     txt("Nota del pie de página", "footerNote"),
                     txt("Descripción para Google", "seoDescription", long=True),
                 ],

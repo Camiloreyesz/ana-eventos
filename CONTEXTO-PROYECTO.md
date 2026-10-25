@@ -63,20 +63,21 @@ Ajustes confirmados por Camilo frente a los PDF:
 - **Almuerzo 2:** "Pesca blanca" es correcto.
 - **Ortografía corregida:** croissant, ganache, almendras.
 
-Las traducciones al inglés y los textos de portada y categorías los escribió Claude. Camilo no los ha revisado a fondo.
+Las traducciones al inglés y los textos de portada y categorías los escribió Claude (incluida la portada nueva). Camilo no los ha revisado a fondo.
 
 ## 5. Arquitectura técnica
 
 - **Astro 7**, sitio 100 % estático. Node ≥ 22.12. Dependencias: `astro` y las fuentes `@fontsource` (Krona One, DM Sans, Italiana), alojadas en el propio sitio.
 - **Contenido en JSON dentro del repo**, que es lo que edita el panel:
-  - `web/content/configuracion.json`: textos de portada, WhatsApp, pie, SEO
-  - `web/content/categorias/*.json`: una categoría por archivo (`title`, `description`, `order`, `published`)
+  - `web/content/configuracion.json`: WhatsApp, Instagram, web de Ana, pie, SEO
+  - `web/content/portada.json`: textos y fotos de la página de inicio (colección **Portada** del panel); fotos en `web/public/fotos/`
+  - `web/content/categorias/*.json`: una categoría por archivo (`title`, `description`, `illustration`, `order`, `published`); cada una tiene su página `/es/categorias/<id>/` y `/en/categories/<id>/`
   - `web/content/portafolios/*.json`: un portafolio por archivo, con `plans[]`, cada plan con `prices[]` y `sections[] → items[]`
   - Todo campo de texto es `{ "es": "...", "en": "..." }`. Precio: `amount` (entero), `currency` (`COP`), `unit` (`perPerson` | `perCouple` | `none`), `label` y `note` opcionales.
 - **Panel:** `web/public/admin/index.html` carga Decap CMS 3.17.1 desde unpkg. `web/public/admin/config.yml` **se genera** con `python3 scripts/build_admin_config.py`: edita el script, no el YAML.
 - **Lectura del contenido:** `web/src/lib/content.ts` (solo en compilación).
 - **Textos fijos de la interfaz** (botones, 404, etc.): `web/src/lib/i18n.ts`.
-- **Componentes:** `web/src/components/` (`HomeView`, `PortfolioView`, `PortfolioCard`, `PlanCard`, `BookNow`, `Header`, `Footer`).
+- **Componentes:** `web/src/components/` (`HomeView`, `CategoryView`, `PortfolioView`, `PortfolioCard`, `PlanCard`, `BookNow`, `Header`, `Footer`). Estilos de la portada en `web/src/styles/home.css`.
 - **Rutas:** `web/src/pages/` (`es/`, `en/`, `404`, `sitemap.xml`, `robots.txt`, raíz con redirección).
 - **SEO:** canonical, hreflang (es, en, x-default), Open Graph, sitemap con alternates, 404 bilingüe, `noindex` en `/admin` y en portafolios ocultos.
 - **Netlify** (`netlify.toml`): base `web`, comando `npm run build`, salida `dist`, Node 22, redirección de `/` por idioma y cabeceras de seguridad.
@@ -106,7 +107,7 @@ Ruta típica en el panel para cambiar un precio: **Portafolios** → abrir el po
 
 **Cambios de diseño o código:**
 1. Clonar el repo y ejecutar `cd web && npm install && npm run dev` (http://localhost:4321).
-2. Antes de subir, ejecutar `npm run build`, que debe generar 20 páginas sin errores.
+2. Antes de subir, ejecutar `npm run build`, que debe generar 28 páginas sin errores (2 portadas, 8 categorías, 16 portafolios, 404, raíz, sitemap, robots; cambia si se agregan o ocultan portafolios).
 3. Revisar el responsive (sin scroll horizontal de 320 a 1440 px) y ambos idiomas.
 4. Subir a `main`. No hay ramas de revisión configuradas.
 

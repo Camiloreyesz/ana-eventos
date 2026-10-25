@@ -1,0 +1,14 @@
+---
+import CategoryView from '../../../components/CategoryView.astro';
+import { getContent, visiblePortfolios, type Category } from '../../../lib/content';
+export async function getStaticPaths() {
+  const c = await getContent();
+  const pfs = visiblePortfolios(c);
+  // Solo categorías publicadas con al menos un portafolio visible.
+  return c.categories
+    .filter((x) => x.published && pfs.some((p) => p.categoryId === x._id))
+    .map((x) => ({ params: { id: x._id }, props: { category: x } }));
+}
+const { category } = Astro.props as { category: Category };
+---
+<CategoryView lang="es" category={category} />

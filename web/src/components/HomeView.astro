@@ -1,78 +1,157 @@
 ---
+import '../styles/home.css';
 import Base from '../layouts/Base.astro';
-import Star from './Star.astro';
 import WaIcon from './WaIcon.astro';
-import PortfolioCard from './PortfolioCard.astro';
-import BookNow from './BookNow.astro';
-import { UI, tr, isFallback, portfolioPath, type Lang } from '../lib/i18n';
-import { getContent, visiblePortfolios, whatsappUrl } from '../lib/content';
+import { UI, tr, isFallback, categoryPath, type Lang } from '../lib/i18n';
+import { getContent, getPortada, categoryIllustration, whatsappUrl, visiblePortfolios } from '../lib/content';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const c = await getContent();
+const P = getPortada();
 const t = UI[lang];
 const s = c.settings;
 const fb = (v: any) => (isFallback(v, lang) ? 'es' : undefined);
+
+// Solo se muestran las categorías publicadas que tengan al menos un portafolio visible.
 const pfs = visiblePortfolios(c);
-const cats = c.categories.filter((x) => x.published)
-  .map((cat) => ({ cat, items: pfs.filter((p) => p.categoryId === cat._id) }))
-  .filter((g) => g.items.length);
-const loose = pfs.filter((p) => !p.categoryId || !cats.some((g) => g.cat._id === p.categoryId));
-const waHref = whatsappUrl(s, `${tr(s.whatsappMessage, lang)} ${lang === 'es' ? 'los eventos' : 'events'}.`);
-const pageTitle = `${tr(s.heroTitle, lang)} | ${s.siteName}`;
+const cats = c.categories.filter((x) => x.published && pfs.some((p) => p.categoryId === x._id));
+
+const waGeneral = whatsappUrl(s, `${tr(s.whatsappMessage, lang)} ${t.waTopicEvents}.`);
+const waTasting = whatsappUrl(s, `${tr(s.whatsappMessage, lang)} ${t.waTopicTasting}.`);
+const address = tr(P.contact.address, lang);
+const pageTitle = `${tr(P.hero.title, lang)} | ${s.siteName}`;
 ---
-<Base lang={lang} title={pageTitle} alternates={{ es: '/es/', en: '/en/' }}>
-  <section class="hero">
-    <div class="wrap">
-      <div class="hero-grid">
-        <div>
-          <h1 class="display">{lang === 'es' ? 'Portafolio' : 'Portfolio'}</h1>
-          <div class="sub"><span class="caps">{lang === 'es' ? 'Gastronómico by' : 'Culinary by'}</span><span class="tag">Ana</span></div>
-          <h2 lang={fb(s.heroTitle)}>{tr(s.heroTitle, lang)}</h2>
-          <p lang={fb(s.heroIntro)}>{tr(s.heroIntro, lang)}</p>
-          <div class="actions">
-            <a class="btn" href="#portafolios">{t.navPortfolios}</a>
-            <a class="btn btn--ghost" href={waHref} target="_blank" rel="noopener"><WaIcon />{t.quoteShort}<span class="sr-only"> {t.newTab}</span></a>
-          </div>
-        </div>
-        <div class="hero-art">
-          <img src="/ilustraciones/eventos.png" alt="" width="1386" height="805" fetchpriority="high" />
+<Base lang={lang} title={pageTitle} alternates={{ es: '/es/', en: '/en/' }} bodyClass="is-home" hideFooter>
+  <!-- Portada -->
+  <section class="h-hero" id="inicio">
+    <div class="in">
+      <div class="h-hero-text">
+        <h1 lang={fb(P.hero.title)}>{tr(P.hero.title, lang)}</h1>
+        <p lang={fb(P.hero.intro)}>{tr(P.hero.intro, lang)}</p>
+        <div class="h-hero-actions">
+          <a class="h-btn h-hero-btn" href={waGeneral} target="_blank" rel="noopener">{t.heroCta}<span class="sr-only"> {t.newTab}</span></a>
+          <a class="h-link" href="#experiencias">{t.heroLink}</a>
         </div>
       </div>
-      <div class="feeling"><span>Ana is</span><hr /><span>a feeling</span></div>
+      <img class="h-hero-img" src={P.hero.image} alt={tr(P.hero.imageAlt, lang)} lang={fb(P.hero.imageAlt)} width="933" height="1400" fetchpriority="high" />
+    </div>
+  </section>
+  <div class="weave" role="presentation" aria-hidden="true"></div>
+
+  <!-- Presentación -->
+  <section class="h-intro">
+    <div class="in">
+      <img src={P.presentation.image} alt={tr(P.presentation.imageAlt, lang)} lang={fb(P.presentation.imageAlt)} width="1086" height="815" loading="lazy" decoding="async" />
+      <div class="h-intro-text">
+        <p class="lead" lang={fb(P.presentation.lead)}>{tr(P.presentation.lead, lang)}</p>
+        <p lang={fb(P.presentation.text)}>{tr(P.presentation.text, lang)}</p>
+      </div>
     </div>
   </section>
 
-  <section id="categorias" aria-labelledby="cat-title" class="cats-sec">
-    <div class="wrap">
-      <div class="section-head"><Star /><h2 class="display" id="cat-title">{lang === 'es' ? 'Categorías' : 'Categories'}</h2></div>
-      <div class="cat-grid">
-        {cats.map(({ cat, items }) => (
-          <div class="cat-tile" id={`cat-${cat._id}`}>
-            <h3 class="caps" lang={fb(cat.title)}>{tr(cat.title, lang)}</h3>
-            {cat.description && <p lang={fb(cat.description)}>{tr(cat.description, lang)}</p>}
-            <ul>
-              {items.map((p) => (
-                <li><a href={portfolioPath(p.slug[lang] ? lang : 'es', p.slug[lang] || p.slug.es!)} lang={fb(p.title)}>{tr(p.title, lang)} →</a></li>
-              ))}
-            </ul>
+  <!-- Experiencias (categorías) -->
+  <section class="h-exp" id="experiencias" aria-labelledby="exp-title">
+    <div class="in">
+      <div class="h-exp-head">
+        <h2 id="exp-title" lang={fb(P.experiences.title)}>{tr(P.experiences.title, lang)}</h2>
+        <p lang={fb(P.experiences.intro)}>{tr(P.experiences.intro, lang)}</p>
+      </div>
+      <ul class="h-tiles">
+        {cats.map((cat) => {
+          const ill = categoryIllustration(cat);
+          return (
+            <li>
+              <a class="h-tile" href={categoryPath(lang, cat._id)}>
+                {ill && <img src={ill} alt="" width="600" height="600" loading="lazy" decoding="async" />}
+                <span class="h-tile-body">
+                  <span class="h-tile-title" lang={fb(cat.title)}>{tr(cat.title, lang)}</span>
+                  <span class="h-tile-arrow" aria-hidden="true">→</span>
+                  {cat.description && <span class="h-tile-desc" lang={fb(cat.description)}>{tr(cat.description, lang)}</span>}
+                  <span class="h-tile-go">{t.viewPortfolios}</span>
+                </span>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  </section>
+  <div class="weave" role="presentation" aria-hidden="true"></div>
+
+  <!-- La noche -->
+  <section class="h-night" id="noche" aria-labelledby="night-title">
+    <div class="in">
+      <h2 id="night-title" lang={fb(P.night.title)}>{tr(P.night.title, lang)}</h2>
+      <div class="h-night-photos">
+        <img src={P.night.photoA} alt={tr(P.night.photoAAlt, lang)} lang={fb(P.night.photoAAlt)} width="933" height="1166" loading="lazy" decoding="async" />
+        <img class="b" src={P.night.photoB} alt={tr(P.night.photoBAlt, lang)} lang={fb(P.night.photoBAlt)} width="1080" height="1350" loading="lazy" decoding="async" />
+      </div>
+      <div class="h-night-info">
+        <dl class="h-specs">
+          {P.night.rows.map((r) => (
+            <div>
+              <dt lang={fb(r.label)}>{tr(r.label, lang)}</dt>
+              <dd lang={fb(r.value)}>{tr(r.value, lang)}</dd>
+            </div>
+          ))}
+        </dl>
+        <p class="note" lang={fb(P.night.note)}>{tr(P.night.note, lang)}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cata de aguardiente -->
+  <section class="h-tasting" id="cata" aria-labelledby="cata-title">
+    <div class="in">
+      <img src={P.tasting.image} alt={tr(P.tasting.imageAlt, lang)} lang={fb(P.tasting.imageAlt)} width="933" height="1400" loading="lazy" decoding="async" />
+      <div class="h-tasting-text">
+        <h2 id="cata-title" lang={fb(P.tasting.title)}>{tr(P.tasting.title, lang)}</h2>
+        {P.tasting.paragraphs.map((p) => <p lang={fb(p)}>{tr(p, lang)}</p>)}
+        <a class="h-btn" href={waTasting} target="_blank" rel="noopener">{t.consultWhatsapp}<span class="sr-only"> {t.newTab}</span></a>
+      </div>
+    </div>
+  </section>
+
+  {P.banner.visible !== false && tr(P.banner.text, lang) && (
+    <section class="h-banner" aria-label={lang === 'es' ? 'Tarifa especial' : 'Special rate'}>
+      <p lang={fb(P.banner.text)}>{tr(P.banner.text, lang)}</p>
+    </section>
+  )}
+
+  <!-- Contacto -->
+  <footer class="h-contact" id="contacto">
+    <div class="in">
+      <div class="h-contact-main">
+        <div class="h-contact-cta">
+          <h2 lang={fb(P.contact.title)}>{tr(P.contact.title, lang)}</h2>
+          <p lang={fb(P.contact.text)}>{tr(P.contact.text, lang)}</p>
+          <a class="h-btn h-btn--xl" href={waGeneral} target="_blank" rel="noopener"><WaIcon />{t.writeWhatsapp}<span class="sr-only"> {t.newTab}</span></a>
+        </div>
+        <div class="h-contact-info">
+          <a class="h-phone" href={`tel:+${s.whatsappNumber.replace(/\D/g, '')}`} aria-label={`${t.callLabel} ${s.whatsappDisplay}`}>(+57) {s.whatsappDisplay}</a>
+          <div class="place" lang={fb(P.contact.location)}>{tr(P.contact.location, lang)}</div>
+          {address && <div class="addr" lang={fb(P.contact.address)}>{address}</div>}
+          <div class="h-contact-links">
+            {s.instagramUrl && (
+              <a class="h-btn h-btn--line" href={s.instagramUrl} target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"></circle></svg>
+                {t.instagramLabel}<span class="sr-only"> {t.newTab}</span>
+              </a>
+            )}
+            {s.webUrl && (
+              <a class="h-btn h-btn--line" href={s.webUrl} target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"></path></svg>
+                {t.webLabel}<span class="sr-only"> {t.newTab}</span>
+              </a>
+            )}
           </div>
-        ))}
+        </div>
+      </div>
+      <div class="h-contact-base">
+        <a href="#inicio" aria-label={`Ana Caribe + Asia, ${t.homeLabel.toLowerCase()}`}><img src="/logo-ana.png" alt="" width="805" height="466" loading="lazy" /></a>
+        <span lang={fb(s.footerNote)}>{tr(s.footerNote, lang)}</span>
       </div>
     </div>
-  </section>
-
-  <section id="portafolios" aria-labelledby="pf-title" style="padding-top:0">
-    <div class="wrap">
-      <div class="section-head"><Star /><h2 class="display" id="pf-title">{t.navPortfolios}</h2></div>
-      <p class="lead">{lang === 'es' ? 'Cada portafolio con sus menús, lo que incluye y su valor.' : 'Each portfolio with its menus, what is included and its price.'}</p>
-      <div class="cards">
-        {[...cats.flatMap((g) => g.items), ...loose].map((p) => (
-          <PortfolioCard lang={lang} portfolio={p} categoryLabel={tr(c.categories.find((x) => x._id === p.categoryId)?.title, lang)} />
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <hr class="rule" />
-  <BookNow lang={lang} />
+  </footer>
+  <div class="weave" role="presentation" aria-hidden="true"></div>
 </Base>

@@ -32,7 +32,7 @@
 /* Presentación */
 .h-intro { background: var(--sand); }
 .h-intro .in { display: grid; grid-template-columns: minmax(0, 1fr); }
-.h-intro img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.h-intro img { width: 100%; height: auto; padding: 28px 20px 0; }
 .h-intro-text { padding: 40px 20px 64px; display: flex; flex-direction: column; gap: 24px; }
 .h-intro .lead { font-size: 1.5rem; line-height: 1.4; font-weight: 300; }
 .h-intro-text p:last-child { font-size: 1rem; line-height: 1.65; }
@@ -102,6 +102,7 @@
   .h-hero-btn { display: inline-flex; }
 
   .h-intro .in { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: center; }
+  .h-intro img { padding: clamp(24px, 4vw, 64px) clamp(20px, 3vw, 48px) clamp(24px, 4vw, 64px) var(--px); }
   .h-intro-text { padding: 80px var(--px) 80px clamp(40px, 6.7vw, 96px); gap: 28px; max-width: 640px; }
   .h-intro .lead { font-size: clamp(1.4rem, 2.2vw, 2rem); line-height: 1.35; }
   .h-intro-text p:last-child { font-size: 1.125rem; }
@@ -123,7 +124,7 @@
     padding: 112px var(--px); grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: 64px; row-gap: 36px;
     grid-template-areas: "t p" "i p"; grid-template-rows: auto 1fr;
   }
-  .h-night h2 { grid-area: t; font-size: clamp(1.3rem, 2.2vw, 2rem); line-height: 1.22; align-self: start; }
+  .h-night h2 { font-size: clamp(1.3rem, 2.2vw, 2rem); line-height: 1.22; }
   .h-night-photos { grid-area: p; gap: 24px; }
   .h-night-photos img.b { margin-top: 64px; }
   .h-night-info { grid-area: i; align-self: start; }
@@ -156,4 +157,45 @@
 }
 @media (min-width: 1200px) {
   .h-tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* ---------- Jerarquía tipográfica ----------
+   Solo dos familias (Krona One y DM Sans); el contraste viene de peso, tamaño,
+   mayúsculas con espaciado y cursiva, para que el texto no se vea plano. */
+.h-eyebrow {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 14px !important;
+  font-size: 0.75rem; font-weight: 500; line-height: 1.4; letter-spacing: 0.2em; text-transform: uppercase; color: var(--moss);
+}
+.h-eyebrow::before { content: ''; width: 28px; height: 1px; background: currentColor; flex: none; }
+.h-night-title { grid-area: auto; }
+
+.h-hero p { font-weight: 300; color: var(--ink-soft); }
+.h-hero-actions .h-link { font-weight: 500; }
+
+.h-intro .lead { font-weight: 300; }
+.h-brand { font-family: var(--display); font-weight: 400; font-size: 0.64em; letter-spacing: 0.16em; color: var(--moss); margin-right: 0.15em; }
+.h-intro-text p:last-child { color: var(--ink-soft); }
+
+.h-tile-title { font-weight: 600; }
+.h-tile-desc { color: var(--ink-soft); font-weight: 300; }
+.h-tile-go { font-size: 0.75rem !important; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; }
+.h-tile-arrow { color: var(--moss); }
+
+.h-specs dt { font-size: 0.75rem !important; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; }
+.h-specs dd { font-weight: 500; font-size: 1.0625rem; }
+.h-night .note { font-style: italic; font-weight: 300; color: var(--ink-soft); }
+
+.h-tasting-text .p1 { font-weight: 400; }
+.h-tasting-text .p2 { font-style: italic; font-weight: 300; color: var(--ink-soft); }
+
+.h-banner { text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.8125rem; }
+
+.h-contact-cta p:not(.h-eyebrow) { font-weight: 300; }
+.h-contact-info .place { font-weight: 600; }
+.h-contact-info .addr { font-size: 0.9375rem; }
+
+@media (min-width: 900px) {
+  .h-night-title { grid-area: t; align-self: start; }
+  .h-specs dd { font-size: 1.125rem; }
+  .h-banner { font-size: 0.9375rem !important; }
 }

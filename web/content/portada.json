@@ -23,10 +23,10 @@
       "es": "Somos una experiencia sensorial donde la gastronomía, el arte y el show se fusionan para crear noches inolvidables.",
       "en": "We are a sensory experience where gastronomy, art and show come together to create unforgettable nights."
     },
-    "image": "/fotos/ilustracion-mesa.jpg",
+    "image": "/fotos/ilustracion-mesa.webp",
     "imageAlt": {
-      "es": "Ilustración de acuarela de una mesa para grupo con sofá verde y sillas azul petróleo",
-      "en": "Watercolor illustration of a group table with a green sofa and teal chairs"
+      "es": "Ilustración de una mesa ovalada para grupo, con sofá verde, sillas azul petróleo y una lámpara dorada",
+      "en": "Illustration of an oval group table with a green sofa, teal chairs and a golden lamp"
     }
   },
   "experiences": {

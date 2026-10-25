@@ -19,6 +19,9 @@ const cats = c.categories.filter((x) => x.published && pfs.some((p) => p.categor
 const waGeneral = whatsappUrl(s, `${tr(s.whatsappMessage, lang)} ${t.waTopicEvents}.`);
 const waTasting = whatsappUrl(s, `${tr(s.whatsappMessage, lang)} ${t.waTopicTasting}.`);
 const address = tr(P.contact.address, lang);
+// «ANA» al inicio de la frase destacada se compone en la tipografía de marca.
+const lead = tr(P.presentation.lead, lang);
+const leadMatch = lead.match(/^(ANA)\b([\s\S]*)$/);
 const pageTitle = `${tr(P.hero.title, lang)} | ${s.siteName}`;
 ---
 <Base lang={lang} title={pageTitle} alternates={{ es: '/es/', en: '/en/' }} bodyClass="is-home" hideFooter>
@@ -41,9 +44,9 @@ const pageTitle = `${tr(P.hero.title, lang)} | ${s.siteName}`;
   <!-- Presentación -->
   <section class="h-intro">
     <div class="in">
-      <img src={P.presentation.image} alt={tr(P.presentation.imageAlt, lang)} lang={fb(P.presentation.imageAlt)} width="1086" height="815" loading="lazy" decoding="async" />
+      <img src={P.presentation.image} alt={tr(P.presentation.imageAlt, lang)} lang={fb(P.presentation.imageAlt)} width="1388" height="946" loading="lazy" decoding="async" />
       <div class="h-intro-text">
-        <p class="lead" lang={fb(P.presentation.lead)}>{tr(P.presentation.lead, lang)}</p>
+        <p class="lead" lang={fb(P.presentation.lead)}>{leadMatch ? <><strong class="h-brand">{leadMatch[1]}</strong>{leadMatch[2]}</> : lead}</p>
         <p lang={fb(P.presentation.text)}>{tr(P.presentation.text, lang)}</p>
       </div>
     </div>
@@ -53,7 +56,10 @@ const pageTitle = `${tr(P.hero.title, lang)} | ${s.siteName}`;
   <section class="h-exp" id="experiencias" aria-labelledby="exp-title">
     <div class="in">
       <div class="h-exp-head">
-        <h2 id="exp-title" lang={fb(P.experiences.title)}>{tr(P.experiences.title, lang)}</h2>
+        <div>
+          <p class="h-eyebrow">{t.navExperiences}</p>
+          <h2 id="exp-title" lang={fb(P.experiences.title)}>{tr(P.experiences.title, lang)}</h2>
+        </div>
         <p lang={fb(P.experiences.intro)}>{tr(P.experiences.intro, lang)}</p>
       </div>
       <ul class="h-tiles">
@@ -81,7 +87,10 @@ const pageTitle = `${tr(P.hero.title, lang)} | ${s.siteName}`;
   <!-- La noche -->
   <section class="h-night" id="noche" aria-labelledby="night-title">
     <div class="in">
-      <h2 id="night-title" lang={fb(P.night.title)}>{tr(P.night.title, lang)}</h2>
+      <div class="h-night-title">
+        <p class="h-eyebrow">{t.navNight}</p>
+        <h2 id="night-title" lang={fb(P.night.title)}>{tr(P.night.title, lang)}</h2>
+      </div>
       <div class="h-night-photos">
         <img src={P.night.photoA} alt={tr(P.night.photoAAlt, lang)} lang={fb(P.night.photoAAlt)} width="933" height="1166" loading="lazy" decoding="async" />
         <img class="b" src={P.night.photoB} alt={tr(P.night.photoBAlt, lang)} lang={fb(P.night.photoBAlt)} width="1080" height="1350" loading="lazy" decoding="async" />
@@ -106,7 +115,7 @@ const pageTitle = `${tr(P.hero.title, lang)} | ${s.siteName}`;
       <img src={P.tasting.image} alt={tr(P.tasting.imageAlt, lang)} lang={fb(P.tasting.imageAlt)} width="933" height="1400" loading="lazy" decoding="async" />
       <div class="h-tasting-text">
         <h2 id="cata-title" lang={fb(P.tasting.title)}>{tr(P.tasting.title, lang)}</h2>
-        {P.tasting.paragraphs.map((p) => <p lang={fb(p)}>{tr(p, lang)}</p>)}
+        {P.tasting.paragraphs.map((p, i) => <p class={i === 0 ? 'p1' : 'p2'} lang={fb(p)}>{tr(p, lang)}</p>)}
         <a class="h-btn" href={waTasting} target="_blank" rel="noopener">{t.consultWhatsapp}<span class="sr-only"> {t.newTab}</span></a>
       </div>
     </div>
@@ -123,6 +132,7 @@ const pageTitle = `${tr(P.hero.title, lang)} | ${s.siteName}`;
     <div class="in">
       <div class="h-contact-main">
         <div class="h-contact-cta">
+          <p class="h-eyebrow">{t.navContactSection}</p>
           <h2 lang={fb(P.contact.title)}>{tr(P.contact.title, lang)}</h2>
           <p lang={fb(P.contact.text)}>{tr(P.contact.text, lang)}</p>
           <a class="h-btn h-btn--xl" href={waGeneral} target="_blank" rel="noopener"><WaIcon />{t.writeWhatsapp}<span class="sr-only"> {t.newTab}</span></a>

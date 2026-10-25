@@ -19,9 +19,6 @@ const cats = c.categories.filter((x) => x.published && pfs.some((p) => p.categor
 const waGeneral = whatsappUrl(s, `${tr(s.whatsappMessage, lang)} ${t.waTopicEvents}.`);
 const waTasting = whatsappUrl(s, `${tr(s.whatsappMessage, lang)} ${t.waTopicTasting}.`);
 const address = tr(P.contact.address, lang);
-// «ANA» al inicio de la frase destacada se compone en la tipografía de marca.
-const lead = tr(P.presentation.lead, lang);
-const leadMatch = lead.match(/^(ANA)\b([\s\S]*)$/);
 const pageTitle = `${tr(P.hero.title, lang)} | ${s.siteName}`;
 ---
 <Base lang={lang} title={pageTitle} alternates={{ es: '/es/', en: '/en/' }} bodyClass="is-home" hideFooter>
@@ -36,21 +33,10 @@ const pageTitle = `${tr(P.hero.title, lang)} | ${s.siteName}`;
           <a class="h-link" href="#experiencias">{t.heroLink}</a>
         </div>
       </div>
-      <img class="h-hero-img" src={P.hero.image} alt={tr(P.hero.imageAlt, lang)} lang={fb(P.hero.imageAlt)} width="933" height="1400" fetchpriority="high" />
+      <img class="h-hero-img" src={P.hero.image} alt={tr(P.hero.imageAlt, lang)} lang={fb(P.hero.imageAlt)} width="1388" height="946" fetchpriority="high" />
     </div>
   </section>
   <div class="weave" role="presentation" aria-hidden="true"></div>
-
-  <!-- Presentación -->
-  <section class="h-intro">
-    <div class="in">
-      <img src={P.presentation.image} alt={tr(P.presentation.imageAlt, lang)} lang={fb(P.presentation.imageAlt)} width="1388" height="946" loading="lazy" decoding="async" />
-      <div class="h-intro-text">
-        <p class="lead" lang={fb(P.presentation.lead)}>{leadMatch ? <><strong class="h-brand">{leadMatch[1]}</strong>{leadMatch[2]}</> : lead}</p>
-        <p lang={fb(P.presentation.text)}>{tr(P.presentation.text, lang)}</p>
-      </div>
-    </div>
-  </section>
 
   <!-- Experiencias (categorías) -->
   <section class="h-exp" id="experiencias" aria-labelledby="exp-title">

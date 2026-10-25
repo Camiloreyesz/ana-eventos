@@ -50,24 +50,18 @@ portada = {
         "name": "portada", "label": "Portada",
         "file": "web/content/portada.json", "format": "json",
         "fields": [
-            {"label": "1. Inicio (foto grande)", "name": "hero", "widget": "object", "collapsed": True, "fields": [
+            {"label": "1. Inicio (ilustración principal)", "name": "hero", "widget": "object", "collapsed": True, "fields": [
                 txt("Título", "title", required=True),
                 txt("Texto", "intro", long=True),
-                img("Foto", "image", "Mejor vertical, mínimo 900 px de ancho."),
-                txt("Descripción de la foto (para personas que no la ven)", "imageAlt", required=True),
+                img("Ilustración o foto", "image", "Ilustración con fondo transparente (WebP o PNG), horizontal, mínimo 1200 px de ancho."),
+                txt("Descripción de la imagen (para personas que no la ven)", "imageAlt", required=True),
             ]},
-            {"label": "2. Presentación (ilustración y frase)", "name": "presentation", "widget": "object", "collapsed": True, "fields": [
-                txt("Frase destacada", "lead", long=True, required=True),
-                txt("Texto", "text", long=True),
-                img("Ilustración", "image", "Formato horizontal 4:3."),
-                txt("Descripción de la imagen", "imageAlt", required=True),
-            ]},
-            {"label": "3. Experiencias (título de las categorías)", "name": "experiences", "widget": "object", "collapsed": True,
+            {"label": "2. Experiencias (título de las categorías)", "name": "experiences", "widget": "object", "collapsed": True,
              "hint": "Los nombres y descripciones de las tarjetas se editan en «Categorías».", "fields": [
                 txt("Título", "title", required=True),
                 txt("Texto", "intro", long=True),
             ]},
-            {"label": "4. La noche (música, drinks y comida)", "name": "night", "widget": "object", "collapsed": True, "fields": [
+            {"label": "3. La noche (música, drinks y comida)", "name": "night", "widget": "object", "collapsed": True, "fields": [
                 txt("Título", "title", required=True),
                 {"label": "Datos (capacidad, menú, shows…)", "label_singular": "dato", "name": "rows", "widget": "list",
                  "summary": "{{fields.label.es}}: {{fields.value.es}}", "fields": [
@@ -80,7 +74,7 @@ portada = {
                 img("Foto derecha", "photoB", "Vertical 4:5."),
                 txt("Descripción de la foto derecha", "photoBAlt", required=True),
             ]},
-            {"label": "5. Cata de aguardiente", "name": "tasting", "widget": "object", "collapsed": True, "fields": [
+            {"label": "4. Cata de aguardiente", "name": "tasting", "widget": "object", "collapsed": True, "fields": [
                 txt("Título", "title", required=True),
                 {"label": "Párrafos", "label_singular": "párrafo", "name": "paragraphs", "widget": "list",
                  "summary": "{{fields.es}}", "fields": [
@@ -90,11 +84,11 @@ portada = {
                 img("Foto", "image", "Vertical."),
                 txt("Descripción de la foto", "imageAlt", required=True),
             ]},
-            {"label": "6. Franja de tarifa especial", "name": "banner", "widget": "object", "collapsed": True, "fields": [
+            {"label": "5. Franja de tarifa especial", "name": "banner", "widget": "object", "collapsed": True, "fields": [
                 {"label": "Mostrar la franja", "name": "visible", "widget": "boolean", "default": True},
                 txt("Texto", "text", required=True),
             ]},
-            {"label": "7. Contacto y dirección", "name": "contact", "widget": "object", "collapsed": True, "fields": [
+            {"label": "6. Contacto y dirección", "name": "contact", "widget": "object", "collapsed": True, "fields": [
                 txt("Título", "title", required=True),
                 txt("Texto", "text", long=True),
                 txt("Zona", "location", required=True, hint="Ej.: Cartagena de Indias, Centro"),

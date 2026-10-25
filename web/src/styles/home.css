@@ -22,20 +22,12 @@
 /* Portada */
 .h-hero { background: var(--cream); }
 .h-hero .in { display: grid; grid-template-columns: minmax(0, 1fr); }
-.h-hero-img { order: -1; width: 100%; aspect-ratio: 1 / 1; max-height: 78vh; object-fit: cover; object-position: 50% 72%; }
+.h-hero-img { order: -1; width: 100%; aspect-ratio: 4 / 3; object-fit: contain; background: var(--sand); padding: 28px 20px; }
 .h-hero-text { padding: 36px 20px 48px; display: flex; flex-direction: column; gap: 20px; }
 .h-hero h1 { font-size: clamp(1.45rem, 6.9vw, 2.2rem); line-height: 1.2; text-transform: uppercase; text-wrap: balance; }
 .h-hero p { font-size: 1.0625rem; line-height: 1.55; max-width: 460px; }
 .h-hero-actions { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
 .h-hero-btn { display: none; }
-
-/* Presentación */
-.h-intro { background: var(--sand); }
-.h-intro .in { display: grid; grid-template-columns: minmax(0, 1fr); }
-.h-intro img { width: 100%; height: auto; padding: 28px 20px 0; }
-.h-intro-text { padding: 40px 20px 64px; display: flex; flex-direction: column; gap: 24px; }
-.h-intro .lead { font-size: 1.5rem; line-height: 1.4; font-weight: 300; }
-.h-intro-text p:last-child { font-size: 1rem; line-height: 1.65; }
 
 /* Experiencias */
 .h-exp { padding: 64px 20px 72px !important; }
@@ -95,17 +87,11 @@
   .h-btn--line { padding: 12px 24px; }
 
   .h-hero .in { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: minmax(0, 1fr); height: min(760px, 56vw + 100px); min-height: 560px; }
-  .h-hero-img { order: 0; height: 100%; min-height: 0; aspect-ratio: auto; max-height: none; }
+  .h-hero-img { order: 0; height: 100%; min-height: 0; aspect-ratio: auto; padding: clamp(24px, 4vw, 64px) var(--px) clamp(24px, 4vw, 64px) clamp(24px, 4vw, 64px); }
   .h-hero-text { padding: 0 var(--px); justify-content: center; gap: 36px; }
   .h-hero h1 { font-size: clamp(1.7rem, 3.2vw, 2.875rem); line-height: 1.16; }
   .h-hero p { font-size: 1.25rem; }
   .h-hero-btn { display: inline-flex; }
-
-  .h-intro .in { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: center; }
-  .h-intro img { padding: clamp(24px, 4vw, 64px) clamp(20px, 3vw, 48px) clamp(24px, 4vw, 64px) var(--px); }
-  .h-intro-text { padding: 80px var(--px) 80px clamp(40px, 6.7vw, 96px); gap: 28px; max-width: 640px; }
-  .h-intro .lead { font-size: clamp(1.4rem, 2.2vw, 2rem); line-height: 1.35; }
-  .h-intro-text p:last-child { font-size: 1.125rem; }
 
   .h-exp { padding: 112px var(--px) 128px !important; }
   .h-exp-head { flex-direction: row; align-items: flex-end; justify-content: space-between; gap: 48px; margin-bottom: 48px; }
@@ -172,9 +158,6 @@
 .h-hero p { font-weight: 300; color: var(--ink-soft); }
 .h-hero-actions .h-link { font-weight: 500; }
 
-.h-intro .lead { font-weight: 300; }
-.h-brand { font-family: var(--display); font-weight: 400; font-size: 0.64em; letter-spacing: 0.16em; color: var(--moss); margin-right: 0.15em; }
-.h-intro-text p:last-child { color: var(--ink-soft); }
 
 .h-tile-title { font-weight: 600; }
 .h-tile-desc { color: var(--ink-soft); font-weight: 300; }

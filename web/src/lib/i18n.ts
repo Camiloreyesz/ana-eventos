@@ -3,6 +3,8 @@ export type Lang = (typeof LANGS)[number];
 
 /** Segmento de la URL de portafolios en cada idioma. */
 export const PORTFOLIO_SEGMENT: Record<Lang, string> = { es: 'portafolios', en: 'portfolios' };
+/** Segmento de la URL de las categorías en cada idioma. */
+export const CATEGORY_SEGMENT: Record<Lang, string> = { es: 'categorias', en: 'categories' };
 
 /** Textos fijos de la interfaz (botones, etiquetas, mensajes del sistema). */
 export const UI = {
@@ -34,6 +36,27 @@ export const UI = {
     footerRights: 'Todos los derechos reservados.',
     openWhatsapp: 'Abrir WhatsApp',
     newTab: '(se abre en una pestaña nueva)',
+    navExperiences: 'Experiencias',
+    navNight: 'La noche',
+    navTasting: 'Cata de aguardiente',
+    navContactSection: 'Contacto',
+    mainNav: 'Principal',
+    homeLabel: 'Inicio',
+    openMenu: 'Abrir menú',
+    closeMenu: 'Cerrar menú',
+    heroCta: 'Reservar por WhatsApp',
+    heroLink: 'Ver experiencias',
+    viewPortfolios: 'Ver portafolios',
+    consultWhatsapp: 'Consultar por WhatsApp',
+    writeWhatsapp: 'Escribir por WhatsApp',
+    callLabel: 'Teléfono',
+    webLabel: 'Web de Ana',
+    instagramLabel: 'Instagram',
+    waTopicEvents: 'los eventos',
+    waTopicTasting: 'la cata de aguardiente',
+    categoryCount: 'portafolios',
+    categoryEmpty: 'Por ahora no hay portafolios publicados en esta categoría.',
+    allCategories: 'Ver todas las experiencias',
   },
   en: {
     navPortfolios: 'Portfolios',
@@ -63,6 +86,27 @@ export const UI = {
     footerRights: 'All rights reserved.',
     openWhatsapp: 'Open WhatsApp',
     newTab: '(opens in a new tab)',
+    navExperiences: 'Experiences',
+    navNight: 'The night',
+    navTasting: 'Aguardiente tasting',
+    navContactSection: 'Contact',
+    mainNav: 'Main',
+    homeLabel: 'Home',
+    openMenu: 'Open menu',
+    closeMenu: 'Close menu',
+    heroCta: 'Book on WhatsApp',
+    heroLink: 'See experiences',
+    viewPortfolios: 'See portfolios',
+    consultWhatsapp: 'Ask on WhatsApp',
+    writeWhatsapp: 'Message us on WhatsApp',
+    callLabel: 'Phone',
+    webLabel: 'Ana’s website',
+    instagramLabel: 'Instagram',
+    waTopicEvents: 'events',
+    waTopicTasting: 'the aguardiente tasting',
+    categoryCount: 'portfolios',
+    categoryEmpty: 'There are no published portfolios in this category right now.',
+    allCategories: 'See all experiences',
   },
 } satisfies Record<Lang, Record<string, string>>;
 
@@ -101,4 +145,7 @@ export function homePath(lang: Lang) {
 }
 export function portfolioPath(lang: Lang, slug: string) {
   return `/${lang}/${PORTFOLIO_SEGMENT[lang]}/${slug}/`;
+}
+export function categoryPath(lang: Lang, id: string) {
+  return `/${lang}/${CATEGORY_SEGMENT[lang]}/${id}/`;
 }

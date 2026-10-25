@@ -4,7 +4,7 @@ import PlanCard from './PlanCard.astro';
 import PortfolioCard from './PortfolioCard.astro';
 import BookNow from './BookNow.astro';
 import WaIcon from './WaIcon.astro';
-import { UI, tr, isFallback, homePath, portfolioPath, type Lang } from '../lib/i18n';
+import { UI, tr, isFallback, homePath, portfolioPath, categoryPath, type Lang } from '../lib/i18n';
 import { getContent, plansFor, illustrationFor, visiblePortfolios, whatsappUrl, type Portfolio } from '../lib/content';
 interface Props { lang: Lang; portfolio: Portfolio }
 const { lang, portfolio: p } = Astro.props;
@@ -19,6 +19,7 @@ if (p.slug.en) alternates.en = portfolioPath('en', p.slug.en);
 const retired = !visiblePortfolios(c).some((x) => x._id === p._id);
 const plans = retired ? [] : plansFor(c, p._id);
 const art = illustrationFor(p);
+const cat = c.categories.find((x) => x._id === p.categoryId && x.published);
 const others = visiblePortfolios(c).filter((x) => x._id !== p._id);
 const related = [...others.filter((x) => x.categoryId === p.categoryId), ...others.filter((x) => x.categoryId !== p.categoryId)].slice(0, 3);
 const waText = `${tr(s.whatsappMessage, lang)} ${title}.`;
@@ -32,14 +33,14 @@ const photoStyle = p.theme === 'romantic' && art?.kind === 'photo' ? `--photo: u
       <div class="wrap">
         <h1 class="display">{t.retiredTitle}</h1>
         <p>{t.retiredText}</p>
-        <a class="btn" href={`${homePath(lang)}#portafolios`}>{t.allPortfolios}</a>
+        <a class="btn" href={`${homePath(lang)}#experiencias`}>{t.allPortfolios}</a>
       </div>
     </section>
   ) : (
     <>
       <section class="pf-hero" style={photoStyle}>
         <div class="wrap">
-          <p class="crumbs"><a href={homePath(lang)}>{lang === 'es' ? 'Inicio' : 'Home'}</a> / <a href={`${homePath(lang)}#portafolios`}>{t.navPortfolios}</a></p>
+          <p class="crumbs"><a href={homePath(lang)}>{lang === 'es' ? 'Inicio' : 'Home'}</a> / <a href={`${homePath(lang)}#experiencias`}>{t.navExperiences}</a>{cat && <> / <a href={categoryPath(lang, cat._id)} lang={fb(cat.title)}>{tr(cat.title, lang)}</a></>}</p>
           <div class="pf-hero-grid">
             <div>
               <div class="lockup">
@@ -70,7 +71,7 @@ const photoStyle = p.theme === 'romantic' && art?.kind === 'photo' ? `--photo: u
         <hr class="rule" style="margin-bottom:clamp(2rem,5vw,3rem)" />
         <h2 class="display" id="rel-title" style="font-size:clamp(1.1rem,3vw,1.5rem);margin-bottom:1.6rem">{t.related}</h2>
         <div class="cards">{related.map((x) => <PortfolioCard lang={lang} portfolio={x} />)}</div>
-        <p style="margin-top:2rem"><a class="btn btn--ghost" href={`${homePath(lang)}#portafolios`}>{t.allPortfolios}</a></p>
+        <p style="margin-top:2rem"><a class="btn btn--ghost" href={`${homePath(lang)}#experiencias`}>{t.allPortfolios}</a></p>
       </div>
     </section>
   )}

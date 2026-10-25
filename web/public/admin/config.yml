@@ -24,6 +24,614 @@
   },
   "collections": [
     {
+      "name": "portada",
+      "label": "Portada (página de inicio)",
+      "description": "Textos y fotos de la página de inicio. Cada texto tiene Español e English.",
+      "files": [
+        {
+          "name": "portada",
+          "label": "Portada",
+          "file": "web/content/portada.json",
+          "format": "json",
+          "fields": [
+            {
+              "label": "1. Inicio (foto grande)",
+              "name": "hero",
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "label": "Título",
+                  "name": "title",
+                  "widget": "object",
+                  "collapsed": false,
+                  "required": true,
+                  "summary": "{{fields.es}}",
+                  "fields": [
+                    {
+                      "label": "Español",
+                      "name": "es",
+                      "widget": "string",
+                      "required": true
+                    },
+                    {
+                      "label": "English",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ]
+                },
+                {
+                  "label": "Texto",
+                  "name": "intro",
+                  "widget": "object",
+                  "collapsed": false,
+                  "required": false,
+                  "summary": "{{fields.es}}",
+                  "fields": [
+                    {
+                      "label": "Español",
+                      "name": "es",
+                      "widget": "text",
+                      "required": false
+                    },
+                    {
+                      "label": "English",
+                      "name": "en",
+                      "widget": "text",
+                      "required": false
+                    }
+                  ]
+                },
+                {
+                  "label": "Foto",
+                  "name": "image",
+                  "widget": "image",
+                  "required": true,
+                  "hint": "Mejor vertical, mínimo 900 px de ancho."
+                },
+                {
+                  "label": "Descripción de la foto (para personas que no la ven)",
+                  "name": "imageAlt",
+                  "widget": "object",
+                  "collapsed": false,
+                  "required": true,
+                  "summary": "{{fields.es}}",
+                  "fields": [
+                    {
+                      "label": "Español",
+                      "name": "es",
+                      "widget": "string",
+                      "required": true
+                    },
+                    {
+                      "label": "English",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "2. Presentación (ilustración y frase)",
+              "name": "presentation",
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "label": "Frase destacada",
+                  "name": "lead",
+                  "widget": "object",
+                  "collapsed": false,
+                  "required": true,
+                  "summary": "{{fields.es}}",
+                  "fields": [
+                    {
+                      "label": "Español",
+                      "name": "es",
+                      "widget": "text",
+                      "required": true
+                    },
+                    {
+                      "label": "English",
+                      "name": "en",
+                      "widget": "text",
+                      "required": false
+                    }
+                  ]
+                },
+                {
+                  "label": "Texto",
+                  "name": "text",
+                  "widget": "object",
+                  "collapsed": false,
+                  "required": false,
+                  "summary": "{{fields.es}}",
+                  "fields": [
+                    {
+                      "label": "Español",
+                      "name": "es",
+                      "widget": "text",
+                      "required": false
+                    },
+                    {
+                      "label": "English",
+                      "name": "en",
+                      "widget": "text",
+                      "required": false
+                    }
+                  ]
+                },
+                {
+                  "label": "Ilustración",
+                  "name": "image",
+                  "widget": "image",
+                  "required": true,
+                  "hint": "Formato horizontal 4:3."
+                },
+                {
+                  "label": "Descripción de la imagen",
+                  "name": "imageAlt",
+                  "widget": "object",
+                  "collapsed": false,
+                  "required": true,
+                  "summary": "{{fields.es}}",
+                  "fields": [
+                    {
+                      "label": "Español",
+                      "name": "es",
+                      "widget": "string",
+                      "required": true
+                    },
+                    {
+                      "label": "English",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "3. Experiencias (título de las categorías)",
+              "name": "experiences",
+              "widget": "object",
+              "collapsed": true,
+              "hint": "Los nombres y descripciones de las tarjetas se editan en «Categorías».",
+              "fields": [
+                {
+                  "label": "Título",
+                  "name": "title",
+                  "widget": "object",
+                  "collapsed": false,
+                  "required": true,
+                  "summary": "{{fields.es}}",
+                  "fields": [
+                    {
+                      "label": "Español",
+                      "name": "es",
+                      "widget": "string",
+                      "required": true
+                    },
+                    {
+                      "label": "English",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ]
+                },
+                {
+                  "label": "Texto",
+                  "name": "intro",
+                  "widget": "object",
+                  "collapsed": false,
+                  "required": false,
+                  "summary": "{{fields.es}}",
+                  "fields": [
+                    {
+                      "label": "Español",
+                      "name": "es",
+                      "widget": "text",
+                      "required": false
+                    },
+                    {
+                      "label": "English",
+                      "name": "en",
+                      "widget": "text",
+                      "required": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "4. La noche (música, drinks y comida)",
+              "name": "night",
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "label": "Título",
+                  "name": "title",
+                  "widget": "object",
+                  "collapsed": false,
+                  "required": true,
+                  "summary": "{{fields.es}}",
+                  "fields": [
+                    {
+                      "label": "Español",
+                      "name": "es",
+                      "widget": "string",
+                      "required": true
+                    },
+                    {
+                      "label": "English",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ]
+                },
+                {
+                  "label": "Datos (capacidad, menú, shows…)",
+                  "label_singular": "dato",
+                  "name": "rows",
+                  "widget": "list",
+                  "summary": "{{fields.label.es}}: {{fields.value.es}}",
+                  "fields": [
+                    {
+                      "label": "Etiqueta",
+                      "name": "label",
+                      "widget": "object",
+                      "collapsed": false,
+                      "required": true,
+                      "summary": "{{fields.es}}",
+                      "fields": [
+                        {
+                          "label": "Español",
+                          "name": "es",
+                          "widget": "string",
+                          "required": true
+                        },
+                        {
+                          "label": "English",
+                          "name": "en",
+                          "widget": "string",
+                          "required": false
+                        }
+                      ],
+                      "hint": "Ej.: Capacidad"
+                    },
+                    {
+                      "label": "Valor",
+                      "name": "value",
+                      "widget": "object",
+                      "collapsed": false,
+                      "required": true,
+                      "summary": "{{fields.es}}",
+                      "fields": [
+                        {
+                          "label": "Español",
+                          "name": "es",
+                          "widget": "string",
+                          "required": true
+                        },
+                        {
+                          "label": "English",
+                          "name": "en",
+                          "widget": "string",
+                          "required": false
+                        }
+                      ],
+                      "hint": "Ej.: Hasta 120 personas"
+                    }
+                  ]
+                },
+                {
+                  "label": "Nota final",
+                  "name": "note",
+                  "widget": "object",
+                  "collapsed": false,
+                  "required": false,
+                  "summary": "{{fields.es}}",
+                  "fields": [
+                    {
+                      "label": "Español",
+                      "name": "es",
+                      "widget": "text",
+                      "required": false
+                    },
+                    {
+                      "label": "English",
+                      "name": "en",
+                      "widget": "text",
+                      "required": false
+                    }
+                  ]
+                },
+                {
+                  "label": "Foto izquierda",
+                  "name": "photoA",
+                  "widget": "image",
+                  "required": true,
+                  "hint": "Vertical 4:5."
+                },
+                {
+                  "label": "Descripción de la foto izquierda",
+                  "name": "photoAAlt",
+                  "widget": "object",
+                  "collapsed": false,
+                  "required": true,
+                  "summary": "{{fields.es}}",
+                  "fields": [
+                    {
+                      "label": "Español",
+                      "name": "es",
+                      "widget": "string",
+                      "required": true
+                    },
+                    {
+                      "label": "English",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ]
+                },
+                {
+                  "label": "Foto derecha",
+                  "name": "photoB",
+                  "widget": "image",
+                  "required": true,
+                  "hint": "Vertical 4:5."
+                },
+                {
+                  "label": "Descripción de la foto derecha",
+                  "name": "photoBAlt",
+                  "widget": "object",
+                  "collapsed": false,
+                  "required": true,
+                  "summary": "{{fields.es}}",
+                  "fields": [
+                    {
+                      "label": "Español",
+                      "name": "es",
+                      "widget": "string",
+                      "required": true
+                    },
+                    {
+                      "label": "English",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "5. Cata de aguardiente",
+              "name": "tasting",
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "label": "Título",
+                  "name": "title",
+                  "widget": "object",
+                  "collapsed": false,
+                  "required": true,
+                  "summary": "{{fields.es}}",
+                  "fields": [
+                    {
+                      "label": "Español",
+                      "name": "es",
+                      "widget": "string",
+                      "required": true
+                    },
+                    {
+                      "label": "English",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ]
+                },
+                {
+                  "label": "Párrafos",
+                  "label_singular": "párrafo",
+                  "name": "paragraphs",
+                  "widget": "list",
+                  "summary": "{{fields.es}}",
+                  "fields": [
+                    {
+                      "label": "Español",
+                      "name": "es",
+                      "widget": "text"
+                    },
+                    {
+                      "label": "English",
+                      "name": "en",
+                      "widget": "text",
+                      "required": false
+                    }
+                  ]
+                },
+                {
+                  "label": "Foto",
+                  "name": "image",
+                  "widget": "image",
+                  "required": true,
+                  "hint": "Vertical."
+                },
+                {
+                  "label": "Descripción de la foto",
+                  "name": "imageAlt",
+                  "widget": "object",
+                  "collapsed": false,
+                  "required": true,
+                  "summary": "{{fields.es}}",
+                  "fields": [
+                    {
+                      "label": "Español",
+                      "name": "es",
+                      "widget": "string",
+                      "required": true
+                    },
+                    {
+                      "label": "English",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "6. Franja de tarifa especial",
+              "name": "banner",
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "label": "Mostrar la franja",
+                  "name": "visible",
+                  "widget": "boolean",
+                  "default": true
+                },
+                {
+                  "label": "Texto",
+                  "name": "text",
+                  "widget": "object",
+                  "collapsed": false,
+                  "required": true,
+                  "summary": "{{fields.es}}",
+                  "fields": [
+                    {
+                      "label": "Español",
+                      "name": "es",
+                      "widget": "string",
+                      "required": true
+                    },
+                    {
+                      "label": "English",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "7. Contacto y dirección",
+              "name": "contact",
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "label": "Título",
+                  "name": "title",
+                  "widget": "object",
+                  "collapsed": false,
+                  "required": true,
+                  "summary": "{{fields.es}}",
+                  "fields": [
+                    {
+                      "label": "Español",
+                      "name": "es",
+                      "widget": "string",
+                      "required": true
+                    },
+                    {
+                      "label": "English",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ]
+                },
+                {
+                  "label": "Texto",
+                  "name": "text",
+                  "widget": "object",
+                  "collapsed": false,
+                  "required": false,
+                  "summary": "{{fields.es}}",
+                  "fields": [
+                    {
+                      "label": "Español",
+                      "name": "es",
+                      "widget": "text",
+                      "required": false
+                    },
+                    {
+                      "label": "English",
+                      "name": "en",
+                      "widget": "text",
+                      "required": false
+                    }
+                  ]
+                },
+                {
+                  "label": "Zona",
+                  "name": "location",
+                  "widget": "object",
+                  "collapsed": false,
+                  "required": true,
+                  "summary": "{{fields.es}}",
+                  "fields": [
+                    {
+                      "label": "Español",
+                      "name": "es",
+                      "widget": "string",
+                      "required": true
+                    },
+                    {
+                      "label": "English",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ],
+                  "hint": "Ej.: Cartagena de Indias, Centro"
+                },
+                {
+                  "label": "Dirección",
+                  "name": "address",
+                  "widget": "object",
+                  "collapsed": false,
+                  "required": false,
+                  "summary": "{{fields.es}}",
+                  "fields": [
+                    {
+                      "label": "Español",
+                      "name": "es",
+                      "widget": "string",
+                      "required": false
+                    },
+                    {
+                      "label": "English",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ],
+                  "hint": "Se muestra bajo la zona. Si lo dejas vacío, no aparece."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "portafolios",
       "label": "Portafolios",
       "label_singular": "Portafolio",
@@ -617,6 +1225,42 @@
           ]
         },
         {
+          "label": "Ilustración de la tarjeta en la portada",
+          "name": "illustration",
+          "widget": "select",
+          "required": false,
+          "options": [
+            {
+              "label": "Omakase (manos y nigiris)",
+              "value": "omakase"
+            },
+            {
+              "label": "Corporativos (cubiertos y copa)",
+              "value": "corporativo-dinner"
+            },
+            {
+              "label": "Cubiertos sin copa",
+              "value": "corporativo-lunch"
+            },
+            {
+              "label": "Eventos (personas brindando)",
+              "value": "eventos"
+            },
+            {
+              "label": "Mesa larga (grupos)",
+              "value": "mix-night"
+            },
+            {
+              "label": "Brunch (pancakes)",
+              "value": "brunch"
+            },
+            {
+              "label": "Celebración (velas y vino)",
+              "value": "celebracion"
+            }
+          ]
+        },
+        {
           "label": "Orden",
           "name": "order",
           "widget": "number",
@@ -639,7 +1283,7 @@
       "files": [
         {
           "name": "general",
-          "label": "Textos generales y contacto",
+          "label": "Datos generales y contacto",
           "file": "web/content/configuracion.json",
           "format": "json",
           "fields": [
@@ -647,72 +1291,6 @@
               "label": "Nombre del sitio",
               "name": "siteName",
               "widget": "string"
-            },
-            {
-              "label": "Título de la portada",
-              "name": "heroTitle",
-              "widget": "object",
-              "collapsed": false,
-              "required": false,
-              "summary": "{{fields.es}}",
-              "fields": [
-                {
-                  "label": "Español",
-                  "name": "es",
-                  "widget": "string",
-                  "required": false
-                },
-                {
-                  "label": "English",
-                  "name": "en",
-                  "widget": "string",
-                  "required": false
-                }
-              ]
-            },
-            {
-              "label": "Texto de la portada",
-              "name": "heroIntro",
-              "widget": "object",
-              "collapsed": false,
-              "required": false,
-              "summary": "{{fields.es}}",
-              "fields": [
-                {
-                  "label": "Español",
-                  "name": "es",
-                  "widget": "text",
-                  "required": false
-                },
-                {
-                  "label": "English",
-                  "name": "en",
-                  "widget": "text",
-                  "required": false
-                }
-              ]
-            },
-            {
-              "label": "Frase de marca",
-              "name": "tagline",
-              "widget": "object",
-              "collapsed": false,
-              "required": false,
-              "summary": "{{fields.es}}",
-              "fields": [
-                {
-                  "label": "Español",
-                  "name": "es",
-                  "widget": "string",
-                  "required": false
-                },
-                {
-                  "label": "English",
-                  "name": "en",
-                  "widget": "string",
-                  "required": false
-                }
-              ]
             },
             {
               "label": "WhatsApp (con indicativo, solo números)",
@@ -757,6 +1335,13 @@
               "name": "instagramUrl",
               "widget": "string",
               "required": false
+            },
+            {
+              "label": "Web de Ana (enlace completo)",
+              "name": "webUrl",
+              "widget": "string",
+              "required": false,
+              "hint": "Se muestra como botón «Web de Ana» en el contacto."
             },
             {
               "label": "Nota del pie de página",

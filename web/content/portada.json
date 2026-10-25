@@ -1,0 +1,150 @@
+{
+  "hero": {
+    "title": {
+      "es": "Experiencias para grupos y eventos privados",
+      "en": "Experiences for groups and private events"
+    },
+    "intro": {
+      "es": "Ideal para grupos corporativos, celebraciones privadas, cumpleaños, despedidas o grupos de viaje.",
+      "en": "Ideal for corporate groups, private celebrations, birthdays, farewell parties and travel groups."
+    },
+    "image": "/fotos/portada-grupo.jpg",
+    "imageAlt": {
+      "es": "Grupo de amigos brindando en una mesa de Ana, con música en vivo al fondo",
+      "en": "Group of friends toasting at a table at Ana, with live music in the background"
+    }
+  },
+  "presentation": {
+    "lead": {
+      "es": "ANA nació en Cartagena para unir dos universos: la pasión del Caribe y la elegancia de Asia.",
+      "en": "ANA was born in Cartagena to bring two worlds together: the passion of the Caribbean and the elegance of Asia."
+    },
+    "text": {
+      "es": "Somos una experiencia sensorial donde la gastronomía, el arte y el show se fusionan para crear noches inolvidables.",
+      "en": "We are a sensory experience where gastronomy, art and show come together to create unforgettable nights."
+    },
+    "image": "/fotos/ilustracion-mesa.webp",
+    "imageAlt": {
+      "es": "Ilustración de una mesa ovalada para grupo, con sofá verde, sillas azul petróleo y una lámpara dorada",
+      "en": "Illustration of an oval group table with a green sofa, teal chairs and a golden lamp"
+    }
+  },
+  "experiences": {
+    "title": {
+      "es": "¿Qué vas a celebrar?",
+      "en": "What are you celebrating?"
+    },
+    "intro": {
+      "es": "Elige la experiencia. Cada portafolio trae sus menús, lo que incluye y su valor.",
+      "en": "Choose your experience. Each portfolio comes with its menus, what is included and its price."
+    }
+  },
+  "night": {
+    "title": {
+      "es": "Música en vivo, drinks y buena comida",
+      "en": "Live music, drinks and good food"
+    },
+    "rows": [
+      {
+        "label": {
+          "es": "Capacidad",
+          "en": "Capacity"
+        },
+        "value": {
+          "es": "Hasta 120 personas",
+          "en": "Up to 120 guests"
+        }
+      },
+      {
+        "label": {
+          "es": "Menú",
+          "en": "Menu"
+        },
+        "value": {
+          "es": "Personalizado a partir de la carta",
+          "en": "Customized from our à la carte menu"
+        }
+      },
+      {
+        "label": {
+          "es": "Shows",
+          "en": "Shows"
+        },
+        "value": {
+          "es": "Música y performances a la medida",
+          "en": "Music and performances tailored to your event"
+        }
+      },
+      {
+        "label": {
+          "es": "Coordinación",
+          "en": "Coordination"
+        },
+        "value": {
+          "es": "Wedding y event planners",
+          "en": "Wedding and event planners"
+        }
+      }
+    ],
+    "note": {
+      "es": "Prebodas, cenas de ensayo, after weddings, cierres de año y celebraciones de equipo.",
+      "en": "Pre-weddings, rehearsal dinners, after weddings, year-end parties and team celebrations."
+    },
+    "photoA": "/fotos/musica-en-vivo.jpg",
+    "photoAAlt": {
+      "es": "Cantante y guitarrista en vivo bajo el letrero de neón de Ana",
+      "en": "Singer and guitarist playing live under Ana's neon sign"
+    },
+    "photoB": "/fotos/evento-privado.jpg",
+    "photoBAlt": {
+      "es": "Mesa larga puesta con sillas verdes y rosadas para un evento privado",
+      "en": "Long table set with green and pink chairs for a private event"
+    }
+  },
+  "tasting": {
+    "title": {
+      "es": "Cata de aguardiente",
+      "en": "Aguardiente tasting"
+    },
+    "paragraphs": [
+      {
+        "es": "Todos los secretos de los aguardientes, desde su origen y elaboración: conviértete en un verdadero conocedor.",
+        "en": "Every secret of aguardiente, from its origin to how it is made: become a true connoisseur."
+      },
+      {
+        "es": "Disfruta de una agradable velada mientras descubres tu propio gusto.",
+        "en": "Enjoy a pleasant evening while you discover your own taste."
+      }
+    ],
+    "image": "/fotos/cata-aguardiente.jpg",
+    "imageAlt": {
+      "es": "Copas de aguardiente sobre una tabla con naranja y limón",
+      "en": "Aguardiente glasses on a board with orange and lime wedges"
+    }
+  },
+  "banner": {
+    "visible": true,
+    "text": {
+      "es": "Eventos corporativos de lunes a miércoles: tarifa especial",
+      "en": "Corporate events Monday to Wednesday: special rate"
+    }
+  },
+  "contact": {
+    "title": {
+      "es": "Reserva tu experiencia",
+      "en": "Book your experience"
+    },
+    "text": {
+      "es": "Cuéntanos qué vas a celebrar y para cuántas personas. Te respondemos por WhatsApp.",
+      "en": "Tell us what you are celebrating and how many guests. We will reply on WhatsApp."
+    },
+    "location": {
+      "es": "Cartagena de Indias, Centro",
+      "en": "Cartagena de Indias, Centro"
+    },
+    "address": {
+      "es": "Centro Histórico, Calle del Colegio, Cra 6A #34-54",
+      "en": "Historic Center, Calle del Colegio, Cra 6A #34-54"
+    }
+  }
+}

@@ -4,23 +4,44 @@ import WaIcon from './WaIcon.astro';
 interface Props { lang: Lang; altHref: string; waHref: string }
 const { lang, altHref, waHref } = Astro.props;
 const t = UI[lang];
+const home = homePath(lang);
+const links = [
+  { href: `${home}#experiencias`, label: t.navExperiences },
+  { href: `${home}#noche`, label: t.navNight },
+  { href: `${home}#cata`, label: t.navTasting },
+  { href: `${home}#contacto`, label: t.navContactSection },
+];
 ---
 <a class="skip" href="#contenido">{t.skip}</a>
 <header class="site-header">
-  <div class="wrap">
-    <a class="brand" href={homePath(lang)} aria-label="Ana Caribe + Asia">
+  <div class="bar">
+    <a class="brand" href={home} aria-label={`Ana Caribe + Asia, ${t.homeLabel.toLowerCase()}`}>
       <img src="/logo-ana.png" alt="Ana Caribe + Asia" width="805" height="466" />
     </a>
-    <nav class="site-nav" aria-label={lang === 'es' ? 'Principal' : 'Main'}>
-      <a class="link hide-sm" href={`${homePath(lang)}#portafolios`}>{t.navPortfolios}</a>
+    <nav class="site-nav" aria-label={t.mainNav}>
+      {links.map((l) => <a class="link" href={l.href}>{l.label}</a>)}
+    </nav>
+    <div class="bar-end">
       <div class="lang" role="group" aria-label={t.langLabel}>
         {lang === 'es' ? <span aria-current="true">ES</span> : <a href={altHref} hreflang="es" lang="es" aria-label="Español">ES</a>}
+        <span class="sep" aria-hidden="true">/</span>
         {lang === 'en' ? <span aria-current="true">EN</span> : <a href={altHref} hreflang="en" lang="en" aria-label="English">EN</a>}
       </div>
-      <a class="btn hide-sm" href={waHref} target="_blank" rel="noopener">
-        <WaIcon />{t.navContact}<span class="sr-only"> {t.newTab}</span>
-      </a>
-    </nav>
+      <a class="btn btn--sm" href={`${home}#contacto`}>{t.navContact}</a>
+      <details class="menu">
+        <summary aria-label={t.openMenu}><span></span><span></span></summary>
+        <nav class="menu-panel" aria-label={t.mainNav}>
+          {links.map((l) => <a href={l.href}>{l.label}</a>)}
+          <a class="menu-wa" href={waHref} target="_blank" rel="noopener"><WaIcon />{t.writeWhatsapp}<span class="sr-only"> {t.newTab}</span></a>
+        </nav>
+      </details>
+    </div>
   </div>
 </header>
 <a class="wa-float" href={waHref} target="_blank" rel="noopener" aria-label={`${t.openWhatsapp} ${t.newTab}`}><WaIcon /></a>
+<script is:inline>
+  // Cierra el menú móvil al elegir una opción (sin esto, los enlaces a anclas lo dejan abierto).
+  document.querySelectorAll('.menu-panel a').forEach(function (a) {
+    a.addEventListener('click', function () { var d = a.closest('details'); if (d) d.removeAttribute('open'); });
+  });
+</script>

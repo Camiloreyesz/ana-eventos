@@ -11,13 +11,14 @@ const year = new Date().getFullYear();
     <div class="foot-top">
       <a href={homePath(lang)}><img src="/logo-ana.png" alt="Ana Caribe + Asia" width="805" height="466" loading="lazy" /></a>
       <div class="foot-links">
-        <a href={`${homePath(lang)}#portafolios`}>{t.navPortfolios}</a>
+        <a href={`${homePath(lang)}#experiencias`}>{t.navExperiences}</a>
         <a href={waHref} target="_blank" rel="noopener">WhatsApp {settings.whatsappDisplay}<span class="sr-only"> {t.newTab}</span></a>
         {settings.instagramUrl && <a href={settings.instagramUrl} target="_blank" rel="noopener">Instagram<span class="sr-only"> {t.newTab}</span></a>}
+        {settings.webUrl && <a href={settings.webUrl} target="_blank" rel="noopener">{t.webLabel}<span class="sr-only"> {t.newTab}</span></a>}
       </div>
     </div>
     {settings.footerNote && <p style="margin:0">{tr(settings.footerNote, lang)}</p>}
-    <div class="feeling"><span>Ana is</span><hr /><span>a feeling</span></div>
+    <div class="weave" role="presentation" aria-hidden="true"></div>
     <small>© {year} {settings.siteName}. {t.footerRights}</small>
   </div>
 </footer>

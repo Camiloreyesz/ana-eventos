@@ -103,21 +103,60 @@ a { color: inherit; }
 .btn--ghost { background: transparent; color: var(--ink); }
 .btn--ghost:hover { background: var(--ink); color: var(--cream); border-color: var(--ink); }
 .btn svg { width: 18px; height: 18px; }
+.btn--sm { min-height: 44px; padding: 0.6rem 1.5rem; font-family: var(--body); text-transform: none; letter-spacing: 0; font-size: 0.94rem; align-items: center; background: var(--ink); color: var(--paper); }
+
+/* ---------- Patrón tejido de la marca (franja decorativa) ---------- */
+.weave {
+  height: 54px; background-color: var(--cream); background-repeat: repeat-x; background-size: 84px 54px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='54' viewBox='0 0 84 54'%3E%3Cpath fill='%23739ebd' d='M66 18h6v6h-6zM60 24h18v6h-18zM66 30h6v6h-6z'/%3E%3Cpath fill='%234f5b73' d='M24 0h6v6h-6zM18 6h18v6h-18zM12 12h30v6h-30zM6 18h42v6h-42zM0 24h54v6h-54zM6 30h42v6h-42zM12 36h30v6h-30zM18 42h18v6h-18zM24 48h6v6h-6z'/%3E%3Cpath fill='%23789664' d='M24 24h6v6h-6zM18 24h6v6h-6zM30 24h6v6h-6zM24 18h6v6h-6zM24 30h6v6h-6z'/%3E%3C/svg%3E");
+}
 
 /* ---------- Encabezado ---------- */
-.site-header { border-bottom: 1px solid var(--line); background: var(--cream); position: sticky; top: 0; z-index: 20; }
-.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 72px; }
-.brand img { height: 46px; width: auto; }
-.site-nav { display: flex; align-items: center; gap: clamp(0.6rem, 2vw, 1.6rem); }
-.site-nav a.link { text-decoration: none; font-family: var(--display); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.66rem; padding: 0.5rem 0; }
-.site-nav a.link:hover { color: var(--accent); }
-.lang { display: inline-flex; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
-.lang a, .lang span { font-family: var(--display); font-size: 0.64rem; letter-spacing: 0.1em; padding: 0.5rem 0.6rem; text-decoration: none; min-width: 40px; text-align: center; }
-.lang [aria-current] { background: var(--ink); color: var(--cream); }
-.site-nav .btn { min-height: 40px; padding: 0.5rem 0.9rem; }
-@media (max-width: 640px) {
-  .site-nav .hide-sm { display: none; }
-  .brand img { height: 38px; }
+.site-header { background: var(--paper); position: sticky; top: 0; z-index: 20; }
+.site-header .bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  height: 64px; padding: 0 20px; max-width: 1440px; margin: 0 auto;
+}
+.brand img { height: 36px; width: auto; }
+.site-nav { display: none; gap: clamp(1.2rem, 2.8vw, 2.5rem); font-size: 0.94rem; }
+.site-nav a.link { text-decoration: none; padding: 0.5rem 0; }
+.site-nav a.link:hover { color: #4a6339; }
+.bar-end { display: flex; align-items: center; gap: 1rem; }
+.lang { display: inline-flex; align-items: center; font-size: 0.875rem; }
+.lang a, .lang span[aria-current] { padding: 0.75rem 0; text-decoration: none; }
+.lang [aria-current] { font-weight: 500; border-bottom: 1px solid var(--ink); padding-bottom: 2px; margin-block: 0.75rem; padding-block: 0 2px; }
+.lang a { color: #4a6339; }
+.lang a:hover { color: var(--ink); }
+.lang .sep { margin: 0 0.4rem; color: #4a6339; }
+.btn--sm { display: none; }
+
+/* Menú móvil: <details> sin JavaScript */
+.menu { position: relative; }
+.menu summary {
+  list-style: none; cursor: pointer; width: 44px; height: 44px;
+  display: flex; flex-direction: column; gap: 6px; align-items: center; justify-content: center;
+}
+.menu summary::-webkit-details-marker { display: none; }
+.menu summary span { display: block; width: 24px; height: 1.5px; background: var(--ink); transition: transform 0.2s; }
+.menu[open] summary span:first-child { transform: translateY(3.75px) rotate(45deg); }
+.menu[open] summary span:last-child { transform: translateY(-3.75px) rotate(-45deg); }
+.menu-panel {
+  position: fixed; left: 0; right: 0; top: 64px; background: var(--paper); border-top: 1px solid var(--line);
+  padding: 8px 20px 24px; display: flex; flex-direction: column; box-shadow: 0 18px 30px rgba(42, 50, 26, 0.12);
+}
+.menu-panel a { text-decoration: none; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 1.05rem; }
+.menu-panel a.menu-wa {
+  margin-top: 20px; border: 0; background: var(--ink); color: var(--paper); min-height: 52px;
+  display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 500;
+}
+.menu-panel a.menu-wa svg { width: 20px; height: 20px; }
+@media (min-width: 900px) {
+  .site-header .bar { height: 76px; padding: 0 clamp(24px, 5.6vw, 80px); }
+  .brand img { height: 44px; }
+  .site-nav { display: flex; }
+  .btn--sm { display: inline-flex; }
+  .menu { display: none; }
+  .bar-end { gap: 1.5rem; }
 }
 
 /* ---------- Secciones ---------- */
@@ -126,23 +165,6 @@ section { padding: clamp(3rem, 8vw, 6rem) 0; }
 .section-head .display { font-size: clamp(1.15rem, 3.2vw, 1.7rem); }
 .lead { max-width: 60ch; color: var(--ink-soft); margin: 0 0 2rem; }
 .rule { border: 0; border-top: 1px solid var(--line); margin: 0; }
-
-/* ---------- Portada ---------- */
-.hero { padding-top: clamp(2.5rem, 7vw, 5rem); padding-bottom: clamp(2rem, 5vw, 3.5rem); }
-.hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
-.hero h1 { font-size: clamp(2.1rem, 7.2vw, 4.6rem); color: var(--accent); }
-.hero .sub { display: flex; align-items: center; gap: 0.9rem; flex-wrap: wrap; margin: 0.8rem 0 1.8rem; }
-.hero .sub .caps { font-size: clamp(0.72rem, 1.6vw, 0.95rem); letter-spacing: 0.32em; }
-.hero h2 { font-family: var(--body); font-weight: 500; font-size: clamp(1.25rem, 2.4vw, 1.6rem); line-height: 1.3; margin: 0 0 0.8rem; max-width: 26ch; }
-.hero p { color: var(--ink-soft); max-width: 46ch; margin: 0 0 1.8rem; }
-.hero .actions { display: flex; flex-wrap: wrap; gap: 0.8rem; }
-.hero-art img { width: 100%; max-width: 520px; margin-left: auto; }
-.hero .feeling { margin-top: clamp(2.5rem, 6vw, 4rem); }
-@media (max-width: 860px) {
-  .hero-grid { grid-template-columns: 1fr; }
-  .hero-art { order: -1; }
-  .hero-art img { max-width: 360px; margin: 0 auto; }
-}
 
 /* ---------- Categorías y tarjetas ---------- */
 .category { padding: clamp(2.5rem, 6vw, 4rem) 0 0; }
@@ -263,16 +285,6 @@ section { padding: clamp(3rem, 8vw, 6rem) 0; }
 .wa-float svg { width: 26px; height: 26px; }
 @media (max-width: 640px) { .wa-float { display: inline-flex; } }
 
-/* Categorías en la portada */
-.cats-sec { padding-top: clamp(2.5rem, 6vw, 4rem); }
-.cat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; margin-top: 1.4rem; }
-.cat-tile { background: var(--cream); padding: 1.4rem 1.3rem 1.2rem; display: flex; flex-direction: column; }
-.cat-tile h3 { margin: 0 0 0.5rem; color: var(--olive); font-size: 0.8rem; font-weight: 400; }
-.cat-tile p { margin: 0 0 1rem; color: var(--ink-soft); font-size: 0.95rem; }
-.cat-tile ul { list-style: none; margin: auto 0 0; padding: 0; border-top: 1px solid var(--line); }
-.cat-tile li a { display: block; padding: 0.55rem 0; text-decoration: none; font-weight: 700; font-size: 0.92rem; border-bottom: 1px solid var(--line); }
-.cat-tile li:last-child a { border-bottom: 0; }
-.cat-tile li a:hover { color: var(--olive); }
 .card .kicker { color: var(--olive); }
 /* Romántico: precio en banda roja como el PDF */
 .theme-romantic .plan .price .amount { color: var(--red); }
@@ -284,6 +296,11 @@ section { padding: clamp(3rem, 8vw, 6rem) 0; }
 .card .go { margin-left: auto; letter-spacing: 0.1em; }
 
 /* Títulos largos (p. ej. "Celebración") en pantallas muy angostas */
-.pf-hero-grid > *, .hero-grid > * { min-width: 0; }
+.pf-hero-grid > * { min-width: 0; }
 .pf-hero .lockup { max-width: 100%; }
 .pf-hero .lockup .display { font-size: clamp(1.5rem, 8vw, 4rem); overflow-wrap: break-word; }
+
+/* En la portada el botón de WhatsApp ya está en la sección de contacto */
+.is-home .wa-float { display: none !important; }
+/* Pie de las páginas internas: franja tejida en lugar de "Ana is a feeling" */
+.site-footer .weave { margin-inline: calc(var(--gutter) * -1); }

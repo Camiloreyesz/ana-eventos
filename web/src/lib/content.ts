@@ -5,7 +5,8 @@
  * El panel /admin (Decap CMS) edita esos archivos y guarda los cambios en GitHub;
  * Netlify detecta el cambio y vuelve a compilar el sitio.
  *
- *   web/content/configuracion.json      → textos generales y WhatsApp
+ *   web/content/configuracion.json      → datos generales, WhatsApp, Instagram y web
+ *   web/content/portada.json            → textos y fotos de la página de inicio
  *   web/content/categorias/*.json       → una categoría por archivo
  *   web/content/portafolios/*.json      → un portafolio por archivo, con sus planes
  *
@@ -40,6 +41,7 @@ export type Category = {
   description?: Localized;
   order: number;
   published: boolean;
+  illustration?: string; // ilustración de la tarjeta en la portada
 };
 export type Portfolio = {
   _id: string;
@@ -57,15 +59,32 @@ export type Portfolio = {
 };
 export type Settings = {
   siteName: string;
-  tagline?: Localized;
-  heroTitle?: Localized;
-  heroIntro?: Localized;
   whatsappNumber: string;
   whatsappDisplay?: string;
   whatsappMessage?: Localized;
   footerNote?: Localized;
   instagramUrl?: string;
+  webUrl?: string;
   seoDescription?: Localized;
+};
+
+/** Textos y fotos de la página de inicio (web/content/portada.json). */
+export type Portada = {
+  hero: { title: Localized; intro: Localized; image: string; imageAlt: Localized };
+  presentation: { lead: Localized; text: Localized; image: string; imageAlt: Localized };
+  experiences: { title: Localized; intro: Localized };
+  night: {
+    title: Localized;
+    rows: { label: Localized; value: Localized }[];
+    note: Localized;
+    photoA: string;
+    photoAAlt: Localized;
+    photoB: string;
+    photoBAlt: Localized;
+  };
+  tasting: { title: Localized; paragraphs: Localized[]; image: string; imageAlt: Localized };
+  banner: { visible?: boolean; text: Localized };
+  contact: { title: Localized; text: Localized; location: Localized; address?: Localized };
 };
 export type SiteContent = {
   settings: Settings;
@@ -93,6 +112,13 @@ function readFolder(name: string): { id: string; data: any }[] {
 }
 
 let cache: Promise<SiteContent> | null = null;
+let portadaCache: Portada | null = null;
+
+/** Contenido de la portada. */
+export function getPortada(): Portada {
+  if (!portadaCache) portadaCache = readJson(join(CONTENT_DIR, 'portada.json')) as Portada;
+  return portadaCache;
+}
 
 export function getContent(): Promise<SiteContent> {
   if (!cache) cache = Promise.resolve(load());
@@ -160,6 +186,10 @@ export function illustrationFor(p: Portfolio): { src: string; kind: 'line' | 'ph
     return { src: ILLUSTRATIONS[p.illustration], kind: p.illustration.endsWith('foto') ? 'photo' : 'line' };
   }
   return null;
+}
+
+export function categoryIllustration(cat: Category): string | null {
+  return (cat.illustration && ILLUSTRATIONS[cat.illustration]) || null;
 }
 
 export function whatsappUrl(settings: Settings, text: string) {

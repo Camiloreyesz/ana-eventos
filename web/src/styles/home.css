@@ -182,3 +182,6 @@
   .h-specs dd { font-size: 1.125rem; }
   .h-banner { font-size: 0.9375rem !important; }
 }
+
+/* Títulos de sección con cada palabra en mayúscula inicial (el título principal ya va en mayúsculas) */
+.h-exp h2, .h-night h2, .h-tasting h2, .h-contact h2 { text-transform: capitalize; }

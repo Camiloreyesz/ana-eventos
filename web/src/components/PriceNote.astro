@@ -1,0 +1,14 @@
+---
+import { tr, isFallback, type Lang } from '../lib/i18n';
+import { getContent } from '../lib/content';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const { settings } = await getContent();
+const note = tr(settings.footerNote, lang);
+---
+{note && (
+  <p class="price-note" lang={isFallback(settings.footerNote, lang) ? 'es' : undefined}>
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 7.8v.4"></path></svg>
+    <span>{note}</span>
+  </p>
+)}

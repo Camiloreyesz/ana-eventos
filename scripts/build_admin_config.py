@@ -233,7 +233,7 @@ config = {
                     {"label": "Instagram (enlace completo)", "name": "instagramUrl", "widget": "string", "required": False},
                     {"label": "Web de Ana (enlace completo)", "name": "webUrl", "widget": "string", "required": False,
                      "hint": "Se muestra como botón «Web de Ana» en el contacto."},
-                    txt("Nota del pie de página", "footerNote"),
+                    txt("Nota de precios (se muestra junto a los precios)", "footerNote"),
                     txt("Descripción para Google", "seoDescription", long=True),
                 ],
             }],

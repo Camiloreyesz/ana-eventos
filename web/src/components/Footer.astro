@@ -1,5 +1,5 @@
 ---
-import { UI, tr, homePath, type Lang } from '../lib/i18n';
+import { UI, homePath, type Lang } from '../lib/i18n';
 import type { Settings } from '../lib/content';
 interface Props { lang: Lang; settings: Settings; waHref: string }
 const { lang, settings, waHref } = Astro.props;
@@ -17,7 +17,6 @@ const year = new Date().getFullYear();
         {settings.webUrl && <a href={settings.webUrl} target="_blank" rel="noopener">{t.webLabel}<span class="sr-only"> {t.newTab}</span></a>}
       </div>
     </div>
-    {settings.footerNote && <p style="margin:0">{tr(settings.footerNote, lang)}</p>}
     <div class="weave" role="presentation" aria-hidden="true"></div>
     <small>© {year} {settings.siteName}. {t.footerRights}</small>
   </div>

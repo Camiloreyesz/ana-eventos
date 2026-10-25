@@ -1263,7 +1263,7 @@
               "hint": "Se muestra como botón «Web de Ana» en el contacto."
             },
             {
-              "label": "Nota del pie de página",
+              "label": "Nota de precios (se muestra junto a los precios)",
               "name": "footerNote",
               "widget": "object",
               "collapsed": false,

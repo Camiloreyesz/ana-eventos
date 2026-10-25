@@ -1,8 +1,8 @@
 ---
 import { UI, homePath, type Lang } from '../lib/i18n';
 import WaIcon from './WaIcon.astro';
-interface Props { lang: Lang; altHref: string; waHref: string }
-const { lang, altHref, waHref } = Astro.props;
+interface Props { lang: Lang; altHref: string; waHref: string; contactHref?: string }
+const { lang, altHref, waHref, contactHref } = Astro.props;
 const t = UI[lang];
 const home = homePath(lang);
 const links = [
@@ -27,7 +27,7 @@ const links = [
         <span class="sep" aria-hidden="true">/</span>
         {lang === 'en' ? <span aria-current="true">EN</span> : <a href={altHref} hreflang="en" lang="en" aria-label="English">EN</a>}
       </div>
-      <a class="btn btn--sm" href={`${home}#contacto`}>{t.navContact}</a>
+      <a class="btn btn--sm" href={contactHref || `${home}#contacto`}>{t.navContact}</a>
       <details class="menu">
         <summary aria-label={t.openMenu}><span></span><span></span></summary>
         <nav class="menu-panel" aria-label={t.mainNav}>

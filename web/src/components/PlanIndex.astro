@@ -1,0 +1,33 @@
+---
+import { UI, tr, isFallback, formatPrice, unitLabel, type Lang } from '../lib/i18n';
+import type { Plan } from '../lib/content';
+interface Props { lang: Lang; plans: Plan[] }
+const { lang, plans } = Astro.props;
+const t = UI[lang];
+const fb = (v: any) => (isFallback(v, lang) ? 'es' : undefined);
+const rows = plans.map((pl) => {
+  const prices = pl.prices.filter((x) => typeof x.amount === 'number');
+  const low = prices.length ? prices.reduce((a, b) => (b.amount < a.amount ? b : a)) : null;
+  return { pl, low, many: prices.length > 1 };
+});
+---
+<nav class="plan-index" aria-labelledby="plan-index-title">
+  <h2 class="caps" id="plan-index-title">{t.compareTitle}</h2>
+  <ul>
+    {rows.map(({ pl, low, many }) => (
+      <li>
+        <a href={`#plan-${pl._id}`}>
+          <span class="pi-name" lang={fb(pl.title)}>{tr(pl.title, lang)}</span>
+          {pl.subtitle && tr(pl.subtitle, lang) && <span class="pi-sub" lang={fb(pl.subtitle)}>{tr(pl.subtitle, lang)}</span>}
+          {low && (
+            <span class="pi-price">
+              {many && <small>{t.fromShort} </small>}{formatPrice(low.amount)}
+              {unitLabel(low.unit, lang) && <small> · {unitLabel(low.unit, lang)}</small>}
+            </span>
+          )}
+        </a>
+      </li>
+    ))}
+  </ul>
+  <p class="pi-hint">{t.compareHint}</p>
+</nav>

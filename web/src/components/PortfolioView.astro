@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import PlanCard from './PlanCard.astro';
+import PlanIndex from './PlanIndex.astro';
 import PortfolioCard from './PortfolioCard.astro';
 import BookNow from './BookNow.astro';
 import WaIcon from './WaIcon.astro';
@@ -27,7 +28,7 @@ const desc = tr(p.seoDescription, lang) || tr(p.intro, lang);
 const themeClass = `theme-${p.theme}`;
 const photoStyle = p.theme === 'romantic' && art?.kind === 'photo' ? `--photo: url('${art.src}')` : undefined;
 ---
-<Base lang={lang} title={`${title} | ${s.siteName}`} description={desc} alternates={alternates} noindex={retired} bodyClass={themeClass} waText={waText}>
+<Base lang={lang} title={`${title} | ${s.siteName}`} description={desc} alternates={alternates} noindex={retired} bodyClass={themeClass} waText={waText} contactHref="#reservar">
   {retired ? (
     <section class="system">
       <div class="wrap">
@@ -57,6 +58,7 @@ const photoStyle = p.theme === 'romantic' && art?.kind === 'photo' ? `--photo: u
 
       <section aria-label={t.plans} style="padding-top:clamp(1rem,3vw,2rem)">
         <div class="wrap">
+          {plans.length > 1 && <PlanIndex lang={lang} plans={plans} />}
           <div class:list={['plans', plans.length === 1 && 'single']}>
             {plans.map((plan) => <PlanCard lang={lang} plan={plan} portfolio={p} />)}
           </div>

@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import PortfolioCard from './PortfolioCard.astro';
-import BookNow from './BookNow.astro';
+import PriceNote from './PriceNote.astro';
 import { UI, tr, isFallback, homePath, categoryPath, type Lang } from '../lib/i18n';
 import { getContent, visiblePortfolios, whatsappUrl, type Category } from '../lib/content';
 interface Props { lang: Lang; category: Category }
@@ -11,22 +11,26 @@ const t = UI[lang];
 const s = c.settings;
 const fb = (v: any) => (isFallback(v, lang) ? 'es' : undefined);
 const title = tr(cat.title, lang);
+const longest = Math.max(...title.split(/\s+|·|(?<=-)/).map((w) => w.length), 6);
 const items = visiblePortfolios(c).filter((p) => p.categoryId === cat._id);
 const waText = `${tr(s.whatsappMessage, lang)} ${title}.`;
 const alternates = { es: categoryPath('es', cat._id), en: categoryPath('en', cat._id) };
 ---
-<Base lang={lang} title={`${title} | ${s.siteName}`} description={tr(cat.description, lang)} alternates={alternates} waText={waText}>
+<Base lang={lang} title={`${title} | ${s.siteName}`} description={tr(cat.description, lang)} alternates={alternates} waText={waText} contactWa>
   <section class="pf-hero">
     <div class="wrap">
       <p class="crumbs"><a href={homePath(lang)}>{t.homeLabel}</a> / <a href={`${homePath(lang)}#experiencias`}>{t.navExperiences}</a></p>
+      <div class="fit">
       <div class="lockup">
-        <h1 class="display" lang={fb(cat.title)}>{title}</h1>
+        <h1 class="display" lang={fb(cat.title)} style={`--chars:${longest}`}>{title}</h1>
+      </div>
       </div>
       {cat.description && <p class="intro" lang={fb(cat.description)}>{tr(cat.description, lang)}</p>}
     </div>
   </section>
   <section aria-label={t.navPortfolios} style="padding-top:clamp(1rem,3vw,2rem)">
     <div class="wrap">
+      <PriceNote lang={lang} />
       {items.length ? (
         <div class="cards">{items.map((p) => <PortfolioCard lang={lang} portfolio={p} />)}</div>
       ) : (
@@ -35,6 +39,4 @@ const alternates = { es: categoryPath('es', cat._id), en: categoryPath('en', cat
       <p style="margin-top:2rem"><a class="btn btn--ghost" href={`${homePath(lang)}#experiencias`}>{t.allCategories}</a></p>
     </div>
   </section>
-  <hr class="rule" />
-  <BookNow lang={lang} waText={waText} />
 </Base>

@@ -118,8 +118,8 @@ a { color: inherit; }
   height: 64px; padding: 0 20px; max-width: 1440px; margin: 0 auto;
 }
 .brand img { height: 36px; width: auto; }
-.site-nav { display: none; gap: clamp(1.2rem, 2.8vw, 2.5rem); font-size: 0.94rem; }
-.site-nav a.link { text-decoration: none; padding: 0.5rem 0; }
+.site-nav { display: none; gap: clamp(1.2rem, 2.8vw, 2.5rem); font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
+.site-nav a.link { text-decoration: none; padding: 0.5rem 0; white-space: nowrap; }
 .site-nav a.link:hover { color: #4a6339; }
 .bar-end { display: flex; align-items: center; gap: 1rem; }
 .lang { display: inline-flex; align-items: center; font-size: 0.875rem; }
@@ -144,13 +144,13 @@ a { color: inherit; }
   position: fixed; left: 0; right: 0; top: 64px; background: var(--paper); border-top: 1px solid var(--line);
   padding: 8px 20px 24px; display: flex; flex-direction: column; box-shadow: 0 18px 30px rgba(42, 50, 26, 0.12);
 }
-.menu-panel a { text-decoration: none; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 1.05rem; }
+.menu-panel a { text-decoration: none; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 0.9375rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
 .menu-panel a.menu-wa {
   margin-top: 20px; border: 0; background: var(--ink); color: var(--paper); min-height: 52px;
-  display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 500;
+  display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 500; letter-spacing: 0.02em; text-transform: none; font-size: 1.0625rem;
 }
 .menu-panel a.menu-wa svg { width: 20px; height: 20px; }
-@media (min-width: 900px) {
+@media (min-width: 1100px) {
   .site-header .bar { height: 76px; padding: 0 clamp(24px, 5.6vw, 80px); }
   .brand img { height: 44px; }
   .site-nav { display: flex; }
@@ -220,9 +220,9 @@ section { padding: clamp(3rem, 8vw, 6rem) 0; }
 .theme-romantic .item-desc { color: #7a2a1a; }
 
 /* Planes */
-.plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: clamp(1.2rem, 3vw, 2rem); align-items: start; }
+.plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: clamp(1.2rem, 3vw, 2rem); align-items: stretch; }
 .plans.single { grid-template-columns: 1fr; max-width: 860px; }
-.plan { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(1.4rem, 4vw, 2.4rem); }
+.plan { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(1.4rem, 4vw, 2.4rem); display: flex; flex-direction: column; }
 .plan-head { display: flex; justify-content: space-between; gap: 1rem 1.5rem; flex-wrap: wrap; border-bottom: 1px solid var(--line); padding-bottom: 1.2rem; margin-bottom: 1.4rem; }
 .plan-title { font-size: clamp(1.05rem, 3vw, 1.45rem); }
 .plan-sub { margin-top: 0.35rem; color: var(--muted); font-weight: 700; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; }
@@ -252,18 +252,35 @@ section { padding: clamp(3rem, 8vw, 6rem) 0; }
 .item-desc { display: block; color: var(--ink-soft); font-size: 0.95rem; }
 .item-quote { display: block; color: var(--olive); font-style: italic; font-size: 0.95rem; margin-top: 0.15rem; }
 .theme-romantic .item-quote { color: var(--red); }
-.plan .cta { margin-top: 1.8rem; display: flex; flex-wrap: wrap; gap: 0.8rem; }
 
 /* Relacionados */
 .related .cards { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
 
-/* Book now */
-.book { text-align: center; }
-.book .display { color: var(--olive); font-size: clamp(2rem, 7vw, 3.6rem); }
-.book p { color: var(--ink-soft); margin: 1rem auto 1.6rem; max-width: 46ch; }
-.book .phone { display: inline-block; background: var(--olive); color: var(--cream); font-family: var(--display); letter-spacing: 0.24em; font-size: clamp(1rem, 3vw, 1.4rem); padding: 0.45em 0.8em 0.45em 1em; text-decoration: none; }
-.book .phone:hover { background: var(--ink); }
-.book .feeling { max-width: 520px; margin: 2.4rem auto 0; justify-content: center; }
+/* Resumen de menús (comparar precios de un vistazo) */
+.plan-index { margin: 0 0 clamp(1.4rem, 3vw, 2rem); }
+.plan-index h2 { margin: 0 0 0.8rem; color: var(--moss, #4a6339); letter-spacing: 0.16em; }
+.plan-index ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 12px; }
+.plan-index a {
+  display: flex; flex-direction: column; gap: 2px; height: 100%; text-decoration: none; padding: 14px 18px;
+  background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); transition: border-color 0.2s, transform 0.2s;
+}
+.plan-index a:hover { border-color: var(--ink); transform: translateY(-2px); }
+.pi-name { font-family: var(--display); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.82rem; }
+.pi-sub { color: var(--muted); font-size: 0.8125rem; }
+.pi-price { font-family: var(--display); font-size: 1.15rem; margin-top: 4px; }
+.pi-price small { font-family: var(--body); font-size: 0.75rem; color: var(--muted); }
+.pi-hint { margin: 0.7rem 0 0; font-size: 0.8125rem; color: var(--muted); }
+.plan { scroll-margin-top: 96px; }
+
+/* Enlace discreto para cotizar un menú (el botón principal está arriba) */
+.plan .cta { margin-top: auto; padding-top: 1.6rem; }
+.plan-quote {
+  display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--ink);
+  font-weight: 500; font-size: 0.9375rem; padding: 12px 0; border-bottom: 1px solid var(--ink); line-height: 1.2;
+}
+.plan-quote svg { width: 18px; height: 18px; }
+.plan-quote:hover { color: var(--olive); border-color: var(--olive); }
+.theme-romantic .plan-quote:hover { color: var(--red); border-color: var(--red); }
 
 /* Pie */
 .site-footer { border-top: 1px solid var(--line); padding: 2.5rem 0 2rem; font-size: 0.92rem; color: var(--ink-soft); }
@@ -304,3 +321,19 @@ section { padding: clamp(3rem, 8vw, 6rem) 0; }
 .is-home .wa-float { display: none !important; }
 /* Pie de las páginas internas: franja tejida en lugar de "Ana is a feeling" */
 .site-footer .weave { margin-inline: calc(var(--gutter) * -1); }
+
+/* Títulos que nunca se parten dentro de una palabra: el tamaño se ajusta a la palabra más larga */
+.fit { container-type: inline-size; min-width: 0; }
+.pf-hero .lockup .display, .lockup .display {
+  font-size: clamp(1rem, calc(100cqw / (var(--chars, 8) * 1.04)), 4rem);
+  overflow-wrap: normal; hyphens: none;
+}
+.theme-romantic .lockup .display { font-size: clamp(1.4rem, calc(100cqw / (var(--chars, 8) * 0.62)), 5.4rem); }
+
+/* Nota de precios, junto a los precios */
+.price-note {
+  display: flex; align-items: flex-start; gap: 12px; margin: 0 0 1.4rem; padding: 14px 18px;
+  background: var(--paper); border: 1px solid var(--line); border-left: 4px solid var(--accent);
+  border-radius: var(--radius); font-size: 0.9375rem; line-height: 1.5; color: var(--ink);
+}
+.price-note svg { flex: none; margin-top: 1px; color: var(--accent); }

@@ -1,8 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
 import PlanCard from './PlanCard.astro';
+import PlanIndex from './PlanIndex.astro';
+import PriceNote from './PriceNote.astro';
 import PortfolioCard from './PortfolioCard.astro';
-import BookNow from './BookNow.astro';
 import WaIcon from './WaIcon.astro';
 import { UI, tr, isFallback, homePath, portfolioPath, categoryPath, type Lang } from '../lib/i18n';
 import { getContent, plansFor, illustrationFor, visiblePortfolios, whatsappUrl, type Portfolio } from '../lib/content';
@@ -13,6 +14,7 @@ const t = UI[lang];
 const s = c.settings;
 const fb = (v: any) => (isFallback(v, lang) ? 'es' : undefined);
 const title = tr(p.title, lang);
+const longest = Math.max(...title.split(/\s+|·|(?<=-)/).map((w) => w.length), 6);
 const alternates: Partial<Record<Lang, string>> = {};
 if (p.slug.es) alternates.es = portfolioPath('es', p.slug.es);
 if (p.slug.en) alternates.en = portfolioPath('en', p.slug.en);
@@ -27,7 +29,7 @@ const desc = tr(p.seoDescription, lang) || tr(p.intro, lang);
 const themeClass = `theme-${p.theme}`;
 const photoStyle = p.theme === 'romantic' && art?.kind === 'photo' ? `--photo: url('${art.src}')` : undefined;
 ---
-<Base lang={lang} title={`${title} | ${s.siteName}`} description={desc} alternates={alternates} noindex={retired} bodyClass={themeClass} waText={waText}>
+<Base lang={lang} title={`${title} | ${s.siteName}`} description={desc} alternates={alternates} noindex={retired} bodyClass={themeClass} waText={waText} contactWa>
   {retired ? (
     <section class="system">
       <div class="wrap">
@@ -42,9 +44,9 @@ const photoStyle = p.theme === 'romantic' && art?.kind === 'photo' ? `--photo: u
         <div class="wrap">
           <p class="crumbs"><a href={homePath(lang)}>{lang === 'es' ? 'Inicio' : 'Home'}</a> / <a href={`${homePath(lang)}#experiencias`}>{t.navExperiences}</a>{cat && <> / <a href={categoryPath(lang, cat._id)} lang={fb(cat.title)}>{tr(cat.title, lang)}</a></>}</p>
           <div class="pf-hero-grid">
-            <div>
+            <div class="fit">
               <div class="lockup">
-                <h1 class="display" lang={fb(p.title)}>{title}</h1>
+                <h1 class="display" lang={fb(p.title)} style={`--chars:${longest}`}>{title}</h1>
                 {p.kicker && <div class="sub"><span class="tag" lang={fb(p.kicker)}>{tr(p.kicker, lang)}</span></div>}
               </div>
               {p.intro && <p class="intro" lang={fb(p.intro)}>{tr(p.intro, lang)}</p>}
@@ -57,6 +59,8 @@ const photoStyle = p.theme === 'romantic' && art?.kind === 'photo' ? `--photo: u
 
       <section aria-label={t.plans} style="padding-top:clamp(1rem,3vw,2rem)">
         <div class="wrap">
+          <PriceNote lang={lang} />
+          {plans.length > 1 && <PlanIndex lang={lang} plans={plans} />}
           <div class:list={['plans', plans.length === 1 && 'single']}>
             {plans.map((plan) => <PlanCard lang={lang} plan={plan} portfolio={p} />)}
           </div>
@@ -75,6 +79,4 @@ const photoStyle = p.theme === 'romantic' && art?.kind === 'photo' ? `--photo: u
       </div>
     </section>
   )}
-  <hr class="rule" />
-  <BookNow lang={lang} waText={waText} />
 </Base>

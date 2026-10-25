@@ -57,6 +57,10 @@ export const UI = {
     categoryCount: 'portafolios',
     categoryEmpty: 'Por ahora no hay portafolios publicados en esta categoría.',
     allCategories: 'Ver todas las experiencias',
+    quoteThis: 'Cotizar este menú',
+    compareTitle: 'Menús de este portafolio',
+    compareHint: 'Toca un menú para ver su detalle.',
+    fromShort: 'Desde',
   },
   en: {
     navPortfolios: 'Portfolios',
@@ -107,6 +111,10 @@ export const UI = {
     categoryCount: 'portfolios',
     categoryEmpty: 'There are no published portfolios in this category right now.',
     allCategories: 'See all experiences',
+    quoteThis: 'Get a quote for this menu',
+    compareTitle: 'Menus in this portfolio',
+    compareHint: 'Tap a menu to see its details.',
+    fromShort: 'From',
   },
 } satisfies Record<Lang, Record<string, string>>;
 

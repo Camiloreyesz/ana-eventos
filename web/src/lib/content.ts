@@ -71,7 +71,6 @@ export type Settings = {
 /** Textos y fotos de la página de inicio (web/content/portada.json). */
 export type Portada = {
   hero: { title: Localized; intro: Localized; image: string; imageAlt: Localized };
-  presentation: { lead: Localized; text: Localized; image: string; imageAlt: Localized };
   experiences: { title: Localized; intro: Localized };
   night: {
     title: Localized;

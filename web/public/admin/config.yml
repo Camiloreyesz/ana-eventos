@@ -35,7 +35,7 @@
           "format": "json",
           "fields": [
             {
-              "label": "1. Inicio (foto grande)",
+              "label": "1. Inicio (ilustración principal)",
               "name": "hero",
               "widget": "object",
               "collapsed": true,
@@ -85,14 +85,14 @@
                   ]
                 },
                 {
-                  "label": "Foto",
+                  "label": "Ilustración o foto",
                   "name": "image",
                   "widget": "image",
                   "required": true,
-                  "hint": "Mejor vertical, mínimo 900 px de ancho."
+                  "hint": "Ilustración con fondo transparente (WebP o PNG), horizontal, mínimo 1200 px de ancho."
                 },
                 {
-                  "label": "Descripción de la foto (para personas que no la ven)",
+                  "label": "Descripción de la imagen (para personas que no la ven)",
                   "name": "imageAlt",
                   "widget": "object",
                   "collapsed": false,
@@ -116,88 +116,7 @@
               ]
             },
             {
-              "label": "2. Presentación (ilustración y frase)",
-              "name": "presentation",
-              "widget": "object",
-              "collapsed": true,
-              "fields": [
-                {
-                  "label": "Frase destacada",
-                  "name": "lead",
-                  "widget": "object",
-                  "collapsed": false,
-                  "required": true,
-                  "summary": "{{fields.es}}",
-                  "fields": [
-                    {
-                      "label": "Español",
-                      "name": "es",
-                      "widget": "text",
-                      "required": true
-                    },
-                    {
-                      "label": "English",
-                      "name": "en",
-                      "widget": "text",
-                      "required": false
-                    }
-                  ]
-                },
-                {
-                  "label": "Texto",
-                  "name": "text",
-                  "widget": "object",
-                  "collapsed": false,
-                  "required": false,
-                  "summary": "{{fields.es}}",
-                  "fields": [
-                    {
-                      "label": "Español",
-                      "name": "es",
-                      "widget": "text",
-                      "required": false
-                    },
-                    {
-                      "label": "English",
-                      "name": "en",
-                      "widget": "text",
-                      "required": false
-                    }
-                  ]
-                },
-                {
-                  "label": "Ilustración",
-                  "name": "image",
-                  "widget": "image",
-                  "required": true,
-                  "hint": "Formato horizontal 4:3."
-                },
-                {
-                  "label": "Descripción de la imagen",
-                  "name": "imageAlt",
-                  "widget": "object",
-                  "collapsed": false,
-                  "required": true,
-                  "summary": "{{fields.es}}",
-                  "fields": [
-                    {
-                      "label": "Español",
-                      "name": "es",
-                      "widget": "string",
-                      "required": true
-                    },
-                    {
-                      "label": "English",
-                      "name": "en",
-                      "widget": "string",
-                      "required": false
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "label": "3. Experiencias (título de las categorías)",
+              "label": "2. Experiencias (título de las categorías)",
               "name": "experiences",
               "widget": "object",
               "collapsed": true,
@@ -250,7 +169,7 @@
               ]
             },
             {
-              "label": "4. La noche (música, drinks y comida)",
+              "label": "3. La noche (música, drinks y comida)",
               "name": "night",
               "widget": "object",
               "collapsed": true,
@@ -415,7 +334,7 @@
               ]
             },
             {
-              "label": "5. Cata de aguardiente",
+              "label": "4. Cata de aguardiente",
               "name": "tasting",
               "widget": "object",
               "collapsed": true,
@@ -494,7 +413,7 @@
               ]
             },
             {
-              "label": "6. Franja de tarifa especial",
+              "label": "5. Franja de tarifa especial",
               "name": "banner",
               "widget": "object",
               "collapsed": true,
@@ -530,7 +449,7 @@
               ]
             },
             {
-              "label": "7. Contacto y dirección",
+              "label": "6. Contacto y dirección",
               "name": "contact",
               "widget": "object",
               "collapsed": true,
@@ -1344,7 +1263,7 @@
               "hint": "Se muestra como botón «Web de Ana» en el contacto."
             },
             {
-              "label": "Nota del pie de página",
+              "label": "Nota de precios (se muestra junto a los precios)",
               "name": "footerNote",
               "widget": "object",
               "collapsed": false,

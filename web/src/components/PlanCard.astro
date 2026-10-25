@@ -12,10 +12,10 @@ const single = plan.prices.length === 1 && !plan.prices[0].label ? plan.prices[0
 const waText = `${tr(settings.whatsappMessage, lang)} ${tr(portfolio.title, lang)} – ${tr(plan.title, lang)}.`;
 const id = `plan-${plan._id}`;
 ---
-<article class="plan" aria-labelledby={id}>
+<article class="plan" id={id} aria-labelledby={`${id}-t`}>
   <header class="plan-head">
     <div>
-      <h3 class="display plan-title" id={id} lang={fb(plan.title)}>{tr(plan.title, lang)}</h3>
+      <h3 class="display plan-title" id={`${id}-t`} lang={fb(plan.title)}>{tr(plan.title, lang)}</h3>
       {plan.subtitle && tr(plan.subtitle, lang) && <p class="plan-sub" style="margin-bottom:0" lang={fb(plan.subtitle)}>{tr(plan.subtitle, lang)}</p>}
     </div>
     {single && (
@@ -55,8 +55,8 @@ const id = `plan-${plan._id}`;
   ))}
 
   <div class="cta">
-    <a class="btn" href={whatsappUrl(settings, waText)} target="_blank" rel="noopener">
-      <WaIcon />{t.quote}<span class="sr-only"> {t.newTab}</span>
+    <a class="plan-quote" href={whatsappUrl(settings, waText)} target="_blank" rel="noopener">
+      <WaIcon />{t.quoteThis}<span aria-hidden="true"> →</span><span class="sr-only"> {tr(plan.title, lang)}. {t.newTab}</span>
     </a>
   </div>
 </article>

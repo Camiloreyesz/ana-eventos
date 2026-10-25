@@ -2,6 +2,13 @@
 
 *Documento de traspaso. Estado al 25 de octubre de 2026. Léelo antes de trabajar en esta web.*
 
+> ## Enlaces clave
+> - **Página para editar el contenido (panel):** https://ana-eventos.netlify.app/admin/
+>   Se entra con **Iniciar sesión con GitHub** (cuenta de Camilo: `Camiloreyesz`). Ahí se cambian precios, platos, textos, categorías y el WhatsApp. Al pulsar **Publicar → Publicar ahora**, la web se actualiza en 1–2 minutos.
+> - **Web pública:** https://ana-eventos.netlify.app
+> - **Código (GitHub):** https://github.com/Camiloreyesz/ana-eventos
+> - **Hosting (Netlify):** https://app.netlify.com/projects/ana-eventos
+
 ## 1. Qué es
 
 Landing pública y bilingüe (español / inglés) que reúne los **portafolios de eventos de Ana Caribe + Asia**, restaurante del Grupo Empresarial Munay en Cartagena (sede Centro). Reemplaza el envío de 8 PDF por separado: un solo enlace, siempre actualizado, que se ve bien en el celular y lleva al cliente directo a WhatsApp.
@@ -93,7 +100,9 @@ Tomada de los PDF 2026 y del Manual de Marca de Ana (2022).
 
 ## 7. Cómo trabajar en este proyecto
 
-**Cambios de contenido** (precios, platos, textos): los hace Camilo desde `/admin`, o se editan los JSON y se suben a `main`. Netlify publica en 1–2 minutos.
+**Cambios de contenido** (precios, platos, textos): los hace Camilo desde el panel https://ana-eventos.netlify.app/admin/, o se editan los JSON y se suben a `main`. Netlify publica en 1–2 minutos.
+
+Ruta típica en el panel para cambiar un precio: **Portafolios** → abrir el portafolio → **Planes** → desplegar el plan (flecha ›) → **Precios** → **Valor** (solo números, ej. `135000`) → **Publicar → Publicar ahora**. Para ocultar sin borrar, apagar **Visible en el sitio**.
 
 **Cambios de diseño o código:**
 1. Clonar el repo y ejecutar `cd web && npm install && npm run dev` (http://localhost:4321).

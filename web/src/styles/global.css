@@ -256,18 +256,6 @@ section { padding: clamp(3rem, 8vw, 6rem) 0; }
 /* Relacionados */
 .related .cards { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
 
-/* Bloque final de reserva (portafolios y categorías) */
-.book { text-align: center; }
-.book .display { color: var(--ink); font-size: clamp(1.5rem, 4.5vw, 2.4rem); text-transform: capitalize; letter-spacing: 0.03em; }
-.book p { color: var(--ink-soft); margin: 1rem auto 1.8rem; max-width: 46ch; }
-.btn-wa {
-  display: inline-flex; align-items: center; justify-content: center; gap: 12px; text-decoration: none;
-  background: var(--ink); color: var(--paper); font-weight: 500; font-size: 1.0625rem;
-  min-height: 60px; padding: 18px 40px; width: min(100%, 360px);
-}
-.btn-wa:hover { opacity: 0.88; }
-.btn-wa svg { width: 22px; height: 22px; flex: none; }
-
 /* Resumen de menús (comparar precios de un vistazo) */
 .plan-index { margin: 0 0 clamp(1.4rem, 3vw, 2rem); }
 .plan-index h2 { margin: 0 0 0.8rem; color: var(--moss, #4a6339); letter-spacing: 0.16em; }

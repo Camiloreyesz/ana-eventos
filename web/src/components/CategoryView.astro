@@ -1,7 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
 import PortfolioCard from './PortfolioCard.astro';
-import BookNow from './BookNow.astro';
 import { UI, tr, isFallback, homePath, categoryPath, type Lang } from '../lib/i18n';
 import { getContent, visiblePortfolios, whatsappUrl, type Category } from '../lib/content';
 interface Props { lang: Lang; category: Category }
@@ -15,7 +14,7 @@ const items = visiblePortfolios(c).filter((p) => p.categoryId === cat._id);
 const waText = `${tr(s.whatsappMessage, lang)} ${title}.`;
 const alternates = { es: categoryPath('es', cat._id), en: categoryPath('en', cat._id) };
 ---
-<Base lang={lang} title={`${title} | ${s.siteName}`} description={tr(cat.description, lang)} alternates={alternates} waText={waText} contactHref="#reservar">
+<Base lang={lang} title={`${title} | ${s.siteName}`} description={tr(cat.description, lang)} alternates={alternates} waText={waText} contactWa>
   <section class="pf-hero">
     <div class="wrap">
       <p class="crumbs"><a href={homePath(lang)}>{t.homeLabel}</a> / <a href={`${homePath(lang)}#experiencias`}>{t.navExperiences}</a></p>
@@ -35,6 +34,4 @@ const alternates = { es: categoryPath('es', cat._id), en: categoryPath('en', cat
       <p style="margin-top:2rem"><a class="btn btn--ghost" href={`${homePath(lang)}#experiencias`}>{t.allCategories}</a></p>
     </div>
   </section>
-  <hr class="rule" />
-  <BookNow lang={lang} waText={waText} />
 </Base>

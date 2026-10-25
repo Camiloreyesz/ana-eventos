@@ -3,7 +3,6 @@ import Base from '../layouts/Base.astro';
 import PlanCard from './PlanCard.astro';
 import PlanIndex from './PlanIndex.astro';
 import PortfolioCard from './PortfolioCard.astro';
-import BookNow from './BookNow.astro';
 import WaIcon from './WaIcon.astro';
 import { UI, tr, isFallback, homePath, portfolioPath, categoryPath, type Lang } from '../lib/i18n';
 import { getContent, plansFor, illustrationFor, visiblePortfolios, whatsappUrl, type Portfolio } from '../lib/content';
@@ -28,7 +27,7 @@ const desc = tr(p.seoDescription, lang) || tr(p.intro, lang);
 const themeClass = `theme-${p.theme}`;
 const photoStyle = p.theme === 'romantic' && art?.kind === 'photo' ? `--photo: url('${art.src}')` : undefined;
 ---
-<Base lang={lang} title={`${title} | ${s.siteName}`} description={desc} alternates={alternates} noindex={retired} bodyClass={themeClass} waText={waText} contactHref="#reservar">
+<Base lang={lang} title={`${title} | ${s.siteName}`} description={desc} alternates={alternates} noindex={retired} bodyClass={themeClass} waText={waText} contactWa>
   {retired ? (
     <section class="system">
       <div class="wrap">
@@ -77,6 +76,4 @@ const photoStyle = p.theme === 'romantic' && art?.kind === 'photo' ? `--photo: u
       </div>
     </section>
   )}
-  <hr class="rule" />
-  <BookNow lang={lang} waText={waText} />
 </Base>
